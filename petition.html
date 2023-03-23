@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Petition</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        label {
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="number"] {
+            padding: 5px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 300px;
+        }
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0062cc;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name">
+        <label for="email">Email:</label>
+        <input type="text" id="email">
+        <label for="threshold">Signature Threshold:</label>
+        <input type="number" id="threshold" min="1" max="1000000">
+        <button type="button" id="submit-btn">Sign Petition</button>
+    </form>
+    <script>
+        const contractAddress = "CONTRACT_ADDRESS_HERE";
+        const abi = ABI_HERE;
+        const contract = new web3.eth.Contract(abi, contractAddress);
+
+        window.addEventListener("load", async () => {
+            if (window.ethereum) {
+                await window.ethereum.enable();
+                window.web3 = new Web3(window.ethereum);
+            } else if (window.web3) {
+                window.web3 = new Web3(window.web3.currentProvider);
+            } else {
+                console.log("Non-Ethereum browser detected. You should consider trying MetaMask!");
+            }
+        });
+
+        document.getElementById("submit-btn").addEventListener("click", async () => {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const threshold = document.getElementById("threshold").value;
+            const signature = web3.utils.asciiToHex(`${name} (${email})`);
+            const accounts = await web3.eth.getAccounts();
+            const result = await contract.methods.sign(signature, threshold).send({ from: accounts[0] });
+            console.log(result);
+        });
+    </script>
+</body>
+</html>
