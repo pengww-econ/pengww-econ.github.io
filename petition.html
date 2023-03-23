@@ -48,8 +48,40 @@
         <button type="button" id="submit-btn">Sign Petition</button>
     </form>
     <script>
-        const contractAddress = "CONTRACT_ADDRESS_HERE";
-        const abi = ABI_HERE;
+        const contractAddress = "0x8Db11564324a1562Bc0Be20153A8cFa704217032";
+        const abi = [
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_value",
+				"type": "uint256"
+			}
+		],
+		"name": "addName",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getPublicNames",
+		"outputs": [
+			{
+				"internalType": "string[]",
+				"name": "",
+				"type": "string[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
         const contract = new web3.eth.Contract(abi, contractAddress);
 
         window.addEventListener("load", async () => {
@@ -65,11 +97,10 @@
 
         document.getElementById("submit-btn").addEventListener("click", async () => {
             const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
             const threshold = document.getElementById("threshold").value;
-            const signature = web3.utils.asciiToHex(`${name} (${email})`);
+            const signature = web3.utils.asciiToHex(`${name}`);
             const accounts = await web3.eth.getAccounts();
-            const result = await contract.methods.sign(signature, threshold).send({ from: accounts[0] });
+            const result = await contract.methods.addName(signature, threshold).send({ from: accounts[0] });
             console.log(result);
         });
     </script>
