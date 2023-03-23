@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Petition</title>
+    <style>
+        h1 {
+          text-align: center;
+        }
+        body {
+            font-family: sans-serif;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 65vh;
+        }
+        label {
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="number"] {
+            padding: 5px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 250px;
+        }
+        button {
+            padding: 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 50px;
+        }
+        button:hover {
+            background-color: #0062cc;
+        }
+    </style>
+</head>
+
+  <body>
+    <!-- <h1>Petition</h1> -->
+    <form>
+        <label for="name">Name</label>
+        <input type="text" id="name">
+        <label for="threshold">Signature Threshold</label>
+        <input type="number" id="value" min="1" max="1000000">
+        <button id="connectButton" onclick="bundle.connect()">Connect MetaMask</button>
+        <button id="executeButton" onclick="bundle.execute()">Submit Data</button>
+    </form>
+
+
+  </body>
+
+  <script src="./dist/bundle.js" type="text/javascript"></script>
+</html>
