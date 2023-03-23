@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <title>Petition</title>
     <style>
+    .container {
+      height: 80px;
+      position: relative;
+    }
+
+    .center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
         h1 {
           text-align: center;
         }
@@ -34,7 +48,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            margin-bottom: 50px;
+            margin-bottom: 350px;
         }
         button:hover {
             background-color: #0062cc;
@@ -47,14 +61,23 @@
     <form>
         <label for="name">Name</label>
         <input type="text" id="name">
-        <label for="threshold">Signature Threshold</label>
+        <label for="threshold">Threshold</label>
         <input type="number" id="value" min="1" max="1000000">
-
+        <a href="https://docs.google.com/spreadsheets/d/1UHHLpnNLDQPV7QspIr_Ke1bdvsKQAhKw4qp9Jv59HaM">Link to Public Name List</a>
     </form>
 
-<button id="connectButton" onclick="bundle.connect()">Connect MetaMask</button>
-<button id="executeButton" onclick="bundle.execute()">Submit Data</button>
+    <div class="container">
+      <div class="center">
+    <button id="connectButton" onclick="bundle.connect()">Connect MetaMask</button>
+    <button id="executeButton" onclick="bundle.execute()">Submit Data</button>
+  </div>
+</div>
+  
+  
+  
   </body>
+
+
 
   <script src="./dist/bundle.js" type="text/javascript"></script>
 </html>
