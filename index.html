@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <title>Petition</title>
     <style>
-    .container {
-      height: 80px;
-      position: relative;
-    }
-
     .center {
       margin: 0;
-      position: absolute;
-      top: 50%;
+      position: relative;
+      /* top: 50%;
       left: 50%;
       -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
     }
 
         h1 {
@@ -30,6 +30,7 @@
             align-items: center;
             justify-content: center;
             height: 65vh;
+            margin-bottom: 12px;
         }
         label {
             margin-bottom: 10px;
@@ -42,16 +43,16 @@
             width: 250px;
         }
         button {
-            padding: 20px;
-            background-color: #007bff;
-            color: #fff;
+            padding: 18px;
+            background-color: #c7d5e3;
+            color: #1d1111;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            margin-bottom: 350px;
+            margin-bottom: 15px;
         }
         button:hover {
-            background-color: #0062cc;
+            background-color: #4e8dd1;
         }
     </style>
 </head>
@@ -66,14 +67,11 @@
         <a href="https://docs.google.com/spreadsheets/d/1UHHLpnNLDQPV7QspIr_Ke1bdvsKQAhKw4qp9Jv59HaM">Link to Public Name List</a>
     </form>
 
-    <div class="container">
-      <div class="center">
+
+    <div class="center">
     <button id="connectButton" onclick="bundle.connect()">Connect MetaMask</button>
     <button id="executeButton" onclick="bundle.execute()">Submit Data</button>
   </div>
-</div>
-  
-  
   
   </body>
 
