@@ -1,83 +1,76 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta content='width=device-width, initial-scale=1' name='viewport'/>
-    <title>Petition</title>
-    <style>
-    .center {
-      margin: 0;
-      position: relative;
-      /* top: 50%;
-      left: 50%;
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%); */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-    }
-    body {
-    width: 100%;
-    height: 100%;
-}
-        h1 {
-          text-align: center;
-        }
-        body {
-            font-family: sans-serif;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 50vh;
-            margin-bottom: 12px;
-        }
-        label {
-            margin-bottom: 10px;
-        }
-        input[type="text"], input[type="number"] {
-            padding: 5px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            width: 250px;
-        }
-        button {
-            padding: 18px;
-            background-color: #8cb3da;
-            color: #1d1111;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-bottom: 15px;
-        }
-        button:hover {
-            background-color: #509ae9;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Petition">
+  <title>Petition</title>
 </head>
 
-  <body>
-    <!-- <h1>Petition</h1> -->
-    <form>
-        <label for="name">Name</label>
-        <input type="text" id="name">
-        <label for="threshold">Threshold</label>
-        <input type="number" id="value" min="1" max="1000000">
-        <a href="https://docs.google.com/spreadsheets/d/1UHHLpnNLDQPV7QspIr_Ke1bdvsKQAhKw4qp9Jv59HaM">Link to Public Name List</a>
-    </form>
+<body>
+  <h2 class="content-head is-center">Sign Up!</h2>
+  <aside>
+       <!-- <p>We would <em>love</em> to hear from you! </p>
+       <p>Please use the following <b><em>Form</em></b> to submit your data.  </p>  -->
+       <p style="text-align:left">Your data will be encrypted and submit to <b><em> <a href="https://bscscan.com/address/0xd32da9ae10915e24675b4c64f79d183f42c171cb" </a> this Smart Contract  </a> </em> </b>  using BNB Smart Chain</p>
+   </aside>
 
+<!-- START HERE -->
+   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+   <!-- Style The Contact Form How Ever You Prefer -->
+   <link rel="stylesheet" href="style.css">
 
-    <div class="center">
-    <button id="connectButton" onclick="bundle.connect()">Connect MetaMask</button>
-    <button id="executeButton" onclick="bundle.execute()">Submit Data</button>
-  </div>
+  <form class="gform pure-form pure-form-stacked" method="POST" data-email="example@email.net"
+  action="https://script.google.com/macros/s/AKfycbxFGWfeMz5IVE-WhzMc0Fz-UPa-_gUjjBF0_iPLSZSaftH5CB65k7fYxLMvFSPHjYWl/exec">
+    <!-- change the form action to your script url -->
+
+    <div class="form-elements">
+      <fieldset class="pure-group">
+        <label for="name">Name: </label>
+        <input id="name" name="name"  />
+      </fieldset>
+
+      <fieldset class="pure-group">
+        <label for="message">Threshold: </label>
+        <!-- <textarea id="message" name="message" rows="10" -->
+        <input type="number" name="message"  min="1" max="1000000">
+      </fieldset>
+
+      <fieldset class="pure-group">
+        <label for="email">Email Address:</label>
+        <input id="email" name="email" type="email" value=""/>
+        <!--  required placeholder="your.name@email.com"/> -->
+      </fieldset>
+
+      <!-- <fieldset class="pure-group">
+        <label for="color">Favourite Color: </label>
+        <input id="color" name="color" placeholder="green" />
+      </fieldset> -->
+<!-- 
+      <fieldset class="pure-group honeypot-field">
+        <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
+        <input id="honeypot" type="text" name="honeypot" value="" />
+      </fieldset> -->
+
+      <button class="button-success pure-button button-xlarge">
+        <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
+    </div>
+
+    <!-- Customise the Thankyou Message People See when they submit the form: -->
+    <div class="thankyou_message" style="display:none;">
+      <h2><em>Thanks</em> for signning up!
+        You can find the names being made public <a href="https://docs.google.com/spreadsheets/d/1UHHLpnNLDQPV7QspIr_Ke1bdvsKQAhKw4qp9Jv59HaM"  </a>  here </a> ! 
   
-  </body>
+      </h2>
 
-  <script src="bundleiug2.min.js" type="text/javascript"></script>
+    </div>
+
+  </form>
+
+  <!-- Submit the Form to Google Using "AJAX" -->
+  <script data-cfasync="false" src="form-submission-handler.js"></script>
+<!-- END -->
+
+</body>
 </html>
