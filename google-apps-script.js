@@ -1,7 +1,4 @@
 /******************************************************************************
- * This tutorial is based on the work of Martin Hawksey twitter.com/mhawksey  *
- * But has been simplified and cleaned up to make it more beginner friendly   *
- * All credit still goes to Martin and any issues/complaints/questions to me. *
  ******************************************************************************/
 
 // if you want to store your email server-side (hidden), uncomment the next line
