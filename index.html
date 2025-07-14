@@ -1,166 +1,298 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>深圳大数据研究院招聘 & 问卷</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>深圳大数据研究院 · 招聘 & 问卷</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <style>
-    body { padding-top: 40px; }
-    .required::after { content: " *"; color: #d00; }
-    fieldset { border: 1px solid #ced4da; padding: 1.5rem; border-radius: .5rem; margin-bottom: 1.5rem; }
-    legend { width: auto; padding: 0 .5rem; font-weight: 600; }
-    .scale-hint { font-size: .9rem; color: #6c757d; }
-    .is-valid { border-color:#198754!important; }
+    body{padding-top:40px;}
+    .required::after{content:" *";color:#d00;}
+    fieldset{border:1px solid #ced4da;padding:1.5rem;border-radius:.5rem;margin-bottom:1.5rem;}
+    legend{width:auto;padding:0 .5rem;font-weight:600;}
+    .scale-hint{font-size:.9rem;color:#6c757d;}
+    .is-valid{border-color:#198754!important;}
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Header -->
-    <header class="mb-4 text-center">
-      <img src="logo.png" alt="深圳大数据研究院" style="height: 80px;" />
-      <h1 class="h3 mt-3">深圳大数据研究院 · 招聘 & 问卷</h1>
-    </header>
+<div class="container">
 
-    <!-- Main Form -->
-    <form id="applyForm" method="post" action="/api/apply" enctype="application/x-www-form-urlencoded">
+  <!-- Header -->
+  <header class="mb-4 text-center">
+    <img src="logo.png" alt="深圳大数据研究院" style="height:80px"/>
+    <h1 class="h3 mt-3">深圳大数据研究院 · 招聘 & 问卷</h1>
+  </header>
 
-      <!-- 1. 基本信息 -->
-      <fieldset>
-        <legend>一、基本信息</legend>
-        <div class="row g-3">
-          <div class="col-md-6"><label class="form-label required">姓名</label><input type="text" name="name" class="form-control" required></div>
-          <div class="col-md-6"><label class="form-label required">性别</label><select name="gender" class="form-select" required><option value="">请选择</option><option>男</option><option>女</option><option>其他</option></select></div>
-          <div class="col-md-6"><label class="form-label required">出生年份</label><select name="birth_year" class="form-select" required></select></div>
-          <div class="col-md-6"><label class="form-label required">手机号</label><input type="tel" name="phone" class="form-control" pattern="[0-9]{11}" required></div>
-          <div class="col-md-6"><label class="form-label required">邮箱</label><input type="email" name="email" class="form-control" required></div>
-          <div class="col-md-6"><label class="form-label required">当前城市</label><input type="text" name="city" class="form-control" required></div>
-          <div class="col-md-6"><label class="form-label required">最高学历</label><select name="education" class="form-select" required><option value="">请选择</option><option>硕士</option><option>博士</option><option>博士后</option></select></div>
-          <div class="col-md-6"><label class="form-label required">毕业院校</label><input type="text" name="university" class="form-control" required></div>
-          <div class="col-md-6"><label class="form-label required">所学专业</label><input type="text" name="major" class="form-control" required></div>
-          <div class="col-md-6"><label class="form-label required">当前状态</label><select name="status" class="form-select" required><option>在读</option><option>求职中</option><option>在职</option></select></div>
-        </div>
-      </fieldset>
+  <!-- ============ Main Form ============ -->
+  <form id="applyForm" method="post" action="/api/apply" enctype="application/x-www-form-urlencoded">
 
-      <!-- 2. 上传材料（直传 Aliyun OSS） -->
-      <fieldset>
-        <legend>二、上传材料</legend>
-        <div class="mb-3">
-          <label class="form-label required">个人简历（PDF ≤10MB）</label>
-          <input class="form-control" type="file" id="cv" accept="application/pdf" required>
-          <input type="hidden" name="cv_url" />
-        </div>
-        <div class="mb-3">
-          <label class="form-label">硕士论文（PDF ≤30MB）</label>
-          <input class="form-control" type="file" id="master_thesis" accept="application/pdf">
-          <input type="hidden" name="master_thesis_url" />
-        </div>
-        <div class="mb-3">
-          <label class="form-label">博士论文（PDF ≤50MB）</label>
-          <input class="form-control" type="file" id="phd_thesis" accept="application/pdf">
-          <input type="hidden" name="phd_thesis_url" />
-        </div>
-        <div class="form-text">⚠️ 选择文件后将自动上传至阿里云 OSS，成功后输入框会变绿。</div>
-      </fieldset>
-
-      <!-- 3. 问卷说明 -->
-      <div class="alert alert-secondary">
-        <strong>问卷说明（可选）：</strong> 本问卷匿名，仅用于科研统计。Likert / FREQ / STRESS 均用 <span class="scale-hint">1–5 分制</span>；CLIMATE 输入 0–100%。预计用时约 8–10 分钟，如时间有限可跳过。
+    <!-- 1. 基本信息 -->
+    <fieldset>
+      <legend>一、基本信息</legend>
+      <div class="row g-3">
+        <div class="col-md-6"><label class="form-label required">姓名</label><input name="name" class="form-control" required></div>
+        <div class="col-md-6"><label class="form-label required">性别</label>
+          <select name="gender" class="form-select" required><option value="">请选择</option><option>男</option><option>女</option><option>其他</option></select></div>
+        <div class="col-md-6"><label class="form-label required">出生年份</label><select name="birth_year" class="form-select" required></select></div>
+        <div class="col-md-6"><label class="form-label required">手机号</label><input name="phone" class="form-control" pattern="[0-9]{11}" required></div>
+        <div class="col-md-6"><label class="form-label required">邮箱</label><input type="email" name="email" class="form-control" required></div>
+        <div class="col-md-6"><label class="form-label required">当前城市</label><input name="city" class="form-control" required></div>
+        <div class="col-md-6"><label class="form-label required">最高学历</label>
+          <select name="education" class="form-select" required><option value="">请选择</option><option>硕士</option><option>博士</option><option>博士后</option></select></div>
+        <div class="col-md-6"><label class="form-label required">毕业院校</label><input name="university" class="form-control" required></div>
+        <div class="col-md-6"><label class="form-label required">所学专业</label><input name="major" class="form-control" required></div>
+        <div class="col-md-6"><label class="form-label required">当前状态</label>
+          <select name="status" class="form-select" required><option>在读</option><option>求职中</option><option>在职</option></select></div>
       </div>
+    </fieldset>
 
-      <!-- 4. 问卷内容 -->
-      <fieldset>
-        <legend>三、问卷（可跳过）</legend>
-        <div id="surveyContainer"></div>
-      </fieldset>
+    <!-- 2. 上传材料 -->
+    <fieldset>
+      <legend>二、上传材料</legend>
+      <div class="mb-3">
+        <label class="form-label required">个人简历（PDF ≤10 MB）</label>
+        <input class="form-control" type="file" id="cv" accept="application/pdf" required>
+        <input type="hidden" name="cv_url">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">硕士论文（PDF ≤30 MB）</label>
+        <input class="form-control" type="file" id="master_thesis" accept="application/pdf">
+        <input type="hidden" name="master_thesis_url">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">博士论文（PDF ≤50 MB）</label>
+        <input class="form-control" type="file" id="phd_thesis" accept="application/pdf">
+        <input type="hidden" name="phd_thesis_url">
+      </div>
+      <div class="form-text">⚠️ 选择文件后将自动上传至阿里云 OSS，成功后输入框会变绿。</div>
+    </fieldset>
 
-      <!-- 隐私 & 提交 -->
-      <div class="form-check mb-3"><input class="form-check-input" type="checkbox" value="agree" id="agree" required><label class="form-check-label" for="agree">我已阅读并同意 <a href="/privacy" target="_blank">隐私政策</a></label></div>
-      <button type="submit" class="btn btn-primary btn-lg w-100">提交</button>
-    </form>
+    <!-- 3. 问卷说明 -->
+    <div class="alert alert-secondary">
+      <strong>问卷说明：</strong> 本问卷匿名，仅用于科研统计；全部为<strong>可选</strong>题。Likert / FREQ / STRESS 题请在<span class="scale-hint">1–5</span>间选择；CLIMATE 输入 0–100%。预计用时 8–10 分钟。
+    </div>
 
-    <!-- Footer -->
-    <footer class="mt-5 text-muted small text-center">
-      <p>© 2025 深圳大数据研究院 All rights reserved.</p>
-      <p><a href="mailto:research@szbigdata.org.cn">research@szbigdata.org.cn</a></p>
-    </footer>
-  </div>
+    <!-- 4. 问卷 -->
+    <fieldset>
+      <legend>三、问卷（可跳过）</legend>
+      <!-- (一) 印象管理 -->
+      <h6 class="mt-3">(一) 印象管理 — Likert 1–5</h6>
+      <div class="mb-2">1. 我从未故意说过会伤害他人感情的话。(反向)<br/><?php for($i=1;$i<=5;$i++) echo "<label class='me-2'><input type='radio' name='q1' value='$i'> $i</label>"; ?></div>
+      <div class="mb-2">2. 即使无人监督，我也始终遵守每一条规定。(反向)<br/><?php for($i=1;$i<=5;$i++) echo "<label class='me-2'><input type='radio' name='q2' value='$i'> $i</label>"; ?></div>
+      <div class="mb-2">3. 我有时会拿走并非属于自己的东西。<br/><?php for($i=1;$i<=5;$i++) echo "<label class='me-2'><input type='radio' name='q3' value='$i'> $i</label>"; ?></div>
+      <div class="mb-2">4. 我偶尔会对他人心生愤怒。<br/><?php for($i=1;$i<=5;$i++) echo "<label class='me-2'><input type='radio' name='q4' value='$i'> $i</label>"; ?></div>
+      <div class="mb-3">5. 我曾经怀疑过自己的诚实度。<br/><?php for($i=1;$i<=5;$i++) echo "<label class='me-2'><input type='radio' name='q5' value='$i'> $i</label>"; ?></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    /***************** 动态出生年份 *****************/
-    (function(){
-      const yearSel=document.querySelector('[name="birth_year"]');
-      const now=new Date().getFullYear();
-      for(let y=now-70;y<=now;y++){yearSel.append(new Option(y,y));}
-    })();
-
-    /***************** 直传 Aliyun OSS *****************/
-    async function getPolicy(filename,field){
-      const res=await fetch(`/api/oss_policy?filename=${encodeURIComponent(filename)}&field=${field}`);
-      if(!res.ok) throw new Error('无法获取上传凭证');
-      return await res.json();
-    }
-
-    async function uploadToOSS(file,inputId){
-      const field=inputId;
-      try{
-        const policyData=await getPolicy(file.name,field);
-        const formData=new FormData();
-        formData.append('key', policyData.key);             // 保存路径
-        formData.append('policy', policyData.policy);
-        formData.append('OSSAccessKeyId', policyData.accessid);
-        formData.append('signature', policyData.signature);
-        formData.append('success_action_status','201');
-        formData.append('file', file);
-
-        const resp=await fetch(policyData.host,{method:'POST',body:formData});
-        if(resp.status===201){
-          document.querySelector(`[name="${field}_url"]`).value=policyData.url;
-          const inp=document.getElementById(field);
-          inp.dataset.uploaded='1';
-          inp.classList.add('is-valid');
-        }else{
-          throw new Error('上传失败');
+      <!-- (二) 尽责性 / 自我控制 -->
+      <h6 class="mt-3">(二) 尽责性 / 自我控制 — FREQ 1–5</h6>
+      <?php
+        $freq = [
+          '我通常会在截止日期 24 小时以上前完成文件或报告。',
+          '我会忘记重要的截止日期或会议。',
+          '即使工作枯燥，我也坚持做到彻底完成。',
+          '我在应当工作的时间里，会因查看消息或社交媒体而分心。',
+          '我会事先规划当天工作并基本照计划执行。',
+          '在着手处理任务前，我常常没有先确认所有资料齐备。',
+          '一旦出现更新颖的项目，我会搁置正在进行的事务。',
+          '当零食、手机等诱惑可能干扰工作时，我能抵制它们。'
+        ];
+        $n=6;
+        foreach($freq as $text){
+          echo "<div class='mb-2'>{$n}. {$text}<br/>";
+          for($i=1;$i<=5;$i++) echo "<label class='me-2'><input type='radio' name='q{$n}' value='{$i}'> {$i}</label>";
+          echo "</div>";
+          $n++;
         }
-      }catch(err){
-        alert('文件上传失败：'+err.message);
-        document.getElementById(field).value='';
-      }
-    }
+      ?>
 
-    ['cv','master_thesis','phd_thesis'].forEach(id=>{
-      const el=document.getElementById(id);
-      if(el){el.addEventListener('change',e=>{
-        const f=e.target.files[0];
-        if(f) uploadToOSS(f,id);
-      });}
-    });
+      <!-- (三) 诚实谦逊双选题 -->
+      <h6 class="mt-3">(三) 诚实 / 谦逊 — A/B 双选题</h6>
+      <?php
+        $ab = [
+          'A 我更愿意与同事分享功劳    B 我更希望突出个人贡献',
+          'A 若获得不当优势我会内疚    B 机会来了就该利用',
+          'A 我不喜欢被特别优待      B 特别待遇代表能力受认可',
+          'A 收银员多找了钱我会退回    B 意外之财无伤大雅',
+          'A 我倾向低调陈述成就      B 突出成绩有助职业发展',
+          'A 行贿在任何情况下都不可接受 B 在某些文化里送礼能促成事务',
+          'A 规则对所有人一视同仁    B 高绩效者偶尔可获例外',
+          'A 我不喜欢欠人情        B 人情往来是社会常态'
+        ];
+        foreach($ab as $text){
+          echo "<div class='mb-2'>{$n}. {$text}<br/>
+                <label class='me-3'><input type='radio' name='q{$n}' value='A'> A</label>
+                <label><input type='radio' name='q{$n}' value='B'> B</label></div>";
+          $n++;
+        }
+      ?>
 
-    /***************** 表单提交校验 *****************/
-    document.getElementById('applyForm').addEventListener('submit',function(e){
-      const cv=document.getElementById('cv');
-      if(cv.required && !cv.dataset.uploaded){
-        e.preventDefault();
-        alert('请等待简历上传完成再提交');
-      }
-    });
+      <!-- (四) 暗黑三特质 SJT -->
+      <h6 class="mt-3">(四) 暗黑三特质情境判断 — SJT (A/B)</h6>
+      <?php
+        $sjt = [
+          '合作撰写的专业报告遗漏了你的署名。<br>A 私下礼貌沟通并要求更正 B 在公开渠道指出疏漏以施压',
+          '团队准备提交给客户/上级的项目结果不理想。<br>A 如实呈现全部事实    B 只保留对方想看的信息',
+          '同事非正式场合透露了一个创新方案。<br>A 提出合作共同推进    B 抢先独立实施该方案',
+          '你错过了重要材料的提交截止。<br>A 承认失误并申请延期    B 谎称技术故障导致延误'
+        ];
+        foreach($sjt as $text){
+          echo "<div class='mb-2'>{$n}. {$text}<br/>
+                <label class='me-3'><input type='radio' name='q{$n}' value='A'> A</label>
+                <label><input type='radio' name='q{$n}' value='B'> B</label></div>";
+          $n++;
+        }
+      ?>
 
-    /***************** 构建问卷 *****************/
-    const sections=[
-      {t:'(一) 印象管理',q:['我从未故意说过会伤害他人感情。(反向)','即使无人监督，我也始终遵守每一条规定。(反向)','我有时会拿走并非属于自己的东西。','我偶尔会对他人心生愤怒。','我曾经怀疑过自己的诚实度。']},
-      {t:'(二) 尽责性 / 自我控制',q:['我通常会在截止日期 24 小时以上前完成文件或报告。','我会忘记重要的截止日期或会议。','即使工作枯燥，我也坚持彻底完成。','应当工作时因查看消息或社交媒体而分心。','事先规划并执行计划。','做任务前常未确认资料齐备。','出现新项目会搁置旧事务。','能抵制零食/手机等诱惑。']}
-      // **其余模块略** 可按之前方式追加
-    ];
-    let idx=1;const ctn=document.getElementById('surveyContainer');
-    sections.forEach(sec=>{
-      const h=document.createElement('h6');h.textContent=sec.t;h.className='mt-3';ctn.appendChild(h);
-      sec.q.forEach(text=>{
-        const row=document.createElement('div');row.className='mb-2';row.innerHTML=`<label class='form-label d-block'>${idx}. ${text}</label>`;
-        for(let v=1;v<=5;v++){row.innerHTML+=`<input type='radio' class='form-check-input ms-2' name='q${idx}' value='${v}'> ${v}`;}
-        ctn.appendChild(row);idx++;});
+      <!-- (五) 外在成就动机 Likert -->
+      <h6 class="mt-3">(五) 外在成就动机 — Likert 1–5</h6>
+      <?php
+        $mot = [
+          '获得优异评价或行业奖项才是我工作的最大动力。',
+          '只有当我的业绩领先大多数同行时，我才感到满足。',
+          '与掌握新知识相比，我更在乎最终结果（如收益、评价）。',
+          '我努力主要是为了获取有利于晋升或声誉的资历。'
+        ];
+        foreach($mot as $text){
+          echo "<div class='mb-2'>{$n}. {$text}<br/>";
+          for($i=1;$i<=5;$i++) echo "<label class='me-2'><input type='radio' name='q{$n}' value='{$i}'> {$i}</label>";
+          echo "</div>";
+          $n++;
+        }
+      ?>
+
+      <!-- (六) 规则条件性场景判断 -->
+      <h6 class="mt-3">(六) 规则条件性 — 场景判断</h6>
+      <!-- 30 页限制题：4 选 -->
+      <div class="mb-2"><?php echo $n;?>. 组织对正式文件规定 30 页上限，你的文件超出 2 页。<br/>
+        <?php
+          $opts = ['1 严格删减至合规','2 只删冗余仍略超','3 直接提交超页文档','4 提交并附理由解释'];
+          foreach($opts as $k=>$txt) echo "<label class='me-2'><input type='radio' name='q{$n}' value='".($k+1)."'> {$txt}</label>";
+        ?></div><?php $n++; ?>
+      <!-- 软件账号题 Likert5 -->
+      <div class="mb-2"><?php echo $n;?>. 注意到一些同事共用未授权商业软件账号：你会使用吗？<br/><?php for($i=1;$i<=5;$i++) echo "<label class='me-2'><input type='radio' name='q{$n}' value='{$i}'> {$i}</label>";?></div><?php $n++; ?>
+      <div class="mb-2"><?php echo $n;?>. 会议统一着装规定执行宽松：无视该规定在多大程度上可以接受？<br/><?php for($i=1;$i<=5;$i++) echo "<label class='me-2'><input type='radio' name='q{$n}' value='{$i}'> {$i}</label>";?></div><?php $n++; ?>
+      <div class="mb-3"><?php echo $n;?>. 主管暗示可跳过一份“形式化”合规登记以节省时间：你遵从的可能性？<br/><?php for($i=1;$i<=5;$i++) echo "<label class='me-2'><input type='radio' name='q{$n}' value='{$i}'> {$i}</label>";?></div><?php $n++; ?>
+
+      <!-- (七) 压力与心理负荷 -->
+      <h6 class="mt-3">(七) 压力与心理负荷 — STRESS 1–5</h6>
+      <?php
+        $stress = [
+          '最近两周，你对工作量的压力程度？',
+          '你有多频繁感觉无法停下与工作相关的担忧？',
+          '大多数工作日结束时，你的身心疲惫程度？',
+          '你有多频繁觉得“如果我表现不卓越，一切都会崩盘”？'
+        ];
+        foreach($stress as $text){
+          echo "<div class='mb-2'>{$n}. {$text}<br/>";
+          for($i=1;$i<=5;$i++) echo "<label class='me-2'><input type='radio' name='q{$n}' value='{$i}'> {$i}</label>";
+          echo "</div>";
+          $n++;
+        }
+      ?>
+
+      <!-- (八) 行业与同僚氛围 I -->
+      <h6 class="mt-3">(八) 行业与同僚氛围 I — CLIMATE / Likert</h6>
+      <div class="mb-2"><?php echo $n;?>. 估计同行中有多少 % 曾在专业文件中复制他人文字未注明？<br/><input name="q<?php echo $n;?>" type="number" class="form-control d-inline-block" style="max-width:120px" min="0" max="100"> %</div><?php $n++; ?>
+      <div class="mb-2"><?php echo $n;?>. 我所在组织对抄袭或不当引用有明确定义并严格处罚。<br/><?php for($i=1;$i<=5;$i++) echo "<label class='me-2'><input type='radio' name='q{$n}' value='{$i}'> {$i}</label>";?></div><?php $n++; ?>
+      <div class="mb-2"><?php echo $n;?>. 估计同行中有多少 % 私下觉得“复制常用段落很正常”？<br/><input name="q<?php echo $n;?>" type="number" class="form-control d-inline-block" style="max-width:120px" min="0" max="100"> %</div><?php $n++; ?>
+      <div class="mb-3"><?php echo $n;?>. 入职初期我曾接受过明确、系统的职业道德与引用规范培训。<br/><?php for($i=1;$i<=5;$i++) echo "<label class='me-2'><input type='radio' name='q{$n}' value='{$i}'> {$i}</label>";?></div><?php $n++; ?>
+
+      <!-- (九) 行业与同僚氛围 II -->
+      <h6 class="mt-3">(九) 行业与同僚氛围 II — 二阶信念 (CLIMATE)</h6>
+      <div class="mb-2"><?php echo $n;?>. 估计同行中有多少 % 曾夸大工作成果以取悦客户或上级？<br/><input name="q<?php echo $n;?>" type="number" class="form-control d-inline-block" style="max-width:120px" min="0" max="100"> %</div><?php $n++; ?>
+      <div class="mb-3"><?php echo $n;?>. 估计同行中有多少 % 曾在报销或计时记录中“美化”情况？<br/><input name="q<?php echo $n;?>" type="number" class="form-control d-inline-block" style="max-width:120px" min="0" max="100"> %</div><?php $n++; ?>
+
+      <!-- (十) 个人不诚实行为 -->
+      <h6 class="mt-3">(十) 个人不诚实行为 — FREQ 1–5</h6>
+      <?php
+        $unhonest = [
+          '为了让成果看起来更好，我会省略或淡化不利信息。',
+          '我曾在准备报告或文件时，重复使用自己以前的大段文字而未注明来源。',
+          '我会同意在团队成果中署名，即便自己的贡献很有限。'
+        ];
+        foreach($unhonest as $text){
+          echo "<div class='mb-2'>{$n}. {$text}<br/>";
+          for($i=1;$i<=5;$i++) echo "<label class='me-2'><input type='radio' name='q{$n}' value='{$i}'> {$i}</label>";
+          echo "</div>";
+          $n++;
+        }
+      ?>
+
+      <!-- (十一) RRT 随机反应技术 -->
+      <h6 class="mt-3">(十一) 随机反应技术 — 是/否</h6>
+      <div class="mb-2"><?php echo $n;?>. 抛硬币：正面请直接回答“是”；背面如实回答：<br/>“您是否曾在专业文件中署上自己名字，但主要内容由他人完成？”<br/>
+        <label class='me-3'><input type="radio" name="q<?php echo $n;?>" value="1"> 是</label>
+        <label><input type="radio" name="q<?php echo $n;?>" value="0"> 否</label></div><?php $n++; ?>
+      <div class="mb-3"><?php echo $n;?>. 掷骰子：1–2 回答“否”；3–4 回答“是”；5–6 如实回答：<br/>“过去一年内，您是否在文件中直接复制他人段落而未作引用？”<br/>
+        <label class='me-3'><input type="radio" name="q<?php echo $n;?>" value="1"> 是</label>
+        <label><input type="radio" name="q<?php echo $n;?>" value="0"> 否</label></div>
+
+    </fieldset>
+
+    <!-- 隐私 & 提交 -->
+    <div class="form-check mb-3">
+      <input class="form-check-input" type="checkbox" id="agree" required>
+      <label class="form-check-label" for="agree">我已阅读并同意 <a href="/privacy" target="_blank">隐私政策</a></label>
+    </div>
+    <button class="btn btn-primary btn-lg w-100" type="submit">提交</button>
+  </form>
+
+  <!-- Footer -->
+  <footer class="mt-5 text-center small text-muted">
+    <p>© 2025 深圳大数据研究院</p>
+    <p><a href="mailto:research@szbigdata.org.cn">research@szbigdata.org.cn</a></p>
+  </footer>
+
+</div>
+
+<!-- ================== JS ================== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  /************ 1. 出生年份下拉 ************/
+  (() => {
+    const sel=document.querySelector('[name="birth_year"]'), now=new Date().getFullYear();
+    for(let y=now-70;y<=now;y++) sel.append(new Option(y,y));
+  })();
+
+  /************ 2. 直传 Aliyun OSS ************/
+  const API_BASE="";          // 若前端与后端不同源，请写完整域名，如 https://recruit.example.com
+  async function getPolicy(filename,field){
+    const url=`${API_BASE}/api/oss_policy?filename=${encodeURIComponent(filename)}&field=${field}`;
+    const res=await fetch(url);
+    if(!res.ok) throw new Error(`无法获取上传凭证 (${res.status})`);
+    return res.json();
+  }
+  async function uploadToOSS(file,field){
+    try{
+      const p=await getPolicy(file.name,field);
+      const fd=new FormData();
+      Object.entries({key:p.key,policy:p.policy,
+        OSSAccessKeyId:p.accessid,signature:p.signature,
+        success_action_status:'201'}).forEach(([k,v])=>fd.append(k,v));
+      fd.append('file',file);
+      const r=await fetch(p.host,{method:'POST',body:fd});
+      if(r.status===201){
+        document.querySelector(`[name="${field}_url"]`).value=p.url;
+        const inp=document.getElementById(field);
+        inp.dataset.uploaded='1';inp.classList.add('is-valid');
+      }else throw new Error('上传失败');
+    }catch(err){alert('文件上传失败：'+err.message);}
+  }
+  ['cv','master_thesis','phd_thesis'].forEach(id=>{
+    const el=document.getElementById(id);
+    el&&el.addEventListener('change',e=>{
+      const f=e.target.files[0]; if(f) uploadToOSS(f,id);
     });
-  </script>
+  });
+
+  /************ 3. 表单提交校验 ************/
+  document.getElementById('applyForm').addEventListener('submit',e=>{
+    const cv=document.getElementById('cv');
+    if(cv.required && !cv.dataset.uploaded){
+      e.preventDefault();alert('请等待简历上传完成再提交'); }
+  });
+</script>
 </body>
 </html>
