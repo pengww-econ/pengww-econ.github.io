@@ -1,76 +1,166 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Petition">
-  <title>Petition</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>深圳大数据研究院招聘 & 问卷</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body { padding-top: 40px; }
+    .required::after { content: " *"; color: #d00; }
+    fieldset { border: 1px solid #ced4da; padding: 1.5rem; border-radius: .5rem; margin-bottom: 1.5rem; }
+    legend { width: auto; padding: 0 .5rem; font-weight: 600; }
+    .scale-hint { font-size: .9rem; color: #6c757d; }
+    .is-valid { border-color:#198754!important; }
+  </style>
 </head>
-
 <body>
-  <h2 class="content-head is-center">Sign Up!</h2>
-  <aside>
-       <!-- <p>We would <em>love</em> to hear from you! </p>
-       <p>Please use the following <b><em>Form</em></b> to submit your data.  </p>  -->
-       <p style="text-align:left">Your data will be encrypted and submitted to <b><em> <a href="https://bscscan.com/address/0xd32da9ae10915e24675b4c64f79d183f42c171cb" </a> this Smart Contract  </a> </em> </b>  using BNB Smart Chain</p>
-   </aside>
+  <div class="container">
+    <!-- Header -->
+    <header class="mb-4 text-center">
+      <img src="logo.png" alt="深圳大数据研究院" style="height: 80px;" />
+      <h1 class="h3 mt-3">深圳大数据研究院 · 招聘 & 问卷</h1>
+    </header>
 
-<!-- START HERE -->
-   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-   <!-- Style The Contact Form How Ever You Prefer -->
-   <link rel="stylesheet" href="style.css">
+    <!-- Main Form -->
+    <form id="applyForm" method="post" action="/api/apply" enctype="application/x-www-form-urlencoded">
 
-  <form class="gform pure-form pure-form-stacked" method="POST" data-email="example@email.net"
-  action="https://script.google.com/macros/s/AKfycbxFGWfeMz5IVE-WhzMc0Fz-UPa-_gUjjBF0_iPLSZSaftH5CB65k7fYxLMvFSPHjYWl/exec">
-    <!-- change the form action to your script url -->
-
-    <div class="form-elements">
-      <fieldset class="pure-group">
-        <label for="name">Name: </label>
-        <input id="name" name="name"  />
+      <!-- 1. 基本信息 -->
+      <fieldset>
+        <legend>一、基本信息</legend>
+        <div class="row g-3">
+          <div class="col-md-6"><label class="form-label required">姓名</label><input type="text" name="name" class="form-control" required></div>
+          <div class="col-md-6"><label class="form-label required">性别</label><select name="gender" class="form-select" required><option value="">请选择</option><option>男</option><option>女</option><option>其他</option></select></div>
+          <div class="col-md-6"><label class="form-label required">出生年份</label><select name="birth_year" class="form-select" required></select></div>
+          <div class="col-md-6"><label class="form-label required">手机号</label><input type="tel" name="phone" class="form-control" pattern="[0-9]{11}" required></div>
+          <div class="col-md-6"><label class="form-label required">邮箱</label><input type="email" name="email" class="form-control" required></div>
+          <div class="col-md-6"><label class="form-label required">当前城市</label><input type="text" name="city" class="form-control" required></div>
+          <div class="col-md-6"><label class="form-label required">最高学历</label><select name="education" class="form-select" required><option value="">请选择</option><option>硕士</option><option>博士</option><option>博士后</option></select></div>
+          <div class="col-md-6"><label class="form-label required">毕业院校</label><input type="text" name="university" class="form-control" required></div>
+          <div class="col-md-6"><label class="form-label required">所学专业</label><input type="text" name="major" class="form-control" required></div>
+          <div class="col-md-6"><label class="form-label required">当前状态</label><select name="status" class="form-select" required><option>在读</option><option>求职中</option><option>在职</option></select></div>
+        </div>
       </fieldset>
 
-      <fieldset class="pure-group">
-        <label for="message">Threshold: </label>
-        <!-- <textarea id="message" name="message" rows="10" -->
-        <input type="number" name="message"  min="1" max="1000000">
+      <!-- 2. 上传材料（直传 Aliyun OSS） -->
+      <fieldset>
+        <legend>二、上传材料</legend>
+        <div class="mb-3">
+          <label class="form-label required">个人简历（PDF ≤10MB）</label>
+          <input class="form-control" type="file" id="cv" accept="application/pdf" required>
+          <input type="hidden" name="cv_url" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">硕士论文（PDF ≤30MB）</label>
+          <input class="form-control" type="file" id="master_thesis" accept="application/pdf">
+          <input type="hidden" name="master_thesis_url" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">博士论文（PDF ≤50MB）</label>
+          <input class="form-control" type="file" id="phd_thesis" accept="application/pdf">
+          <input type="hidden" name="phd_thesis_url" />
+        </div>
+        <div class="form-text">⚠️ 选择文件后将自动上传至阿里云 OSS，成功后输入框会变绿。</div>
       </fieldset>
 
-      <fieldset class="pure-group">
-        <label for="email">Email Address:</label>
-        <input id="email" name="email" type="email" value=""/>
-        <!--  required placeholder="your.name@email.com"/> -->
+      <!-- 3. 问卷说明 -->
+      <div class="alert alert-secondary">
+        <strong>问卷说明（可选）：</strong> 本问卷匿名，仅用于科研统计。Likert / FREQ / STRESS 均用 <span class="scale-hint">1–5 分制</span>；CLIMATE 输入 0–100%。预计用时约 8–10 分钟，如时间有限可跳过。
+      </div>
+
+      <!-- 4. 问卷内容 -->
+      <fieldset>
+        <legend>三、问卷（可跳过）</legend>
+        <div id="surveyContainer"></div>
       </fieldset>
 
-      <!-- <fieldset class="pure-group">
-        <label for="color">Favourite Color: </label>
-        <input id="color" name="color" placeholder="green" />
-      </fieldset> -->
-<!-- 
-      <fieldset class="pure-group honeypot-field">
-        <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
-        <input id="honeypot" type="text" name="honeypot" value="" />
-      </fieldset> -->
+      <!-- 隐私 & 提交 -->
+      <div class="form-check mb-3"><input class="form-check-input" type="checkbox" value="agree" id="agree" required><label class="form-check-label" for="agree">我已阅读并同意 <a href="/privacy" target="_blank">隐私政策</a></label></div>
+      <button type="submit" class="btn btn-primary btn-lg w-100">提交</button>
+    </form>
 
-      <button class="button-success pure-button button-xlarge">
-        <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
-    </div>
+    <!-- Footer -->
+    <footer class="mt-5 text-muted small text-center">
+      <p>© 2025 深圳大数据研究院 All rights reserved.</p>
+      <p><a href="mailto:research@szbigdata.org.cn">research@szbigdata.org.cn</a></p>
+    </footer>
+  </div>
 
-    <!-- Customise the Thankyou Message People See when they submit the form: -->
-    <div class="thankyou_message" style="display:none;">
-      <h2><em>Thanks</em> for signning up!
-        You can find the names being made public <a href="https://docs.google.com/spreadsheets/d/1UHHLpnNLDQPV7QspIr_Ke1bdvsKQAhKw4qp9Jv59HaM"  </a>  here </a> ! 
-  
-      </h2>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    /***************** 动态出生年份 *****************/
+    (function(){
+      const yearSel=document.querySelector('[name="birth_year"]');
+      const now=new Date().getFullYear();
+      for(let y=now-70;y<=now;y++){yearSel.append(new Option(y,y));}
+    })();
 
-    </div>
+    /***************** 直传 Aliyun OSS *****************/
+    async function getPolicy(filename,field){
+      const res=await fetch(`/api/oss_policy?filename=${encodeURIComponent(filename)}&field=${field}`);
+      if(!res.ok) throw new Error('无法获取上传凭证');
+      return await res.json();
+    }
 
-  </form>
+    async function uploadToOSS(file,inputId){
+      const field=inputId;
+      try{
+        const policyData=await getPolicy(file.name,field);
+        const formData=new FormData();
+        formData.append('key', policyData.key);             // 保存路径
+        formData.append('policy', policyData.policy);
+        formData.append('OSSAccessKeyId', policyData.accessid);
+        formData.append('signature', policyData.signature);
+        formData.append('success_action_status','201');
+        formData.append('file', file);
 
-  <!-- Submit the Form to Google Using "AJAX" -->
-  <script data-cfasync="false" src="form-submission-handler.js"></script>
-<!-- END -->
+        const resp=await fetch(policyData.host,{method:'POST',body:formData});
+        if(resp.status===201){
+          document.querySelector(`[name="${field}_url"]`).value=policyData.url;
+          const inp=document.getElementById(field);
+          inp.dataset.uploaded='1';
+          inp.classList.add('is-valid');
+        }else{
+          throw new Error('上传失败');
+        }
+      }catch(err){
+        alert('文件上传失败：'+err.message);
+        document.getElementById(field).value='';
+      }
+    }
 
+    ['cv','master_thesis','phd_thesis'].forEach(id=>{
+      const el=document.getElementById(id);
+      if(el){el.addEventListener('change',e=>{
+        const f=e.target.files[0];
+        if(f) uploadToOSS(f,id);
+      });}
+    });
+
+    /***************** 表单提交校验 *****************/
+    document.getElementById('applyForm').addEventListener('submit',function(e){
+      const cv=document.getElementById('cv');
+      if(cv.required && !cv.dataset.uploaded){
+        e.preventDefault();
+        alert('请等待简历上传完成再提交');
+      }
+    });
+
+    /***************** 构建问卷 *****************/
+    const sections=[
+      {t:'(一) 印象管理',q:['我从未故意说过会伤害他人感情。(反向)','即使无人监督，我也始终遵守每一条规定。(反向)','我有时会拿走并非属于自己的东西。','我偶尔会对他人心生愤怒。','我曾经怀疑过自己的诚实度。']},
+      {t:'(二) 尽责性 / 自我控制',q:['我通常会在截止日期 24 小时以上前完成文件或报告。','我会忘记重要的截止日期或会议。','即使工作枯燥，我也坚持彻底完成。','应当工作时因查看消息或社交媒体而分心。','事先规划并执行计划。','做任务前常未确认资料齐备。','出现新项目会搁置旧事务。','能抵制零食/手机等诱惑。']}
+      // **其余模块略** 可按之前方式追加
+    ];
+    let idx=1;const ctn=document.getElementById('surveyContainer');
+    sections.forEach(sec=>{
+      const h=document.createElement('h6');h.textContent=sec.t;h.className='mt-3';ctn.appendChild(h);
+      sec.q.forEach(text=>{
+        const row=document.createElement('div');row.className='mb-2';row.innerHTML=`<label class='form-label d-block'>${idx}. ${text}</label>`;
+        for(let v=1;v<=5;v++){row.innerHTML+=`<input type='radio' class='form-check-input ms-2' name='q${idx}' value='${v}'> ${v}`;}
+        ctn.appendChild(row);idx++;});
+    });
+  </script>
 </body>
 </html>
