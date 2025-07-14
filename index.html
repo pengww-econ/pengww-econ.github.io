@@ -66,17 +66,19 @@
         <input class="form-control" type="file" id="phd_thesis" accept="application/pdf">
         <input type="hidden" name="phd_thesis_url">
       </div>
-      <div class="form-text">⚠️ 选择文件后将自动上传至阿里云 OSS，成功后输入框会变绿。</div>
+      <div class="form-text">⚠️ 选择文件后将自动上传，成功后输入框会变绿。</div>
     </fieldset>
+
+      <button class="btn btn-primary btn-lg w-100" type="submit">提交</button>
 
    <!-- 问卷说明 -->
     <div class="alert alert-secondary">
-      <strong>问卷说明：</strong> 本问卷匿名，仅用于科研统计；全部为<strong>可选</strong>题。Likert / FREQ / STRESS 题请在<span class="scale-hint">1–5</span>间选择；CLIMATE 输入 0–100%。预计用时 8–10 分钟。
+      <strong>问卷说明：</strong> 本问卷匿名，仅用于科研统计；全部为<strong>可选</strong>题。预计用时 8–10 分钟。
     </div>
 
     <!-- 问卷 -->
     <fieldset>
-      <legend>问卷（可选答）</legend>
+      <legend>问卷（选答）</legend>
 
     <!-- (一) 印象管理 -->
     <h6 class="mt-3">(一) 印象管理 — Likert 1–5</h6>
@@ -134,13 +136,13 @@
 
     </fieldset>
 
-    <!-- 隐私 & 提交 -->
    <!-- 隐私 & 提交 -->
-    <div class="form-check mb-3">
+<!--     <div class="form-check mb-3">
       <input class="form-check-input" type="checkbox" id="agree" required>
       <label class="form-check-label" for="agree">我已阅读并同意 <a href="/privacy" target="_blank">隐私政策</a></label>
-    </div>
+    </div> -->
     <button class="btn btn-primary btn-lg w-100" type="submit">提交</button>
+
   </form>
 
   <!-- Footer -->
