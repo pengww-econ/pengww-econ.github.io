@@ -23,146 +23,442 @@
       --shadow: 0 6px 30px 0 rgba(0, 0, 0, 0.07);
     }
 
-    body { padding: 2rem 0; background-color: var(--body-bg); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 15px; }
-    .container { max-width: 800px; background: var(--container-bg); box-shadow: var(--shadow); border-radius: 1rem; padding: 2.5rem; }
-    .required::after { content: " *"; color: #d00; font-weight: bold; }
-    fieldset { border: 1px solid var(--border-color); padding: 1.5rem 1.75rem; border-radius: var(--border-radius); margin-bottom: 2rem; background-color: var(--light-gray); }
-    legend { width: auto; padding: 0 .5rem; font-weight: 600; font-size: 1.2rem; color: var(--text-color); }
-    .form-label { font-weight: 500; color: var(--text-color); margin-bottom: 0.5rem; }
-    .form-control, .form-select { border-radius: var(--border-radius); transition: border-color .2s, box-shadow .2s; border: 1px solid var(--border-color); }
-    .form-control:focus, .form-select:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(79, 140, 255, 0.2); }
-    
-    .file-upload-wrapper { position: relative; }
-    .file-upload-wrapper .form-control.is-valid { border-color: var(--success-color); background-color: #e8f5e9; }
-    .file-upload-wrapper::after { font-family: 'bootstrap-icons'; content: '\F59F'; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: #6c757d; font-size: 1.2rem; transition: all .2s; }
-    .file-upload-wrapper.is-uploading::after { content: ''; box-sizing: border-box; position: absolute; top: 50%; right: 1rem; width: 20px; height: 20px; margin-top: -10px; border: 2px solid var(--primary-color); border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite; }
-    .file-upload-wrapper.is-valid::after { content: '\F26A'; color: var(--success-color); animation: none; }
-    @keyframes spin { to { transform: rotate(360deg); } }
+    body {
+      padding: 2rem 0;
+      background-color: var(--body-bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 15px;
+    }
 
-    .btn-primary { background: linear-gradient(90deg, var(--primary-color) 0, var(--primary-hover) 100%); border: none; border-radius: var(--border-radius); font-size: 1.15rem; font-weight: 600; padding: .75rem 0; box-shadow: 0 4px 12px 0 rgba(79, 140, 255, 0.2); transition: all .2s; }
-    .btn-primary:hover, .btn-primary:focus { background: linear-gradient(90deg, var(--primary-hover) 0, var(--primary-color) 100%); box-shadow: 0 6px 18px 0 rgba(79, 140, 255, 0.25); transform: translateY(-2px); }
+    .container {
+      max-width: 800px;
+      background: var(--container-bg);
+      box-shadow: var(--shadow);
+      border-radius: 1rem;
+      padding: 2.5rem;
+    }
 
-    .case-section h4 { font-size: 1.25rem; color: #333; }
-    .case-card { background-color: #fff; border: 1px solid #dee2e6; padding: 1.25rem; border-radius: var(--border-radius); margin-bottom: 1rem; }
-    .case-card h5 { color: var(--primary-color); }
-    .case-card ul { padding-left: 1.2rem; margin-bottom: 0.5rem; }
-    .case-card ul li { margin-bottom: 0.5rem; }
-    .judge-info { background-color: #e9ecef; padding: 1rem; border-radius: var(--border-radius); }
-    .row > [class*="col-"] > .case-card { height: 100%; }
-    
-    .question-group { margin-bottom: 1.75rem; }
-    .question-title { font-weight: 500; margin-bottom: 0.75rem; color: #222; }
-    .ab-choice .form-check { width: 100%; padding: 0.75rem 1.25rem; border: 1px solid var(--border-color); border-radius: var(--border-radius); background-color: #fff; transition: all 0.2s; }
-    .ab-choice .form-check:not(:last-child) { margin-bottom: 0.75rem; }
-    .ab-choice .form-check-input { display: none; }
-    .ab-choice .form-check-input:checked + .form-check-label { border-color: var(--primary-color); background-color: #eaf2ff; box-shadow: 0 0 0 2px var(--primary-color); }
-    .ab-choice .form-check-label { width: 100%; cursor: pointer; }
-    .likert-group { display: flex; justify-content: space-around; flex-wrap: wrap; background-color: #fff; padding: 0.75rem; border-radius: var(--border-radius); border: 1px solid var(--border-color); }
-    .likert-group .form-check { margin: 0.25rem 0.5rem; }
-    .climate-group .range-value { font-weight: bold; color: var(--primary-color); min-width: 40px; text-align: right; }
-    
-    .process-explainer { background-color: #eaf2ff; border: 1px solid #b6d4fe; color: #0a4ebd; padding: 1.25rem; border-radius: var(--border-radius); }
+    .required::after {
+      content: " *";
+      color: #d00;
+      font-weight: bold;
+    }
+
+    fieldset {
+      border: 1px solid var(--border-color);
+      padding: 1.5rem 1.75rem;
+      border-radius: var(--border-radius);
+      margin-bottom: 2rem;
+      background-color: var(--light-gray);
+    }
+
+    legend {
+      width: auto;
+      padding: 0 .5rem;
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: var(--text-color);
+    }
+
+    .form-label {
+      font-weight: 500;
+      color: var(--text-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-control,
+    .form-select {
+      border-radius: var(--border-radius);
+      transition: border-color .2s, box-shadow .2s;
+      border: 1px solid var(--border-color);
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(79, 140, 255, 0.2);
+    }
+
+    .file-upload-wrapper {
+      position: relative;
+    }
+
+    .file-upload-wrapper .form-control.is-valid {
+      border-color: var(--success-color);
+      background-color: #e8f5e9;
+    }
+
+    .file-upload-wrapper::after {
+      font-family: 'bootstrap-icons';
+      content: '\F59F';
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #6c757d;
+      font-size: 1.2rem;
+      transition: all .2s;
+    }
+
+    .file-upload-wrapper.is-uploading::after {
+      content: '';
+      box-sizing: border-box;
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      width: 20px;
+      height: 20px;
+      margin-top: -10px;
+      border: 2px solid var(--primary-color);
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    .file-upload-wrapper.is-valid::after {
+      content: '\F26A';
+      color: var(--success-color);
+      animation: none;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--primary-color) 0, var(--primary-hover) 100%);
+      border: none;
+      border-radius: var(--border-radius);
+      font-size: 1.15rem;
+      font-weight: 600;
+      padding: .75rem 0;
+      box-shadow: 0 4px 12px 0 rgba(79, 140, 255, 0.2);
+      transition: all .2s;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background: linear-gradient(90deg, var(--primary-hover) 0, var(--primary-color) 100%);
+      box-shadow: 0 6px 18px 0 rgba(79, 140, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .case-section h4 {
+      font-size: 1.25rem;
+      color: #333;
+    }
+
+    .case-card {
+      background-color: #fff;
+      border: 1px solid #dee2e6;
+      padding: 1.25rem;
+      border-radius: var(--border-radius);
+      margin-bottom: 1rem;
+    }
+
+    .case-card h5 {
+      color: var(--primary-color);
+    }
+
+    .case-card ul {
+      padding-left: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .case-card ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .judge-info {
+      background-color: #e9ecef;
+      padding: 1rem;
+      border-radius: var(--border-radius);
+    }
+
+    .row>[class*="col-"]>.case-card {
+      height: 100%;
+    }
+
+    .question-group {
+      margin-bottom: 1.75rem;
+    }
+
+    .question-title {
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      color: #222;
+    }
+
+    .ab-choice .form-check {
+      width: 100%;
+      padding: 0.75rem 1.25rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      background-color: #fff;
+      transition: all 0.2s;
+    }
+
+    .ab-choice .form-check:not(:last-child) {
+      margin-bottom: 0.75rem;
+    }
+
+    .ab-choice .form-check-input {
+      display: none;
+    }
+
+    .ab-choice .form-check-input:checked+.form-check-label {
+      border-color: var(--primary-color);
+      background-color: #eaf2ff;
+      box-shadow: 0 0 0 2px var(--primary-color);
+    }
+
+    .ab-choice .form-check-label {
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .likert-group {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      background-color: #fff;
+      padding: 0.75rem;
+      border-radius: var(--border-radius);
+      border: 1px solid var(--border-color);
+    }
+
+    .likert-group .form-check {
+      margin: 0.25rem 0.5rem;
+    }
+
+    .climate-group .range-value {
+      font-weight: bold;
+      color: var(--primary-color);
+      min-width: 40px;
+      text-align: right;
+    }
+
+    .process-explainer {
+      background-color: #eaf2ff;
+      border: 1px solid #b6d4fe;
+      color: #0a4ebd;
+      padding: 1.25rem;
+      border-radius: var(--border-radius);
+    }
 
     @media (max-width: 768px) {
-      body { padding: 1rem 0; font-size: 14px; }
-      .container { padding: 1.5rem; }
-      fieldset { padding: 1.2rem 1rem; }
+      body {
+        padding: 1rem 0;
+        font-size: 14px;
+      }
+
+      .container {
+        padding: 1.5rem;
+      }
+
+      fieldset {
+        padding: 1.2rem 1rem;
+      }
     }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <div id="step1"> 
+    <!-- Step 1 -->
+    <div id="step1">
       <header class="d-flex align-items-center mb-4 pb-3 border-bottom">
-      <img src="szbigdata.png" alt="深圳大数据研究院 Logo" style="width: 220px; height: auto; margin-right: 1.25rem;">
+        <img src="szbigdata.png" alt="深圳大数据研究院 Logo" style="width: 220px; height: auto; margin-right: 1.25rem;">
         <div>
-            <h1 class="h5 mb-1 fw-bold">深圳市大数据研究院 · 2025年招聘</h1>
-            <p class="text-muted mb-0">（高级）法律研究人员岗位申请</p>
+          <h1 class="h5 mb-1 fw-bold">深圳市大数据研究院 · 2025年招聘</h1>
+          <p class="text-muted mb-0">（高级）法律研究人员岗位申请</p>
         </div>
       </header>
 
       <div class="process-explainer my-4">
-          <h5 class="fw-bold d-flex align-items-center">招聘启事详情</h5>
-        </div>
-        <div class="card-body">
-            <p><strong>法律研究人员、高级法律研究人员（配合大模型研发）</strong> </p>
-            <p><strong>薪水：</strong>15k-27k，15薪</p>
-            <p>深圳市大数据研究院（Shenzhen Research Institute of Big Data)，是在深圳市委、市政府的支持下于2016年3月组建成立的市属二类事业单位，其前身是香港中文大学（深圳）副校长罗智泉院士领衔的大数据信息处理及应用创新团队。2019年，研究院被正式授牌成为深圳市基础研究机构之一。研究院聚焦网络系统优化、人工智能大模型、优化与工程计算三大重点方向进行理论研究和技术攻关。</p>
-            <p>研究院法律大数据和人工智能团队，现承担司法部法律大数据与智能装备重点实验室多项研发任务，以及科技部国家重点研发计划任务，开发行政执法监督、司法行政领域法律大模型及智能体，以及依法治国领域数据中台。这些方向研究潜力大，应用和产业转化前景佳，将长期从根本上改变法律行业的实践和业态。</p>
-            <p>我们真诚希望能够打造法律数据和法律人工智能领域的世界级产品。也期待有志于长期在法律科技、法律人工智能行业深耕的同仁加入，与我们的团队一起成长和创造。</p>
-            <hr>
-            <strong>薪主要工作内容：</strong>
-            <ul>
-                <li>参与或牵头组织法律研究团队，与技术团队对接，共同开展法律大模型研发；对法律实务部门开展调研，开展法律研究、法律文书要素总结和梳理等相关工作。</li>
-                <li>与大数据团队合作，合作完成调研报告的计划和撰写。</li>
-                <li>对外宣传团队研发成果。</li>
-                <li>参与项目日常组织工作，包括跟进项目进度、组织会议、协调工作等。</li>
-            </ul>
-            <strong>任职要求：</strong>
-            <ul>
-                <li><strong>学历要求：</strong>硕士及以上；特别优秀者可考虑本科学历。</li>
-                <li><strong>专业要求：</strong>法学及相关专业；对法学具有深入了解的计算机类、经管类、数据科学类专业亦可申请。</li>
-                <li><strong>工作年限：</strong>3-5年工作经验；法律实务部门相关工作经验优先，包括司法机关或其他政府部门、律师事务所、企业法务、法律科技企业、法学研究院所工作经验。</li>
-            </ul>
-            <strong>职业素养要求：</strong>
-            <p>本岗位包括法律研究人员和高级法律研究人员。岗位要求对法律科技领域具有浓厚兴趣，致力于长期从事法律科技行业工作，与我们一起打造一流法律大模型、法律数据中台等法律科技产品，一起成为首屈一指的法律科技研究和研发团队。岗位要求有扎实的法学或法律实务功底。</p>
-        </div>
+        <h5 class="fw-bold d-flex align-items-center">招聘启事详情</h5>
+      </div>
+      <div class="card-body">
+        <p><strong>法律研究人员、高级法律研究人员（配合大模型研发）</strong></p>
+        <p><strong>薪水：</strong>15k-27k，15薪</p>
+        <p>深圳市大数据研究院（Shenzhen Research Institute of Big Data)，是在深圳市委、市政府的支持下于2016年3月组建成立的市属二类事业单位，其前身是香港中文大学（深圳）副校长罗智泉院士领衔的大数据信息处理及应用创新团队。2019年，研究院被正式授牌成为深圳市基础研究机构之一。研究院聚焦网络系统优化、人工智能大模型、优化与工程计算三大重点方向进行理论研究和技术攻关。</p>
+        <p>研究院法律大数据和人工智能团队，现承担司法部法律大数据与智能装备重点实验室多项研发任务，以及科技部国家重点研发计划任务，开发行政执法监督、司法行政领域法律大模型及智能体，以及依法治国领域数据中台。这些方向研究潜力大，应用和产业转化前景佳，将长期从根本上改变法律行业的实践和业态。</p>
+        <p>我们真诚希望能够打造法律数据和法律人工智能领域的世界级产品。也期待有志于长期在法律科技、法律人工智能行业深耕的同仁加入，与我们的团队一起成长和创造。</p>
+        <hr>
+        <strong>主要工作内容：</strong>
+        <ul>
+          <li>参与或牵头组织法律研究团队，与技术团队对接，共同开展法律大模型研发；对法律实务部门开展调研，开展法律研究、法律文书要素总结和梳理等相关工作。</li>
+          <li>与大数据团队合作，合作完成调研报告的计划和撰写。</li>
+          <li>对外宣传团队研发成果。</li>
+          <li>参与项目日常组织工作，包括跟进项目进度、组织会议、协调工作等。</li>
+        </ul>
+        <strong>任职要求：</strong>
+        <ul>
+          <li><strong>学历要求：</strong>硕士及以上；特别优秀者可考虑本科学历。</li>
+          <li><strong>专业要求：</strong>法学及相关专业；对法学具有深入了解的计算机类、经管类、数据科学类专业亦可申请。</li>
+          <li><strong>工作年限：</strong>3-5年工作经验；法律实务部门相关工作经验优先，包括司法机关或其他政府部门、律师事务所、企业法务、法律科技企业、法学研究院所工作经验。</li>
+        </ul>
+        <strong>职业素养要求：</strong>
+        <p>本岗位包括法律研究人员和高级法律研究人员。岗位要求对法律科技领域具有浓厚兴趣，致力于长期从事法律科技行业工作，与我们一起打造一流法律大模型、法律数据中台等法律科技产品，一起成为首屈一指的法律科技研究和研发团队。岗位要求有扎实的法学或法律实务功底。</p>
       </div>
 
       <div class="process-explainer my-4">
-          <h5 class="fw-bold d-flex align-items-center"><i class="bi bi-info-circle-fill me-2"></i>申请流程说明</h5>
-          <p class="mb-0">以下我们将请您填写个人信息，并上传您的硕士（或博士）论文。同时，还将请您回答几道法律情境判断问题，以及一套匿名性格测试问卷（下一页）。整体预计用时10-12分钟。感谢您的时间和投入！</p>
+        <h5 class="fw-bold d-flex align-items-center"><i class="bi bi-info-circle-fill me-2"></i>申请流程说明</h5>
+        <p class="mb-0">以下我们将请您填写个人信息，并上传您的硕士（或博士）论文。同时，还将请您回答几道法律情境判断问题，以及一套匿名性格测试问卷（下一页）。整体预计用时10-12分钟。感谢您的时间和投入！</p>
       </div>
 
       <form id="infoForm" autocomplete="off">
+        <!-- 基本信息 -->
         <fieldset>
           <legend>一、基本信息</legend>
           <div class="row g-3">
-            <div class="col-md-6"><label class="form-label required">姓名</label><input name="name" class="form-control" required placeholder="请输入姓名"></div>
-            <div class="col-md-6"><label class="form-label required">性别</label><select name="gender" class="form-select" required><option value="">请选择</option><option>男</option><option>女</option></select></div>
-            <div class="col-md-6"><label class="form-label required">出生年份</label><select name="birth_year" class="form-select" required></select></div>
-            <div class="col-md-6"><label class="form-label required">手机号</label><input name="phone" class="form-control" pattern="[0-9]{11}" required placeholder="请输入11位手机号"></div>
-            <div class="col-md-6"><label class="form-label required">邮箱</label><input type="email" name="email" class="form-control" required placeholder="请输入邮箱"></div>
-            <div class="col-md-6"><label class="form-label required">当前城市</label><input name="city" class="form-control" required placeholder="请输入当前城市"></div>
-            <div class="col-md-6"><label class="form-label required">最高学历</label><select name="education" class="form-select" required><option value="">请选择</option><option>硕士</option><option>博士</option></select></div>
-            <div class="col-md-6"><label class="form-label required">毕业院校</label><input name="university" class="form-control" required placeholder="请输入毕业院校"></div>
-            <div class="col-md-6"><label class="form-label required">所学专业</label><input name="major" class="form-control" required placeholder="请输入所学专业"></div>
-            <div class="col-md-6"><label class="form-label required">当前状态</label><select name="status" class="form-select" required><option>在读</option><option>求职中</option><option>在职</option></select></div>
+            <div class="col-md-6">
+              <label class="form-label required">姓名</label>
+              <input name="name" class="form-control" required placeholder="请输入姓名">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label required">性别</label>
+              <select name="gender" class="form-select" required>
+                <option value="">请选择</option>
+                <option>男</option>
+                <option>女</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label required">出生年份</label>
+              <select name="birth_year" class="form-select" required></select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label required">手机号</label>
+              <input name="phone" class="form-control" pattern="[0-9]{11}" required placeholder="请输入11位手机号">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label required">邮箱</label>
+              <input type="email" name="email" class="form-control" required placeholder="请输入邮箱">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label required">当前城市</label>
+              <input name="city" class="form-control" required placeholder="请输入当前城市">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label required">最高学历</label>
+              <select name="education" class="form-select" required>
+                <option value="">请选择</option>
+                <option>硕士</option>
+                <option>博士</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label required">毕业院校</label>
+              <input name="university" class="form-control" required placeholder="请输入毕业院校">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label required">所学专业</label>
+              <input name="major" class="form-control" required placeholder="请输入所学专业">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label required">当前状态</label>
+              <select name="status" class="form-select" required>
+                <option>在读</option>
+                <option>求职中</option>
+                <option>在职</option>
+              </select>
+            </div>
           </div>
         </fieldset>
 
+        <!-- 上传材料 -->
         <fieldset>
-            <legend>二、上传材料</legend>
-            <div class="mb-3"><label class="form-label required">个人简历（PDF ≤10 MB）</label><div class="file-upload-wrapper"><input class="form-control" type="file" id="cv" accept="application/pdf" required></div><input type="hidden" name="cv_url"></div>
-            <div class="mb-3"><label class="form-label">硕士论文（PDF ≤30 MB）</label><div class="file-upload-wrapper"><input class="form-control" type="file" id="master_thesis" accept="application/pdf"></div><input type="hidden" name="master_thesis_url"></div>
-            <div class="mb-3"><label class="form-label">博士论文（PDF ≤30 MB）</label><div class="file-upload-wrapper"><input class="form-control" type="file" id="phd_thesis" accept="application/pdf"></div><input type="hidden" name="phd_thesis_url"></div>
-            <div class="form-text">⚠️ 选择文件后将自动上传，成功后输入框会变绿并显示<i class="bi bi-check-circle-fill text-success ms-1"></i>图标。</div> 
+          <legend>二、上传材料</legend>
+          <div class="mb-3">
+            <label class="form-label required">个人简历（PDF ≤10 MB）</label>
+            <div class="file-upload-wrapper">
+              <input class="form-control" type="file" id="cv" accept="application/pdf" required>
+            </div>
+            <input type="hidden" name="cv_url">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">硕士论文（PDF ≤30 MB）</label>
+            <div class="file-upload-wrapper">
+              <input class="form-control" type="file" id="master_thesis" accept="application/pdf">
+            </div>
+            <input type="hidden" name="master_thesis_url">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">博士论文（PDF ≤30 MB）</label>
+            <div class="file-upload-wrapper">
+              <input class="form-control" type="file" id="phd_thesis" accept="application/pdf">
+            </div>
+            <input type="hidden" name="phd_thesis_url">
+          </div>
+          <div class="form-text">⚠️ 选择文件后将自动上传，成功后输入框会变绿并显示<i class="bi bi-check-circle-fill text-success ms-1"></i>图标。</div>
         </fieldset>
 
+        <!-- 情景判断题 -->
         <fieldset id="case-scenario-container-merged">
-            <legend>三、情景判断题</legend>
-            <div class="judge-info mb-4"><h5 class="fw-bold">背景信息</h5><p><strong>A 法官：</strong>在其职业生涯中以高度的诚信闻名，几乎没有关于其公正性的负面评价。</p><p class="mb-0"><strong>B 法官：</strong>其诚信度评价相对较低，部分判决曾引发争议，并有传闻称其易受法外因素影响。</p></div>
-            <div class="case-section mb-5"><h4 class="mb-3 border-bottom pb-2">案件（一）</h4><div class="case-card mb-4"><h5 class="fw-bold">案件背景</h5><p><strong>案由：</strong>国有建设用地使用权出让合同纠纷</p><p><strong>简要事实：</strong>原告（某公司）与被告（某市政府）签订土地《出让合同》，约定被告应在2013年底前“净地”交付。原告缴清全部出让金后，因被告未能按时交付“净地”，导致其项目无法开工，产生了数千万元的损失。原告多次催告未果后，通知解除合同并提起诉讼。</p></div><h5 class="fw-bold text-center mb-3">两份匿名判决书</h5><div class="row" id="judgments-row-1"></div><div class="mt-4 pt-4 border-top"><h5 class="fw-bold required">您的判断</h5><p>根据您的专业知识和背景信息，您认为 <strong>判决书 A</strong> 更可能由哪位法官做出？</p><div id="judgment-assignment-options-1"></div></div><input type="hidden" id="case_1_judgment_a_variant"><input type="hidden" id="case_1_judgment_b_variant"></div>
-            <div class="case-section"><h4 class="mb-3 border-bottom pb-2">案件（二）</h4><div class="case-card mb-4"><h5 class="fw-bold">案件背景</h5><p><strong>案由：</strong>借款合同纠纷</p><p><strong>简要事实：</strong>原告（某大型国有信托公司）向被告（某民营集团）提供4亿元融资，协议约定了高额的回购溢价（年化14.5%）和违约金（每日0.06%）。被告方提供了多重企业及个人连带责任担保。后因被告陷入困境，未能履行回购义务，原告遂提起诉讼，要求被告及所有担保方承担全部还款及罚息责任。</p></div><h5 class="fw-bold text-center mb-3">两份匿名判决书</h5><div class="row" id="judgments-row-2"></div><div class="mt-4 pt-4 border-top"><h5 class="fw-bold required">您的判断</h5><p>根据您的专业知识和背景信息，您认为 <strong>判决书 C</strong> 更可能由哪位法官做出？</p><div id="judgment-assignment-options-2"></div></div><input type="hidden" id="case_2_judgment_c_variant"><input type="hidden" id="case_2_judgment_d_variant"></div>
+          <legend>三、情景判断题</legend>
+          <div class="judge-info mb-4">
+            <h5 class="fw-bold">背景信息</h5>
+            <p><strong>A 法官：</strong>在其职业生涯中以高度的诚信闻名，几乎没有关于其公正性的负面评价。</p>
+            <p class="mb-0"><strong>B 法官：</strong>其诚信度评价相对较低，部分判决曾引发争议，并有传闻称其易受法外因素影响。</p>
+          </div>
+          <!-- 案件一 -->
+          <div class="case-section mb-5">
+            <h4 class="mb-3 border-bottom pb-2">案件（一）</h4>
+            <div class="case-card mb-4">
+              <h5 class="fw-bold">案件背景</h5>
+              <p><strong>案由：</strong>国有建设用地使用权出让合同纠纷</p>
+              <p><strong>简要事实：</strong>原告（某公司）与被告（某市政府）签订土地《出让合同》，约定被告应在2013年底前“净地”交付。原告缴清全部出让金后，因被告未能按时交付“净地”，导致其项目无法开工，产生了数千万元的损失。原告多次催告未果后，通知解除合同并提起诉讼。</p>
+            </div>
+            <h5 class="fw-bold text-center mb-3">两份匿名判决书</h5>
+            <div class="row" id="judgments-row-1"></div>
+            <div class="mt-4 pt-4 border-top">
+              <h5 class="fw-bold required">您的判断</h5>
+              <p>根据您的专业知识和背景信息，您认为 <strong>判决书 A</strong> 更可能由哪位法官做出？</p>
+              <div id="judgment-assignment-options-1"></div>
+            </div>
+            <input type="hidden" id="case_1_judgment_a_variant">
+            <input type="hidden" id="case_1_judgment_b_variant">
+          </div>
+          <!-- 案件二 -->
+          <div class="case-section">
+            <h4 class="mb-3 border-bottom pb-2">案件（二）</h4>
+            <div class="case-card mb-4">
+              <h5 class="fw-bold">案件背景</h5>
+              <p><strong>案由：</strong>借款合同纠纷</p>
+              <p><strong>简要事实：</strong>原告（某大型国有信托公司）向被告（某民营集团）提供4亿元融资，协议约定了高额的回购溢价（年化14.5%）和违约金（每日0.06%）。被告方提供了多重企业及个人连带责任担保。后因被告陷入困境，未能履行回购义务，原告遂提起诉讼，要求被告及所有担保方承担全部还款及罚息责任。</p>
+            </div>
+            <h5 class="fw-bold text-center mb-3">两份匿名判决书</h5>
+            <div class="row" id="judgments-row-2"></div>
+            <div class="mt-4 pt-4 border-top">
+              <h5 class="fw-bold required">您的判断</h5>
+              <p>根据您的专业知识和背景信息，您认为 <strong>判决书 C</strong> 更可能由哪位法官做出？</p>
+              <div id="judgment-assignment-options-2"></div>
+            </div>
+            <input type="hidden" id="case_2_judgment_c_variant">
+            <input type="hidden" id="case_2_judgment_d_variant">
+          </div>
         </fieldset>
-        
+
         <button class="btn btn-primary btn-lg w-100" type="submit" id="infoSubmitBtn">
           <span class="btn-text">下一页</span>
         </button>
       </form>
     </div>
 
+    <!-- Step 2 -->
     <div id="step2" style="display:none;">
-        <h2 class="fw-bold text-center mb-4">补充问卷</h2>
-        <form id="surveyForm" autocomplete="off">
-            <div class="alert alert-secondary">
-                <h5 class="alert-heading">作答说明</h5>
-                <p>此为第三方研究人员开展的针对专业技术人员的心理学研究问卷。**问卷完全匿名，数据仅作汇总统计分析，不会与深圳大数据研究院分享，亦绝无可能影响研究院的招聘决定。**</p>
-                <p class="mb-0">请根据您的真实想法或典型行为回答，答案没有对错之分。若对两个选项感受相似，也请选出相对更符合的一项。</p>
-            </div>
-            <fieldset>
-                <legend>补充问卷</legend>
+      <h2 class="fw-bold text-center mb-4">补充问卷</h2>
+      <form id="surveyForm" autocomplete="off">
+        <div class="alert alert-secondary">
+          <h5 class="alert-heading">作答说明</h5>
+          <p>此为第三方研究人员开展的针对专业技术人员的心理学研究问卷。<strong>问卷完全匿名，数据仅作汇总统计分析，不会与深圳大数据研究院分享，亦绝无可能影响研究院的招聘决定。</strong></p>
+          <p class="mb-0">请根据您的真实想法或典型行为回答，答案没有对错之分。若对两个选项感受相似，也请选出相对更符合的一项。</p>
+        </div>
+        <fieldset>
+          <legend>补充问卷</legend>
                 <h6 class="mt-3">(一) 个人工作态度 (Likert: 请选择最符合您情况的描述)</h6>
                 <div class="question-group"><div class="question-title required">1. 在沟通中，我非常注意维护他人的感受。</div><div class="likert-group" id="q1-options"></div></div>
                 <div class="question-group"><div class="question-title required">2. 我倾向于严格遵循既定的工作流程和规范。</div><div class="likert-group" id="q2-options"></div></div>
@@ -199,12 +495,13 @@
                 <h6 class="mt-4 pt-3 border-top">(九) 个人工作习惯</h6>
                 <div class="question-group"><div class="question-title required">26. 为了提升效率，我会复用自己过去作品中的一些标准化内容。</div><div class="likert-group" id="q26-options"></div></div>
                 <div class="question-group"><div class="question-title required">27. 在团队项目中，即使我的贡献不是核心部分，我仍会接受共同署名。</div><div class="likert-group" id="q27-options"></div></div>
-            </fieldset>
-            <button class="btn btn-primary btn-lg w-100" type="submit" id="surveySubmitBtn">提交问卷</button>
-            <button class="btn btn-secondary btn-lg w-100 mt-2" type="button" id="optOutBtn">我选择不参与此项问卷调查</button>
-        </form>
+
+        </fieldset>
+        <button class="btn btn-primary btn-lg w-100" type="submit" id="surveySubmitBtn">提交问卷</button>
+        <button class="btn btn-secondary btn-lg w-100 mt-2" type="button" id="optOutBtn">我选择不参与此项问卷调查</button>
+      </form>
     </div>
-    
+
     <footer class="mt-5 text-center small text-muted">
       <p>© 2025 深圳大数据研究院</p>
       <p><a href="mailto:research@sribd.cn" class="text-muted">research@sribd.cn</a></p>
@@ -220,102 +517,121 @@
     let currentStep = 1;
     let applyId = null;
     let firstStepContent = "";
-    
-    // 数据
+
+    // 情景变种数据
     const caseOneVariants = [
-        { id: 1, title: '变种 1：全面支持原告', details: ['<b>合同解除：</b>支持', '<b>出让金返还：</b>1.514 亿元及利息（自 2013 年底起算）', '<b>违约金：</b>按合同约定每日0.5‰计算，共计 4000 万元', '<b>其他损失：</b>运营费、开发投入、融资利息（合计5600万元）全部支持', '<b>诉讼费用：</b>被告承担全部'], comment: '判决几乎完全倾向原告，体现对被告延迟交付的严格处罚。' },
-        { id: 2, title: '变种 2：部分支持，原告承担部分责任', details: ['<b>合同解除：</b>支持', '<b>出让金返还：</b>1.514 亿元及利息', '<b>违约金：</b>按合同约定计算，共 3500 万元', '<b>其他损失：</b>支持运营费与开发投入，但不支持融资利息', '<b>诉讼费用：</b>原告承担 30%，被告承担 70%'], comment: '判决对利息类损失谨慎认定，并通过诉费分担体现适度保护被告利益。' },
-        { id: 3, title: '变种 3：合同不解除，仅赔偿延迟交付', details: ['<b>合同解除：</b>不支持（理由：原告已领取土地证）', '<b>延迟交付赔偿：</b>按每日 0.3‰ 计算，共计 2000 万元', '<b>其他损失：</b>不支持（理由：原告开发风险自担）', '<b>利息：</b>被告按同期银行利率支付占用资金的利息', '<b>诉讼费用：</b>双方各半'], comment: '判决不承认解除合同，只对延迟交付给付较低赔偿。' },
-        { id: 4, title: '变种 4：认定原告违约，驳回主要请求', details: ['<b>合同解除：</b>不支持', '<b>返还出让金：</b>不支持', '<b>违约金：</b>不支持', '<b>其他损失：</b>不支持', '<b>认定：</b>原告存在延期开发、资金不到位等违约行为，责任自负', '<b>诉讼费用：</b>原告承担全部'], comment: '极端偏向被告，甚至反转责任，考察对被告信任度高的情形。' },
-        { id: 5, title: '变种 5：调低标的，双方分担责任', details: ['<b>合同解除：</b>支持', '<b>出让金返还：</b>1.514 亿元，利息按银行同期利率计算，共 1000 万元', '<b>违约金：</b>法院酌情调低至 2500 万元', '<b>其他损失：</b>仅支持运营费 600 万元，不支持开发投入和利息', '<b>诉讼费用：</b>原告承担 40%，被告承担 60%'], comment: '平衡考虑双方过错，对违约金予以酌减，并限制“其他损失”范围。' }
+      { id: 1, title: '变种 1：全面支持原告', details: ['<b>合同解除：</b>支持', '<b>出让金返还：</b>1.514 亿元及利息（自 2013 年底起算）', '<b>违约金：</b>按合同约定每日0.5‰计算，共计 4000 万元', '<b>其他损失：</b>运营费、开发投入、融资利息（合计5600万元）全部支持', '<b>诉讼费用：</b>被告承担全部'], comment: '判决几乎完全倾向原告，体现对被告延迟交付的严格处罚。' },
+      { id: 2, title: '变种 2：部分支持，原告承担部分责任', details: ['<b>合同解除：</b>支持', '<b>出让金返还：</b>1.514 亿元及利息', '<b>违约金：</b>按合同约定计算，共 3500 万元', '<b>其他损失：</b>支持运营费与开发投入，但不支持融资利息', '<b>诉讼费用：</b>原告承担 30%，被告承担 70%'], comment: '判决对利息类损失谨慎认定，并通过诉费分担体现适度保护被告利益。' },
+      { id: 3, title: '变种 3：合同不解除，仅赔偿延迟交付', details: ['<b>合同解除：</b>不支持（理由：原告已领取土地证）', '<b>延迟交付赔偿：</b>按每日 0.3‰ 计算，共计 2000 万元', '<b>其他损失：</b>不支持（理由：原告开发风险自担）', '<b>利息：</b>被告按同期银行利率支付占用资金的利息', '<b>诉讼费用：</b>双方各半'], comment: '判决不承认解除合同，只对延迟交付给付较低赔偿。' },
+      { id: 4, title: '变种 4：认定原告违约，驳回主要请求', details: ['<b>合同解除：</b>不支持', '<b>返还出让金：</b>不支持', '<b>违约金：</b>不支持', '<b>其他损失：</b>不支持', '<b>认定：</b>原告存在延期开发、资金不到位等违约行为，责任自负', '<b>诉讼费用：</b>原告承担全部'], comment: '极端偏向被告，甚至反转责任，考察对被告信任度高的情形。' },
+      { id: 5, title: '变种 5：调低标的，双方分担责任', details: ['<b>合同解除：</b>支持', '<b>出让金返还：</b>1.514 亿元，利息按银行同期利率计算，共 1000 万元', '<b>违约金：</b>法院酌情调低至 2500 万元', '<b>其他损失：</b>仅支持运营费 600 万元，不支持开发投入和利息', '<b>诉讼费用：</b>原告承担 40%，被告承担 60%'], comment: '平衡考虑双方过错，对违约金予以酌减，并限制“其他损失”范围。' }
     ];
     const caseTwoVariants = [
-        { id: 1, title: '变种 1：严格执行合同，全面支持国企', details: ['<b>合同性质：</b>认定为有效的金融信托合同，非变相高利贷。', '<b>还款金额：</b>支持全部本金、年化14.5%的回购溢价及每日0.06%的罚息。', '<b>担保责任：</b>所有担保方（包括个人）均需承担无限连带责任。', '<b>被告抗辩：</b>全部驳回。', '<b>诉讼费用：</b>被告方承担全部。'], comment: '完全支持金融机构诉求，严格执行合同条款，对民企的困境和抗辩理由不予采纳。' },
-        { id: 2, title: '变种 2：部分支持国企，酌情调低罚息', details: ['<b>合同性质：</b>认定有效。', '<b>还款金额：</b>支持本金和年化14.5%的回购溢价。', '<b>罚息调整：</b>法院行使酌情权，将每日0.06%的罚息标准调低至LPR（贷款市场报价利率）的4倍。', '<b>担保责任：</b>所有担保责任依然有效。', '<b>诉讼费用：</b>被告方承担大部分。'], comment: '维护了合同基本效力，但在罚息部分体现了司法对过高违约金的干预，略微平衡。' },
-        { id: 3, title: '变种 3：认定合同有效，但大幅调低整体利率', details: ['<b>合同性质：</b>认定有效。', '<b>利率调整：</b>认定“回购溢价+罚息”整体过高，超出法律保护上限，裁定整体融资成本不得超过LPR的4倍。', '<b>还款金额：</b>支持本金，但利息和罚息总额被大幅削减。', '<b>担保责任：</b>担保方在调低后的债务范围内承担责任。', '<b>诉讼费用：</b>按比例分担。'], comment: '实质性地干预了交易的核心利率，倾向于保护债务人，避免因高额利息导致企业崩溃。' },
-        { id: 4, title: '变种 4：认定国企程序瑕疵，部分担保无效', details: ['<b>合同性质：</b>认定有效。', '<b>还款金额：</b>支持本金和合理利息。', '<b>担保责任：</b>因原告未能完善某项关键抵押登记手续，裁定该项抵押担保无效，相应担保人免责。', '<b>其他担保：</b>依然有效。', '<b>诉讼费用：</b>按比例分担。'], comment: '抓住了金融机构操作中的程序瑕疵，减轻了部分担保人的压力，体现了对程序的严格审查。' },
-        { id: 5, title: '变种 5：认定为名为信托实为借贷，判定部分条款无效', details: ['<b>合同性质：</b>认定交易名为信托，实为企业间借贷，部分条款“以合法形式掩盖非法目的”。', '<b>利率调整：</b>裁定约定的高额溢价和罚息条款无效，仅支持按银行同期贷款利率计算本金利息。', '<b>还款金额：</b>债务被大幅削减至接近本金。', '<b>担保责任：</b>因主合同部分无效，部分担保责任相应免除。', '<b>诉讼费用：</b>原告承担大部分。'], comment: '最倾向于民企的判决，从根本上质疑了交易的合规性，大幅减轻了其债务负担。' }
+      { id: 1, title: '变种 1：严格执行合同，全面支持国企', details: ['<b>合同性质：</b>认定为有效的金融信托合同，非变相高利贷。', '<b>还款金额：</b>支持全部本金、年化14.5%的回购溢价及每日0.06%的罚息。', '<b>担保责任：</b>所有担保方（包括个人）均需承担无限连带责任。', '<b>被告抗辩：</b>全部驳回。', '<b>诉讼费用：</b>被告方承担全部。'], comment: '完全支持金融机构诉求，严格执行合同条款，对民企的困境和抗辩理由不予采纳。' },
+      { id: 2, title: '变种 2：部分支持国企，酌情调低罚息', details: ['<b>合同性质：</b>认定有效。', '<b>还款金额：</b>支持本金和年化14.5%的回购溢价。', '<b>罚息调整：</b>法院行使酌情权，将每日0.06%的罚息标准调低至LPR（贷款市场报价利率）的4倍。', '<b>担保责任：</b>所有担保责任依然有效。', '<b>诉讼费用：</b>被告方承担大部分。'], comment: '维护了合同基本效力，但在罚息部分体现了司法对过高违约金的干预，略微平衡。' },
+      { id: 3, title: '变种 3：认定合同有效，但大幅调低整体利率', details: ['<b>合同性质：</b>认定有效。', '<b>利率调整：</b>认定“回购溢价+罚息”整体过高，超出法律保护上限，裁定整体融资成本不得超过LPR的4倍。', '<b>还款金额：</b>支持本金，但利息和罚息总额被大幅削减。', '<b>担保责任：</b>担保方在调低后的债务范围内承担责任。', '<b>诉讼费用：</b>按比例分担。'], comment: '实质性地干预了交易的核心利率，倾向于保护债务人，避免因高额利息导致企业崩溃。' },
+      { id: 4, title: '变种 4：认定国企程序瑕疵，部分担保无效', details: ['<b>合同性质：</b>认定有效。', '<b>还款金额：</b>支持本金和合理利息。', '<b>担保责任：</b>因原告未能完善某项关键抵押登记手续，裁定该项抵押担保无效，相应担保人免责。', '<b>其他担保：</b>依然有效。', '<b>诉讼费用：</b>按比例分担。'], comment: '抓住了金融机构操作中的程序瑕疵，减轻了部分担保人的压力，体现了对程序的严格审查。' },
+      { id: 5, title: '变种 5：认定为名为信托实为借贷，判定部分条款无效', details: ['<b>合同性质：</b>认定交易名为信托，实为企业间借贷，部分条款“以合法形式掩盖非法目的”。', '<b>利率调整：</b>裁定约定的高额溢价和罚息条款无效，仅支持按银行同期贷款利率计算本金利息。', '<b>还款金额：</b>债务被大幅削减至接近本金。', '<b>担保责任：</b>因主合同部分无效，部分担保责任相应免除。', '<b>诉讼费用：</b>原告承担大部分。'], comment: '最倾向于民企的判决，从根本上质疑了交易的合规性，大幅减轻了其债务负担。' }
     ];
+
+    // Likert 量表
     const SCALE_LIKERT = ['非常不同意', '不同意', '一般', '同意', '非常同意'];
     const SCALE_FREQ = ['从不', '很少', '有时', '经常', '非常频繁'];
     const SCALE_STRESS = ['完全不', '轻微', '中等', '较高', '极度'];
 
-    // 初始化函数
+    // 随机挑选两份判决并渲染
     function setupCaseScenario(caseNum, variants, judgmentLabels) {
-        let indices = new Set();
-        while (indices.size < 2) {
-            indices.add(Math.floor(Math.random() * variants.length));
-        }
-        const [index1, index2] = [...indices];
-        let variant1 = variants[index1];
-        let variant2 = variants[index2];
-        let judgment1, judgment2;
-        if (Math.random() < 0.5) {
-            judgment1 = variant1;
-            judgment2 = variant2;
-        } else {
-            judgment1 = variant2;
-            judgment2 = variant1;
-        }
-        const judgmentsRow = document.getElementById(`judgments-row-${caseNum}`);
-        const renderJudgment = (judgment, label) => `<div class="col-md-6 mb-3 mb-md-0"><div class="case-card"><h5 class="fw-bold">${label}</h5><ul>${judgment.details.map(d => `<li>${d}</li>`).join('')}</ul><p class="small text-muted mb-0"><em>评注：${judgment.comment}</em></p></div></div>`;
-        judgmentsRow.innerHTML = renderJudgment(judgment1, judgmentLabels[0]) + renderJudgment(judgment2, judgmentLabels[1]);
-        const optionsContainer = document.getElementById(`judgment-assignment-options-${caseNum}`);
-        const firstLabel = judgmentLabels[0].slice(-1);
-        optionsContainer.innerHTML = `<div class="form-check"><input class="form-check-input" type="radio" name="judgment_${caseNum}_assignment" id="assign_${caseNum}_${firstLabel}_a" value="A法官" required><label class="form-check-label" for="assign_${caseNum}_${firstLabel}_a">A 法官</label></div><div class="form-check"><input class="form-check-input" type="radio" name="judgment_${caseNum}_assignment" id="assign_${caseNum}_${firstLabel}_b" value="B法官" required><label class="form-check-label" for="assign_${caseNum}_${firstLabel}_b">B 法官</label></div>`;
-        document.getElementById(`case_${caseNum}_judgment_${firstLabel.toLowerCase()}_variant`).value = `变种 ${judgment1.id}`;
-        document.getElementById(`case_${caseNum}_judgment_${judgmentLabels[1].slice(-1).toLowerCase()}_variant`).value = `变种 ${judgment2.id}`;
-    }
-    
-    function renderLikertScale(containerId, name, options) {
-      const container = document.getElementById(containerId);
-      if (!container) return;
-      container.innerHTML = options.map((opt, i) => `<div class="form-check"><input type="radio" class="form-check-input" name="${name}" value="${i+1}" id="${name}-${i}" required><label class="form-check-label" for="${name}-${i}">${opt}</label></div>`).join('');
+      let indices = new Set();
+      while (indices.size < 2) {
+        indices.add(Math.floor(Math.random() * variants.length));
+      }
+      const [i1, i2] = [...indices];
+      let v1 = variants[i1], v2 = variants[i2];
+      if (Math.random() < 0.5) [v1, v2] = [v2, v1];
+
+      const row = document.getElementById(`judgments-row-${caseNum}`);
+      const render = (v, label) =>
+        `<div class="col-md-6 mb-3 mb-md-0">
+           <div class="case-card">
+             <h5 class="fw-bold">${label}</h5>
+             <ul>${v.details.map(d => `<li>${d}</li>`).join('')}</ul>
+             <p class="small text-muted mb-0"><em>评注：${v.comment}</em></p>
+           </div>
+         </div>`;
+      row.innerHTML = render(v1, judgmentLabels[0]) + render(v2, judgmentLabels[1]);
+
+      const opts = document.getElementById(`judgment-assignment-options-${caseNum}`);
+      const labA = judgmentLabels[0].slice(-1), labB = judgmentLabels[1].slice(-1);
+      opts.innerHTML = `
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="judgment_${caseNum}_assignment" id="assign_${caseNum}_${labA}_a" value="A法官" required>
+          <label class="form-check-label" for="assign_${caseNum}_${labA}_a">A 法官</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="judgment_${caseNum}_assignment" id="assign_${caseNum}_${labA}_b" value="B法官" required>
+          <label class="form-check-label" for="assign_${caseNum}_${labA}_b">B 法官</label>
+        </div>`;
+      document.getElementById(`case_${caseNum}_judgment_${labA.toLowerCase()}_variant`).value = `变种 ${v1.id}`;
+      document.getElementById(`case_${caseNum}_judgment_${labB.toLowerCase()}_variant`).value = `变种 ${v2.id}`;
     }
 
-    (() => {
-        const sel = document.querySelector('[name="birth_year"]'), now = new Date().getFullYear();
-        let options = '<option value="">请选择</option>';
-        for (let y = now - 18; y >= now - 70; y--) options += `<option value="${y}">${y}</option>`;
-        sel.innerHTML = options;
-    })();
+    // 渲染 Likert 量表
+    function renderLikertScale(containerId, name, options) {
+      const cont = document.getElementById(containerId);
+      cont.innerHTML = options.map((opt, i) =>
+        `<div class="form-check">
+           <input type="radio" class="form-check-input" name="${name}" value="${i+1}" id="${name}-${i}" required>
+           <label class="form-check-label" for="${name}-${i}">${opt}</label>
+         </div>`
+      ).join('');
+    }
 
     document.addEventListener('DOMContentLoaded', function() {
-        setupCaseScenario(1, caseOneVariants, ['判决书 A', '判决书 B']);
-        setupCaseScenario(2, caseTwoVariants, ['判决书 C', '判决书 D']);
+      // 生成年份下拉
+      const sel = document.querySelector('[name="birth_year"]'), now = new Date().getFullYear();
+      let ops = '<option value="">请选择</option>';
+      for (let y = now - 18; y >= now - 70; y--) ops += `<option value="${y}">${y}</option>`;
+      sel.innerHTML = ops;
 
-        renderLikertScale('q1-options', 'q1', SCALE_LIKERT);
-        renderLikertScale('q2-options', 'q2', SCALE_LIKERT);
-        renderLikertScale('q3-options', 'q3', SCALE_LIKERT);
-        renderLikertScale('q4-options', 'q4', SCALE_LIKERT);
-        renderLikertScale('q5-options', 'q5', SCALE_LIKERT);
-        renderLikertScale('q6-options', 'q6', SCALE_FREQ);
-        renderLikertScale('q7-options', 'q7', SCALE_FREQ);
-        renderLikertScale('q8-options', 'q8', SCALE_FREQ);
-        renderLikertScale('q9-options', 'q9', SCALE_FREQ);
-        renderLikertScale('q10-options', 'q10', SCALE_FREQ);
-        renderLikertScale('q11-options', 'q11', SCALE_FREQ);
-        renderLikertScale('q12-options', 'q12', SCALE_FREQ);
-        renderLikertScale('q13-options', 'q13', SCALE_FREQ);
-        renderLikertScale('q18-options', 'q18', SCALE_LIKERT);
-        renderLikertScale('q19-options', 'q19', SCALE_LIKERT);
-        renderLikertScale('q20-options', 'q20', ['非常不可能', '不可能', '不确定', '可能', '非常可能']);
-        renderLikertScale('q21-options', 'q21', ['毫无可能', '可能性很小', '不确定', '可能性较大', '一定会']);
-        renderLikertScale('q22-options', 'q22', SCALE_STRESS);
-        renderLikertScale('q23-options', 'q23', SCALE_STRESS);
-        renderLikertScale('q25-options', 'q25', SCALE_LIKERT);
-        renderLikertScale('q26-options', 'q26', SCALE_FREQ);
-        renderLikertScale('q27-options', 'q27', SCALE_FREQ);
+      // 案例
+      setupCaseScenario(1, caseOneVariants, ['判决书 A', '判决书 B']);
+      setupCaseScenario(2, caseTwoVariants, ['判决书 C', '判决书 D']);
 
-        document.querySelectorAll('input[type="range"]').forEach(slider => {
-            const display = slider.nextElementSibling;
-            slider.addEventListener('input', () => { display.textContent = `${slider.value}%`; });
-        });
+      // Likert
+      renderLikertScale('q1-options', 'q1', SCALE_LIKERT);
+      renderLikertScale('q2-options', 'q2', SCALE_LIKERT);
+      renderLikertScale('q3-options', 'q3', SCALE_LIKERT);
+      renderLikertScale('q4-options', 'q4', SCALE_LIKERT);
+      renderLikertScale('q5-options', 'q5', SCALE_LIKERT);
+      renderLikertScale('q6-options', 'q6', SCALE_FREQ);
+      renderLikertScale('q7-options', 'q7', SCALE_FREQ);
+      renderLikertScale('q8-options', 'q8', SCALE_FREQ);
+      renderLikertScale('q9-options', 'q9', SCALE_FREQ);
+      renderLikertScale('q10-options', 'q10', SCALE_FREQ);
+      renderLikertScale('q11-options', 'q11', SCALE_FREQ);
+      renderLikertScale('q12-options', 'q12', SCALE_FREQ);
+      renderLikertScale('q13-options', 'q13', SCALE_FREQ);
+      renderLikertScale('q18-options', 'q18', SCALE_LIKERT);
+      renderLikertScale('q19-options', 'q19', SCALE_LIKERT);
+      renderLikertScale('q20-options', 'q20', ['非常不可能', '不可能', '不确定', '可能', '非常可能']);
+      renderLikertScale('q21-options', 'q21', ['毫无可能', '可能性很小', '不确定', '可能性较大', '一定会']);
+      renderLikertScale('q22-options', 'q22', SCALE_STRESS);
+      renderLikertScale('q23-options', 'q23', SCALE_STRESS);
+      renderLikertScale('q25-options', 'q25', SCALE_LIKERT);
+      renderLikertScale('q26-options', 'q26', SCALE_FREQ);
+      renderLikertScale('q27-options', 'q27', SCALE_FREQ);
 
-        document.getElementById('optOutBtn').addEventListener('click', handleOptOut);
+      // slider 显示
+      document.querySelectorAll('input[type="range"]').forEach(slider => {
+        const disp = slider.nextElementSibling;
+        slider.addEventListener('input', () => disp.textContent = `${slider.value}%`);
+      });
+
+      // 放弃按钮
+      document.getElementById('optOutBtn').addEventListener('click', handleOptOut);
     });
 
-    // 文件上传逻辑
+    // 文件上传
     async function uploadFile(file) {
       const fd = new FormData();
       fd.append('file', file);
@@ -325,164 +641,168 @@
       if (!data.url) throw new Error('服务器未返回文件URL');
       return data.url;
     }
-    
-    [{ inputId: 'cv', hiddenName: 'cv_url', maxSize: 10 * 1024 * 1024, label: '个人简历' },
-     { inputId: 'master_thesis', hiddenName: 'master_thesis_url', maxSize: 30 * 1024 * 1024, label: '硕士论文' },
-     { inputId: 'phd_thesis', hiddenName: 'phd_thesis_url', maxSize: 30 * 1024 * 1024, label: '博士论文' }
+
+    // 绑定上传监听
+    [
+      { inputId: 'cv', hiddenName: 'cv_url', maxSize: 10*1024*1024, label: '个人简历' },
+      { inputId: 'master_thesis', hiddenName: 'master_thesis_url', maxSize: 30*1024*1024, label: '硕士论文' },
+      { inputId: 'phd_thesis', hiddenName: 'phd_thesis_url', maxSize: 30*1024*1024, label: '博士论文' }
     ].forEach(({ inputId, hiddenName, maxSize, label }) => {
-      const inputEl = document.getElementById(inputId);
-      if (inputEl) {
-        inputEl.addEventListener('change', async e => {
-          const wrapper = inputEl.parentElement;
-          const file = e.target.files[0];
-          const hiddenInput = document.querySelector(`[name="${hiddenName}"]`);
-          if (file) {
-            wrapper.classList.remove('is-valid');
-            inputEl.classList.remove('is-valid');
-            hiddenInput.value = '';
-            if (file.size > maxSize) {
-              alert(`${label}文件不能超过 ${maxSize / 1024 / 1024}MB！`);
-              inputEl.value = '';
-              return;
-            }
-            activeUploads++;
-            try {
-              inputEl.disabled = true;
-              wrapper.classList.add('is-uploading');
-              const url = await uploadFile(file);
-              hiddenInput.value = url;
-              inputEl.classList.add('is-valid');
-              wrapper.classList.add('is-valid');
-            } catch (err) {
-              alert(`${label}上传失败：${err.message}`);
-              inputEl.value = '';
-            } finally {
-              inputEl.disabled = false;
-              wrapper.classList.remove('is-uploading');
-              activeUploads--;
-            }
+      const inp = document.getElementById(inputId);
+      inp && inp.addEventListener('change', async e => {
+        const file = e.target.files[0];
+        const wrapper = inp.parentElement;
+        const hidden = document.querySelector(`[name="${hiddenName}"]`);
+        if (file) {
+          wrapper.classList.remove('is-valid');
+          inp.classList.remove('is-valid');
+          hidden.value = '';
+          if (file.size > maxSize) {
+            alert(`${label}文件不能超过 ${maxSize/1024/1024}MB！`);
+            inp.value = '';
+            return;
           }
-        });
-      }
+          activeUploads++;
+          try {
+            inp.disabled = true;
+            wrapper.classList.add('is-uploading');
+            const url = await uploadFile(file);
+            hidden.value = url;
+            inp.classList.add('is-valid');
+            wrapper.classList.add('is-valid');
+          } catch (err) {
+            alert(`${label}上传失败：${err.message}`);
+            inp.value = '';
+          } finally {
+            inp.disabled = false;
+            wrapper.classList.remove('is-uploading');
+            activeUploads--;
+          }
+        }
+      });
     });
 
-    // Step1 表单提交
+    // 方法一：立即切换到第二步再提交 API
     document.getElementById('infoForm').addEventListener('submit', async function(e) {
       e.preventDefault();
       if (activeUploads > 0) {
-          alert('文件正在上传中，请等待所有文件上传完成后再提交。');
-          return;
+        alert('文件正在上传中，请等待所有文件上传完成后再提交。');
+        return;
       }
       const form = e.target;
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
       }
-      
-      const btn = document.getElementById('infoSubmitBtn');
-      const btnText = btn.querySelector('.btn-text');
-      btn.disabled = true;
-      if(btnText) btnText.textContent = '处理中...';
-
       if (!document.querySelector('[name="cv_url"]').value) {
         alert('请上传个人简历后再提交。');
-        btn.disabled = false;
-        if(btnText) btnText.textContent = '下一页';
         return;
       }
 
+      // **立即切换**
+      document.getElementById('step1').style.display = 'none';
+      document.getElementById('step2').style.display = 'block';
+      window.scrollTo(0, 0);
+      currentStep = 2;
+
+      const btn = document.getElementById('infoSubmitBtn');
+      const btnText = btn.querySelector('.btn-text');
+      btn.disabled = true;
+      if (btnText) btnText.textContent = '处理中...';
+
+      // 收集第一步数据
       let basicArr = [], uploadArr = [], scenario1Arr = [], scenario2Arr = [];
       form.querySelectorAll('fieldset:first-of-type [name]').forEach(el => {
         let label = el.closest('div[class^="col"]')?.querySelector('label')?.textContent.replace(/[*]/g, '').trim() || el.name;
         if (el.type !== 'radio' && !basicArr.some(item => item.startsWith(label+':'))) {
-          basicArr.push(`${label}:${el.value || '无'}`);
+          basicArr.push(`${label}:${el.value||'无'}`);
         }
       });
-
       form.querySelectorAll('fieldset:nth-of-type(2) input[type="hidden"]').forEach(el => {
         let label = el.closest('div.mb-3')?.querySelector('label')?.textContent.replace(/[*]/g, '').trim() || el.name;
-        uploadArr.push(`${label}:${el.value || '无'}`);
+        uploadArr.push(`${label}:${el.value||'无'}`);
       });
-      
-      const assignment1 = form.querySelector('[name="judgment_1_assignment"]:checked')?.value;
-      const j1a_variant = document.getElementById('case_1_judgment_a_variant').value;
-      const j1b_variant = document.getElementById('case_1_judgment_b_variant').value;
-      scenario1Arr.push(`判决书A来源: ${j1a_variant}`);
-      scenario1Arr.push(`判决书B来源: ${j1b_variant}`);
-      if(assignment1) {
-          const j1b_assignment = (assignment1 === 'A法官') ? 'B法官' : 'A法官';
-          scenario1Arr.push(`用户判断: (判决书A -> ${assignment1}), (判决书B -> ${j1b_assignment})`);
-      } else {
-          scenario1Arr.push(`用户判断: 未作答`);
-      }
+      const a1 = form.querySelector('[name="judgment_1_assignment"]:checked')?.value;
+      const v1a = document.getElementById('case_1_judgment_a_variant').value;
+      const v1b = document.getElementById('case_1_judgment_b_variant').value;
+      scenario1Arr.push(`判决书A来源: ${v1a}`);
+      scenario1Arr.push(`判决书B来源: ${v1b}`);
+      if (a1) {
+        scenario1Arr.push(`用户判断: (判决书A -> ${a1}), (判决书B -> ${(a1==='A法官'?'B法官':'A法官')})`);
+      } else scenario1Arr.push('用户判断: 未作答');
 
-      const assignment2 = form.querySelector('[name="judgment_2_assignment"]:checked')?.value;
-      const j2c_variant = document.getElementById('case_2_judgment_c_variant').value;
-      const j2d_variant = document.getElementById('case_2_judgment_d_variant').value;
-      scenario2Arr.push(`判决书C来源: ${j2c_variant}`);
-      scenario2Arr.push(`判决书D来源: ${j2d_variant}`);
-      if(assignment2) {
-          const j2d_assignment = (assignment2 === 'A法官') ? 'B法官' : 'A法官';
-          scenario2Arr.push(`用户判断: (判决书C -> ${assignment2}), (判决书D -> ${j2d_assignment})`);
-      } else {
-          scenario2Arr.push(`用户判断: 未作答`);
-      }
-      
+      const a2 = form.querySelector('[name="judgment_2_assignment"]:checked')?.value;
+      const v2c = document.getElementById('case_2_judgment_c_variant').value;
+      const v2d = document.getElementById('case_2_judgment_d_variant').value;
+      scenario2Arr.push(`判决书C来源: ${v2c}`);
+      scenario2Arr.push(`判决书D来源: ${v2d}`);
+      if (a2) {
+        scenario2Arr.push(`用户判断: (判决书C -> ${a2}), (判决书D -> ${(a2==='A法官'?'B法官':'A法官')})`);
+      } else scenario2Arr.push('用户判断: 未作答');
+
       firstStepContent = `【基本信息】\n${basicArr.join('; ')}\n【上传材料】\n${uploadArr.join('; ')}\n【情景判断一】\n${scenario1Arr.join('; ')}\n【情景判断二】\n${scenario2Arr.join('; ')}`;
-      
+
+      // 发 API
       try {
-        const res = await fetch('https://form5353.uuyianfei.site/api/apply', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ submitDate: new Date().toISOString(), content: firstStepContent }) });
+        const res = await fetch('https://form5353.uuyianfei.site/api/apply', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ submitDate: new Date().toISOString(), content: firstStepContent })
+        });
         if (!res.ok) throw new Error('提交失败，服务器错误');
         const data = await res.json();
         if (!data.id) throw new Error('未返回有效ID');
         applyId = data.id;
-        setTimeout(() => {
-          document.getElementById('step1').style.display = 'none';
-          document.getElementById('step2').style.display = '';
-          window.scrollTo(0, 0);
-          currentStep = 2;
-          btn.disabled = false;
-          if(btnText) btnText.textContent = '下一页';
-        }, 400);
+        btn.disabled = false;
+        if (btnText) btnText.textContent = '下一页';
       } catch (err) {
         alert('提交失败：' + err.message);
         btn.disabled = false;
-        if(btnText) btnText.textContent = '下一页';
+        if (btnText) btnText.textContent = '下一页';
       }
     });
 
+    // 第二步提交函数
     async function submitSurvey(data, btnToDisable) {
-        btnToDisable.disabled = true;
-        const userBehavior = `Step1-第一次点击时间:${step1Behavior.firstClickTime || '无'}; Step1-最后一次点击时间:${step1Behavior.lastClickTime || '无'}; Step1-点击次数:${step1Behavior.clickCount}; Step2-第一次点击时间:${step2Behavior.firstClickTime || '无'}; Step2-最后一次点击时间:${step2Behavior.lastClickTime || '无'}; Step2-点击次数:${step2Behavior.clickCount}`;
-        const finalContent = `${firstStepContent}\n【补充问卷】\n${data}\n【用户行为】\n${userBehavior}`;
-        if (!applyId) { throw new Error('关键ID丢失，请刷新页面重试'); }
-        const res = await fetch(`https://form5353.uuyianfei.site/api/apply/${applyId}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ content: finalContent })
-        });
-        if (!res.ok) throw new Error('提交失败，服务器错误');
-        showThankYouPage();
+      btnToDisable.disabled = true;
+      const behavior = [
+        `Step1-第一次点击时间:${step1Behavior.firstClickTime||'无'}`,
+        `Step1-最后一次点击时间:${step1Behavior.lastClickTime||'无'}`,
+        `Step1-点击次数:${step1Behavior.clickCount}`,
+        `Step2-第一次点击时间:${step2Behavior.firstClickTime||'无'}`,
+        `Step2-最后一次点击时间:${step2Behavior.lastClickTime||'无'}`,
+        `Step2-点击次数:${step2Behavior.clickCount}`
+      ].join('; ');
+      const finalContent = `${firstStepContent}\n【补充问卷】\n${data}\n【用户行为】\n${behavior}`;
+      if (!applyId) throw new Error('关键ID丢失，请刷新页面重试');
+      const res = await fetch(`https://form5353.uuyianfei.site/api/apply/${applyId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content: finalContent })
+      });
+      if (!res.ok) throw new Error('提交失败，服务器错误');
+      showThankYouPage();
     }
 
+    // 放弃问卷
     async function handleOptOut(e) {
-        const btn = e.target;
-        btn.disabled = true;
-        btn.textContent = '处理中...';
-        try {
-            await submitSurvey('用户选择不参与', btn);
-        } catch (err) {
-            alert('操作失败：' + err.message);
-            btn.disabled = false;
-            btn.textContent = '我选择不参与此项问卷调查';
-        }
+      const btn = e.target;
+      btn.disabled = true;
+      btn.textContent = '处理中...';
+      try {
+        await submitSurvey('用户选择不参与', btn);
+      } catch (err) {
+        alert('操作失败：' + err.message);
+        btn.disabled = false;
+        btn.textContent = '我选择不参与此项问卷调查';
+      }
     }
 
+    // 正式提交问卷
     document.getElementById('surveyForm').addEventListener('submit', async function(e) {
       e.preventDefault();
-      const form = e.target;
-      if (!form.checkValidity()) {
-        form.reportValidity();
+      if (!this.checkValidity()) {
+        this.reportValidity();
         return;
       }
       const btn = document.getElementById('surveySubmitBtn');
@@ -490,48 +810,53 @@
       btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> 提交中...';
 
       let surveyArr = [];
-      const questionGroups = this.querySelectorAll('.question-group');
-      questionGroups.forEach(group => {
-          const questionTitle = group.querySelector('.question-title').textContent.trim();
-          const radioChecked = group.querySelector('input[type="radio"]:checked');
-          const rangeInput = group.querySelector('input[type="range"]');
-          if (radioChecked) {
-              const label = radioChecked.nextElementSibling.textContent;
-              surveyArr.push(`${questionTitle}: ${label} (${radioChecked.value})`);
-          } else if (rangeInput) {
-              surveyArr.push(`${questionTitle}: ${rangeInput.value}%`);
-          }
+      this.querySelectorAll('.question-group').forEach(group => {
+        const title = group.querySelector('.question-title').textContent.trim();
+        const radio = group.querySelector('input[type="radio"]:checked');
+        const range = group.querySelector('input[type="range"]');
+        if (radio) {
+          surveyArr.push(`${title}: ${radio.nextElementSibling.textContent} (${radio.value})`);
+        } else if (range) {
+          surveyArr.push(`${title}: ${range.value}%`);
+        }
       });
 
       try {
-          await submitSurvey(surveyArr.length > 0 ? surveyArr.join('; ') : '未作答', btn);
+        await submitSurvey(surveyArr.length ? surveyArr.join('; ') : '未作答', btn);
       } catch (err) {
-          alert('提交失败：' + err.message);
-          btn.disabled = false;
-          btn.textContent = '提交问卷';
+        alert('提交失败：' + err.message);
+        btn.disabled = false;
+        btn.textContent = '提交问卷';
       }
     });
 
+    // 提交成功页面
     function showThankYouPage() {
       const container = document.querySelector('.container');
       container.style.transition = 'opacity 0.3s ease-out';
       container.style.opacity = '0';
       setTimeout(() => {
-        container.innerHTML = `<div style="text-align: center; padding: 4rem 1rem;"><i class="bi bi-check-circle-fill" style="font-size: 4.5rem; color: var(--success-color);"></i><h2 class="fw-bold" style="margin-top: 1.5rem; color: var(--text-color);">提交成功！</h2><p class="text-secondary" style="font-size: 1.1rem; margin-top: 0.5rem;">感谢您的参与。</p></div>`;
+        container.innerHTML = `
+          <div style="text-align:center; padding:4rem 1rem;">
+            <i class="bi bi-check-circle-fill" style="font-size:4.5rem; color:var(--success-color);"></i>
+            <h2 class="fw-bold" style="margin-top:1.5rem; color:var(--text-color);">提交成功！</h2>
+            <p class="text-secondary" style="font-size:1.1rem; margin-top:0.5rem;">感谢您的参与。</p>
+          </div>`;
         const footer = document.querySelector('footer');
-        if (footer) footer.remove();
+        footer && footer.remove();
         container.style.opacity = '1';
         window.scrollTo(0, 0);
       }, 300);
     }
-    
+
+    // 记录点击行为
     function handleStepClick() {
       const now = new Date().toISOString();
       if (currentStep === 1) {
         if (!step1Behavior.firstClickTime) step1Behavior.firstClickTime = now;
         step1Behavior.lastClickTime = now;
         step1Behavior.clickCount++;
-      } else if (currentStep === 2) {
+      } else {
         if (!step2Behavior.firstClickTime) step2Behavior.firstClickTime = now;
         step2Behavior.lastClickTime = now;
         step2Behavior.clickCount++;
@@ -540,4 +865,5 @@
     document.addEventListener('click', handleStepClick);
   </script>
 </body>
+
 </html>
