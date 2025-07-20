@@ -161,15 +161,17 @@
 
             <h6 class="mt-3">(一) 有奖问答环节</h6>
                 <div class="question-group">
-                    <div class="question-title required">1. 您即将通过虚拟掷骰获得一笔额外奖金。</div>
+                    <div class="question-title required">1. 您即将通过虚拟掷骰子获得一笔额外奖金。</div>
                     <div id="dice-roller">
-                        <p class="text-start"><strong>规则：</strong>您将有 <strong>10 次</strong> 机会进行虚拟掷骰。您的任务是在10次掷骰中，**自己记录并诚实地报告“6”出现的总次数**。每报告一次“6”，您将获得 **5元** 现金奖励。</p>
-                        <p class="text-start small text-muted">为确保公平，系统不会记录您每次掷骰的具体结果，奖金完全取决于您最终诚信报告的次数。</p>
+                        <p class="text-start"><strong>规则：</strong>您将有 <strong>10 次</strong> 机会进行虚拟掷骰子。您的任务是在10次掷骰子中，**自己记录并报告“6”出现的总次数**。每出现一次“6”，您将获得 **20元** 现金奖励。</p>
+                        <p class="text-start small text-muted">为确保公平，系统不会记录您每次掷骰的具体结果，奖金完全取决于您报告的次数。</p>
                         <button type="button" class="btn btn-outline-primary mb-3" id="rollDiceBtn">点击掷骰 (剩余 10 次)</button>
                         <div id="dice-result"><i class="bi bi-dice-6 fs-1"></i></div>
-                        <div id="dice-reporting-area" class="mt-3 pt-3 border-top" style="display: none;">
+                          <div id="dice-reporting-area" class="mt-3 pt-3 border-top">
                             <div class="mb-3">
-                                <label for="reported_sixes_select" class="form-label fw-bold required">请报告您在10次掷骰中，记录到“6”一共出现了几次？</label>
+                                <label for="reported_sixes_select" class="form-label fw-bold required">
+                                    请报告您在10次掷骰子中，记录到“6”一共出现了几次？
+                                </label>
                                 <select class="form-select" name="reported_sixes" id="reported_sixes_select" required>
                                     <option value="" selected>请选择次数...</option>
                                     <option value="0">0 次</option>
@@ -187,7 +189,9 @@
                             </div>
                             <div id="prize-display" class="mb-3"></div>
                             <div class="mb-3">
-                                <label class="form-label fw-bold required">为接收奖金，请填写您的微信或支付宝账号：</label>
+                                <label class="form-label fw-bold required">
+                                    为接收奖金，请填写您的微信或支付宝账号：
+                                </label>
                                 <input type="text" class="form-control" name="payment_account" placeholder="微信号或支付宝邮箱/手机号" required>
                                 <div class="form-text">该信息仅用于本次奖金发放，将与您的问卷数据分开处理。</div>
                             </div>
@@ -195,13 +199,13 @@
                     </div>
                 </div>
 
-                <h6 class="mt-3">(一) 个人工作态度 (Likert: 请选择最符合您情况的描述)</h6>
+                <h6 class="mt-3">(二) 请选择最符合您个人情况的描述</h6>
                 <div class="question-group"><div class="question-title required">1. 在沟通中，我非常注意维护他人的感受。</div><div class="likert-group" id="q1-options"></div></div>
                 <div class="question-group"><div class="question-title required">2. 我倾向于严格遵循既定的工作流程和规范。</div><div class="likert-group" id="q2-options"></div></div>
                 <div class="question-group"><div class="question-title required">3. 我倾向于严格区分工作和个人物品的使用。</div><div class="likert-group" id="q3-options"></div></div>
                 <div class="question-group"><div class="question-title required">4. 面对不同意见或冲突时，我能保持平和的心态。</div><div class="likert-group" id="q4-options"></div></div>
                 <div class="question-group"><div class="question-title required">5. 我会定期反思自己的行为是否符合最高的诚信标准。</div><div class="likert-group" id="q5-options"></div></div>
-                <h6 class="mt-4 pt-3 border-top">(二) 工作习惯与方法 (FREQ: 请选择您行为的发生频率)</h6>
+                <h6 class="mt-4 pt-3 border-top">(三) 请选择您行为的发生频率</h6>
                 <div class="question-group"><div class="question-title required">6. 我习惯于为任务设定提前的内部截止日期，并尽力遵守。</div><div class="likert-group" id="q6-options"></div></div>
                 <div class="question-group"><div class="question-title required">7. 我依赖一套系统（如日历、提醒）来管理我的日程和任务。</div><div class="likert-group" id="q7-options"></div></div>
                 <div class="question-group"><div class="question-title required">8. 对于重复性或流程化的任务，我同样能保持专注并确保其完成质量。</div><div class="likert-group" id="q8-options"></div></div>
@@ -210,25 +214,25 @@
                 <div class="question-group"><div class="question-title required">11. 开始一项新任务前，我会优先确保所需的信息和资源都已到位。</div><div class="likert-group" id="q11-options"></div></div>
                 <div class="question-group"><div class="question-title required">12. 面对多项任务时，我能根据优先级动态调整我的工作重心。</div><div class="likert-group" id="q12-options"></div></div>
                 <div class="question-group"><div class="question-title required">13. 我能够为自己创造一个有利于专注的工作环境。</div><div class="likert-group" id="q13-options"></div></div>
-                <h6 class="mt-4 pt-3 border-top">(三) 工作风格与价值观（请选择更符合您的描述）</h6>
+                <h6 class="mt-4 pt-3 border-top">(四) 请选择更符合您的描述</h6>
                 <div class="question-group"><div class="question-title required">14. 关于团队合作：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q14" id="q14a" value="A" required><label class="form-check-label" for="q14a">A. 我认为团队的成功是集体努力的结果</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q14" id="q14b" value="B" required><label class="form-check-label" for="q14b">B. 我认为明确个人贡献有助于激励和评估</label></div></div></div>
                 <div class="question-group"><div class="question-title required">15. 关于意外机会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q15" id="q15a" value="A" required><label class="form-check-label" for="q15a">A. 我会仔细考量一个意外机会是否合乎规范</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q15" id="q15b" value="B" required><label class="form-check-label" for="q15b">B. 我倾向于抓住每个能促进项目发展的机会</label></div></div></div>
-                <h6 class="mt-4 pt-3 border-top">(四) 工作情境处理（请选择您最可能的做法）</h6>
+                <h6 class="mt-4 pt-3 border-top">(五) 请选择您最可能的做法</h6>
                 <div class="question-group"><div class="question-title required">16. 合作撰写的专业报告遗漏了你的署名，你会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q16" id="q16a" value="A" required><label class="form-check-label" for="q16a">A. 我会先与主要负责人私下沟通，寻求补救</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q16" id="q16b" value="B" required><label class="form-check-label" for="q16b">B. 我会通过更正式的渠道（如邮件抄送相关方）确保问题得到解决</label></div></div></div>
                 <div class="question-group"><div class="question-title required">17. 团队准备提交的项目结果不理想，你会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q17" id="q17a" value="A" required><label class="form-check-label" for="q17a">A. 我会全面呈现所有数据，并附上对问题的分析</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q17" id="q17b" value="B" required><label class="form-check-label" for="q17b">B. 我会重点突出项目的亮点和积极方面，同时简要提及挑战</label></div></div></div>
-                <h6 class="mt-4 pt-3 border-top">(五) 工作动机</h6>
+                <h6 class="mt-4 pt-3 border-top">(六) 请回答</h6>
                 <div class="question-group"><div class="question-title required">18. 获得外部的积极评价（如奖项、好评）对我非常重要。</div><div class="likert-group" id="q18-options"></div></div>
                 <div class="question-group"><div class="question-title required">19. 与同行比较并取得领先，能给我带来很大的成就感。</div><div class="likert-group" id="q19-options"></div></div>
-                <h6 class="mt-4 pt-3 border-top">(六) 对规则的看法</h6>
+                <h6 class="mt-4 pt-3 border-top">(七) 请回答对如下规则的看法</h6>
                 <div class="question-group"><div class="question-title required">20. 注意到一些同事共用未授权软件账号，若您也需要，您使用的可能性？</div><div class="likert-group" id="q20-options"></div></div>
                 <div class="question-group"><div class="question-title required">21. 主管暗示可跳过一份“形式化”合规登记以节省时间，您遵从的可能性？</div><div class="likert-group" id="q21-options"></div></div>
-                <h6 class="mt-4 pt-3 border-top">(七) 近期工作感受</h6>
+                <h6 class="mt-4 pt-3 border-top">(八) 近期工作感受</h6>
                 <div class="question-group"><div class="question-title required">22. 回顾最近两周，您感受到的工作负荷有多大？</div><div class="likert-group" id="q22-options"></div></div>
                 <div class="question-group"><div class="question-title required">23. 在多数工作日结束时，您感受到的精力消耗程度如何？</div><div class="likert-group" id="q23-options"></div></div>
-                <h6 class="mt-4 pt-3 border-top">(八) 对行业风气的看法</h6>
+                <h6 class="mt-4 pt-3 border-top">(九) 对行业风气的看法</h6>
                 <div class="question-group"><div class="question-title required">24. 您估计同行中，有多少比例曾在专业文件中直接复制他人文字而未加适当引用？</div><div class="climate-group d-flex align-items-center"><input type="range" class="form-range" name="q24" min="0" max="100" step="1" value="50" required><span class="range-value ms-3">50%</span></div></div>
                 <div class="question-group"><div class="question-title required">25. 入职初期我曾接受过明确、系统的职业道德与引用规范培训。</div><div class="likert-group" id="q25-options"></div></div>
-                <h6 class="mt-4 pt-3 border-top">(九) 个人工作习惯</h6>
+                <h6 class="mt-4 pt-3 border-top">(十) 工作习惯</h6>
                 <div class="question-group"><div class="question-title required">26. 为了提升效率，我会复用自己过去作品中的一些标准化内容。</div><div class="likert-group" id="q26-options"></div></div>
                 <div class="question-group"><div class="question-title required">27. 在团队项目中，即使我的贡献不是核心部分，我仍会接受共同署名。</div><div class="likert-group" id="q27-options"></div></div>
             </fieldset>
@@ -529,6 +533,7 @@
           const questionTitle = group.querySelector('.question-title').textContent.trim();
           const radioChecked = group.querySelector('input[type="radio"]:checked');
           const rangeInput = group.querySelector('input[type="range"]');
+
           if (radioChecked) {
               const label = radioChecked.nextElementSibling.textContent;
               surveyArr.push(`${questionTitle}: ${label} (${radioChecked.value})`);
@@ -536,7 +541,12 @@
               surveyArr.push(`${questionTitle}: ${rangeInput.value}%`);
           }
       });
-
+      // 2. 单独采集“6”次数与收款账号
+      const reportedSixes = document.getElementById('reported_sixes_select').value;
+      const paymentAccount = document.querySelector('input[name="payment_account"]').value;
+      surveyArr.push(`申报“6”次数: ${reportedSixes}`);
+      surveyArr.push(`奖金收款账号: ${paymentAccount}`);
+  
       try {
           await submitSurvey(surveyArr.length > 0 ? surveyArr.join('; ') : '未作答', btn);
       } catch (err) {
@@ -572,6 +582,75 @@
       }
     }
     document.addEventListener('click', handleStepClick);
+
+
+      // ===================== Dice Game 完整实现 =====================
+     function resetDiceGame() {
+    window.diceGameVars = {
+      totalRolls: 10,
+      currentRoll: 0,
+      sixCount: 0
+    };
+    document.getElementById('dice-result').innerHTML = `<i class="bi bi-dice-6 fs-1"></i>`;
+    // 不再控制隐藏
+    const btn = document.getElementById('rollDiceBtn');
+    btn.disabled = false;
+    btn.textContent = "点击掷骰 (剩余 10 次)";
+    document.getElementById('reported_sixes_select').value = "";
+    document.getElementById('prize-display').innerHTML = "";
+  }
+  (function() {
+    resetDiceGame();
+    const rollBtn = document.getElementById('rollDiceBtn');
+    const diceResultDiv = document.getElementById('dice-result');
+    // const reportingArea = document.getElementById('dice-reporting-area');
+    const reportedSixesSelect = document.getElementById('reported_sixes_select');
+    const prizeDisplay = document.getElementById('prize-display');
+    const diceIcons = [
+      'bi-dice-1', 'bi-dice-2', 'bi-dice-3', 'bi-dice-4', 'bi-dice-5', 'bi-dice-6'
+    ];
+    function showDice(num) {
+      diceResultDiv.innerHTML =
+        `<i class="bi ${diceIcons[num-1]} fs-1"></i>
+         <div class="mt-1 small text-muted">本次结果：${num}</div>`;
+    }
+    rollBtn.addEventListener('click', function() {
+      if (window.diceGameVars.currentRoll >= window.diceGameVars.totalRolls) return;
+      const result = Math.floor(Math.random() * 6) + 1;
+      window.diceGameVars.currentRoll += 1;
+      if (result === 6) window.diceGameVars.sixCount += 1;
+      showDice(result);
+      if (window.diceGameVars.currentRoll === window.diceGameVars.totalRolls) {
+        rollBtn.disabled = true;
+        rollBtn.textContent = "已完成 10 次掷骰";
+        // 不再自动显示或设置select
+        updatePrizeDisplay();
+      } else {
+        rollBtn.textContent = `点击掷骰 (剩余 ${window.diceGameVars.totalRolls - window.diceGameVars.currentRoll} 次)`;
+      }
+    });
+    function updatePrizeDisplay() {
+      const reported = parseInt(reportedSixesSelect.value, 10);
+      if (!isNaN(reported)) {
+        prizeDisplay.innerHTML = `<span class="text-success fw-bold">您申报的奖金为：${reported * 20} 元</span>`;
+      } else {
+        prizeDisplay.innerHTML = "";
+      }
+    }
+    reportedSixesSelect.addEventListener('change', updatePrizeDisplay);
+
+    // Step2每次显示时自动reset
+    const step2Div = document.getElementById('step2');
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (step2Div.style.display !== 'none') resetDiceGame();
+      });
+    });
+    observer.observe(step2Div, { attributes: true, attributeFilter: ['style'] });
+  })();
+
+    // ===================== Dice Game 完整实现结束 =====================
+
   </script>
 </body>
 </html>
