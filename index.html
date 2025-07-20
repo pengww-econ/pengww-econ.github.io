@@ -14,13 +14,10 @@
     :root {
       --primary-color: #4f8cff;
       --primary-hover: #3b6fd8;
+      --success-color: #198754;
       --light-gray: #f8f9fa;
-      --medium-gray: #e9ecef;
-      --dark-gray: #6c757d;
       --text-color: #34495e;
       --border-color: #ced4da;
-      --success-color: #198754;
-      --danger-color: #d00;
       --body-bg: #f0f2f5;
       --container-bg: #ffffff;
       --border-radius: 0.5rem;
@@ -32,6 +29,7 @@
       padding-bottom: 2rem;
       background-color: var(--body-bg);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      transition: background-color 0.3s;
     }
 
     .container {
@@ -40,6 +38,7 @@
       box-shadow: var(--shadow);
       border-radius: 1rem;
       padding: 2.5rem;
+      transition: all 0.3s;
     }
 
     /* ===== Header ===== */
@@ -55,7 +54,7 @@
     /* ===== 表单通用 ===== */
     .required::after {
       content: " *";
-      color: var(--danger-color);
+      color: #d00;
       font-weight: bold;
     }
 
@@ -109,7 +108,7 @@
       right: 1rem;
       top: 50%;
       transform: translateY(-50%);
-      color: var(--dark-gray);
+      color: #6c757d;
       font-size: 1.2rem;
       transition: color .2s;
     }
@@ -135,10 +134,10 @@
       align-items: center;
       cursor: pointer;
       text-align: center;
-      width: 18%; /* 5个选项，留出间隙 */
+      width: 18%;
     }
     .likert-scale-container input[type="radio"] {
-      display: none; /* 隐藏原始radio */
+      display: none;
     }
     .likert-scale-container .likert-dot {
       display: block;
@@ -152,7 +151,7 @@
     }
     .likert-scale-container .likert-text {
       font-size: 0.85rem;
-      color: var(--dark-gray);
+      color: #6c757d;
     }
     .likert-scale-container input[type="radio"]:checked ~ .likert-dot {
       background-color: var(--primary-color);
@@ -174,7 +173,6 @@
       box-shadow: 0 4px 12px 0 rgba(79, 140, 255, 0.2);
       transition: all .2s;
     }
-
     .btn-primary:hover,
     .btn-primary:focus {
       background: linear-gradient(90deg, var(--primary-hover) 0, var(--primary-color) 100%);
@@ -231,38 +229,25 @@
           深圳市大数据研究院成立于2016年3月，是深圳市委、市政府支持的市属二类事业单位。我们诚邀志同道合的法律与技术人才，共同打造世界级法律科技产品，推动行业革新与发展。
         </p>
       </header>
-
       <form id="infoForm" autocomplete="off">
         <fieldset>
           <legend>一、基本信息</legend>
           <div class="row g-3">
             <div class="col-md-6"><label class="form-label required">姓名</label><input name="name" class="form-control" required placeholder="请输入姓名"></div>
             <div class="col-md-6"><label class="form-label required">性别</label>
-              <select name="gender" class="form-select" required>
-                <option value="">请选择</option>
-                <option>男</option>
-                <option>女</option>
-              </select>
+              <select name="gender" class="form-select" required><option value="">请选择</option><option>男</option><option>女</option></select>
             </div>
             <div class="col-md-6"><label class="form-label required">出生年份</label><select name="birth_year" class="form-select" required></select></div>
             <div class="col-md-6"><label class="form-label required">手机号</label><input name="phone" class="form-control" pattern="[0-9]{11}" required placeholder="请输入11位手机号"></div>
             <div class="col-md-6"><label class="form-label required">邮箱</label><input type="email" name="email" class="form-control" required placeholder="请输入邮箱"></div>
             <div class="col-md-6"><label class="form-label required">当前城市</label><input name="city" class="form-control" required placeholder="请输入当前城市"></div>
             <div class="col-md-6"><label class="form-label required">最高学历</label>
-              <select name="education" class="form-select" required>
-                <option value="">请选择</option>
-                <option>硕士</option>
-                <option>博士</option>
-              </select>
+              <select name="education" class="form-select" required><option value="">请选择</option><option>硕士</option><option>博士</option></select>
             </div>
             <div class="col-md-6"><label class="form-label required">毕业院校</label><input name="university" class="form-control" required placeholder="请输入毕业院校"></div>
             <div class="col-md-6"><label class="form-label required">所学专业</label><input name="major" class="form-control" required placeholder="请输入所学专业"></div>
             <div class="col-md-6"><label class="form-label required">当前状态</label>
-              <select name="status" class="form-select" required>
-                <option>在读</option>
-                <option>求职中</option>
-                <option>在职</option>
-              </select>
+              <select name="status" class="form-select" required><option>在读</option><option>求职中</option><option>在职</option></select>
             </div>
           </div>
           <div class="mt-4 pt-3 border-top">
@@ -276,33 +261,25 @@
             <div class="likert-scale-container" id="fairness-options"></div>
           </div>
         </fieldset>
-
         <fieldset>
           <legend>二、上传材料</legend>
           <div class="mb-3">
             <label class="form-label required">个人简历（PDF ≤10 MB）</label>
-            <div class="file-upload-wrapper">
-                <input class="form-control" type="file" id="cv" accept="application/pdf" required>
-            </div>
+            <div class="file-upload-wrapper"><input class="form-control" type="file" id="cv" accept="application/pdf" required></div>
             <input type="hidden" name="cv_url">
           </div>
           <div class="mb-3">
             <label class="form-label">硕士论文（PDF ≤30 MB）</label>
-             <div class="file-upload-wrapper">
-                <input class="form-control" type="file" id="master_thesis" accept="application/pdf">
-             </div>
+             <div class="file-upload-wrapper"><input class="form-control" type="file" id="master_thesis" accept="application/pdf"></div>
             <input type="hidden" name="master_thesis_url">
           </div>
           <div class="mb-3">
             <label class="form-label">博士论文（PDF ≤30 MB）</label>
-            <div class="file-upload-wrapper">
-                <input class="form-control" type="file" id="phd_thesis" accept="application/pdf">
-            </div>
+            <div class="file-upload-wrapper"><input class="form-control" type="file" id="phd_thesis" accept="application/pdf"></div>
             <input type="hidden" name="phd_thesis_url">
           </div>
           <div class="form-text">⚠️ 选择文件后将自动上传，成功后输入框会变绿并显示<i class="bi bi-check-circle-fill text-success ms-1"></i>图标。</div>
         </fieldset>
-
         <button class="btn btn-primary btn-lg w-100" type="submit" id="infoSubmitBtn">
           <span class="btn-text">提交信息，进入问卷</span>
           <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
@@ -319,60 +296,20 @@
         <fieldset>
           <legend>问卷（选答）</legend>
           <h6 class="mt-3">(一) 印象管理 — Likert 1–5</h6>
-          <div class="mb-4">
-            <div class="question-title">1. 我从未故意说过会伤害他人感情的话。(反向)</div>
-            <div class="likert-group" id="q1-options"></div>
-          </div>
-          <div class="mb-4">
-            <div class="question-title">2. 即使无人监督，我也始终遵守每一条规定。(反向)</div>
-            <div class="likert-group" id="q2-options"></div>
-          </div>
-          <div class="mb-4">
-            <div class="question-title">3. 在某些场合，我会把公共物品（如公司文具）带回自用。(反向)</div>
-            <div class="likert-group" id="q3-options"></div>
-          </div>
-          <div class="mb-4">
-            <div class="question-title">4. 面对他人冒犯，我有时会在心里生闷气。(反向)</div>
-            <div class="likert-group" id="q4-options"></div>
-          </div>
-          <div class="mb-4">
-            <div class="question-title">5. 回顾过去，我也会反思自己是否始终足够诚实。(反向)</div>
-            <div class="likert-group" id="q5-options"></div>
-          </div>
-
+          <div class="mb-4"><div class="question-title">1. 我从未故意说过会伤害他人感情的话。(反向)</div><div class="likert-group" id="q1-options"></div></div>
+          <div class="mb-4"><div class="question-title">2. 即使无人监督，我也始终遵守每一条规定。(反向)</div><div class="likert-group" id="q2-options"></div></div>
+          <div class="mb-4"><div class="question-title">3. 在某些场合，我会把公共物品（如公司文具）带回自用。(反向)</div><div class="likert-group" id="q3-options"></div></div>
+          <div class="mb-4"><div class="question-title">4. 面对他人冒犯，我有时会在心里生闷气。(反向)</div><div class="likert-group" id="q4-options"></div></div>
+          <div class="mb-4"><div class="question-title">5. 回顾过去，我也会反思自己是否始终足够诚实。(反向)</div><div class="likert-group" id="q5-options"></div></div>
           <h6 class="mt-4 pt-3 border-top">(二) 尽责性 / 自我控制 — FREQ 1–5</h6>
-          <div class="mb-4">
-            <div class="question-title">6. 我通常会在截止日期 24 小时以上前完成文件或报告。</div>
-            <div class="likert-group" id="q6-options"></div>
-          </div>
-          <div class="mb-4">
-            <div class="question-title">7. 偶尔会因事务繁忙而错过截止日期或会议提醒。(反向)</div>
-            <div class="likert-group" id="q7-options"></div>
-          </div>
-          <div class="mb-4">
-            <div class="question-title">8. 即使工作枯燥，我也坚持做到彻底完成。</div>
-            <div class="likert-group" id="q8-options"></div>
-          </div>
-          <div class="mb-4">
-            <div class="question-title">9. 在工作时段，我会抽空查看消息或社交媒体。(反向)</div>
-            <div class="likert-group" id="q9-options"></div>
-          </div>
-          <div class="mb-4">
-            <div class="question-title">10. 我会事先规划当天工作并基本照计划执行。</div>
-            <div class="likert-group" id="q10-options"></div>
-          </div>
-          <div class="mb-4">
-            <div class="question-title">11. 开始任务前，我并不总是先核对全部资料是否齐备。(反向)</div>
-            <div class="likert-group" id="q11-options"></div>
-          </div>
-          <div class="mb-4">
-            <div class="question-title">12. 当有更紧急/新颖的项目出现时，我会优先处理新项目。(反向)</div>
-            <div class="likert-group" id="q12-options"></div>
-          </div>
-          <div class="mb-4">
-            <div class="question-title">13. 当零食、手机等诱惑可能干扰工作时，我能抵制它们。</div>
-            <div class="likert-group" id="q13-options"></div>
-          </div>
+          <div class="mb-4"><div class="question-title">6. 我通常会在截止日期 24 小时以上前完成文件或报告。</div><div class="likert-group" id="q6-options"></div></div>
+          <div class="mb-4"><div class="question-title">7. 偶尔会因事务繁忙而错过截止日期或会议提醒。(反向)</div><div class="likert-group" id="q7-options"></div></div>
+          <div class="mb-4"><div class="question-title">8. 即使工作枯燥，我也坚持做到彻底完成。</div><div class="likert-group" id="q8-options"></div></div>
+          <div class="mb-4"><div class="question-title">9. 在工作时段，我会抽空查看消息或社交媒体。(反向)</div><div class="likert-group" id="q9-options"></div></div>
+          <div class="mb-4"><div class="question-title">10. 我会事先规划当天工作并基本照计划执行。</div><div class="likert-group" id="q10-options"></div></div>
+          <div class="mb-4"><div class="question-title">11. 开始任务前，我并不总是先核对全部资料是否齐备。(反向)</div><div class="likert-group" id="q11-options"></div></div>
+          <div class="mb-4"><div class="question-title">12. 当有更紧急/新颖的项目出现时，我会优先处理新项目。(反向)</div><div class="likert-group" id="q12-options"></div></div>
+          <div class="mb-4"><div class="question-title">13. 当零食、手机等诱惑可能干扰工作时，我能抵制它们。</div><div class="likert-group" id="q13-options"></div></div>
         </fieldset>
         <button class="btn btn-primary btn-lg w-100" type="submit" id="surveySubmitBtn">
           <span class="btn-text">提交问卷</span>
@@ -389,7 +326,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // 0. 用户行为跟踪（分步）
+    // 0. 用户行为跟踪
     let step1Behavior = { firstClickTime: null, lastClickTime: null, clickCount: 0 };
     let step2Behavior = { firstClickTime: null, lastClickTime: null, clickCount: 0 };
     let currentStep = 1;
@@ -408,8 +345,8 @@
     document.addEventListener('click', handleStepClick);
 
     // 题库
-    const authenticityTexts = ['描述A：这个世界充满了机遇和挑战。', '描述B：所有人都能通过努力获得成功。', '描述C：科技进步让生活更美好。', '描述D：每个人都能实现自己的梦想。', '描述E：社会资源分配完全公平。', '描述F：教育是改变命运的唯一途径。', '描述G：健康比金钱更重要。', '描述H：友谊是人生最宝贵的财富。', '描述I：法律面前人人平等。', '描述J：努力工作一定会有回报。', '描述K：幸福可以通过金钱获得。', '描述L：每个人都能享有同等的医疗资源。', '描述M：环境保护是每个人的责任。', '描述N：网络信息都是真实可靠的。', '描述O：社会对弱势群体足够关怀。', '描述P：每个人都能自由表达观点。', '描述Q：家庭是社会的基本单位。', '描述R：所有职业都同样受人尊重。', '描述S：社会治安越来越好。', '描述T：每个人都能享有受教育的权利。'];
-    const fairnessTexts = ['描述1：公司晋升机会对所有员工开放。', '描述2：考试评分标准对每位考生一致。', '描述3：社会福利政策惠及每个人。', '描述4：招聘过程完全公开透明。', '描述5：资源分配遵循公平原则。', '描述6：每个人都能平等获得医疗服务。', '描述7：教育机会对所有人开放。', '描述8：法律对所有人一视同仁。', '描述9：公司奖励机制公正合理。', '描述10：社会保障体系覆盖所有群体。', '描述11：晋升只看能力不看关系。', '描述12：公共资源分配无歧视。', '描述13：评优评奖过程公正公开。', '描述14：住房分配遵循公平原则。', '描述15：社会救助面向所有有需要的人。', '描述16：考试无暗箱操作。', '描述17：公司考核标准公开透明。', '描述18：社会对弱势群体给予同等机会。', '描述19：医疗资源分配公平。', '描述20：教育资源分配合理。'];
+    const authenticityTexts = ['描述A：这个世界充满了机遇和挑战。', '描述B：所有人都能通过努力获得成功。', '描述C：科技进步让生活更美好。', '描述D：每个人都能实现自己的梦想。', '描述E：社会资源分配完全公平。', '描述F：教育是改变命运的唯一途径。', '描述G：健康比金钱更重要。', '描述H：友谊是人生最宝贵的财富。', '描述I：法律面前人人平等。', '描述J：努力工作一定会有回报。'];
+    const fairnessTexts = ['描述1：公司晋升机会对所有员工开放。', '描述2：考试评分标准对每位考生一致。', '描述3：社会福利政策惠及每个人。', '描述4：招聘过程完全公开透明。', '描述5：资源分配遵循公平原则。', '描述6：每个人都能平等获得医疗服务。', '描述7：教育机会对所有人开放。', '描述8：法律对所有人一视同仁。', '描述9：公司奖励机制公正合理。', '描述10：社会保障体系覆盖所有群体。'];
     
     // 1. 出生年份下拉
     (() => {
@@ -432,9 +369,8 @@
       `).join('');
     }
 
-    // 3. 页面加载时渲染所有互动元素
+    // 3. 页面加载时渲染
     document.addEventListener('DOMContentLoaded', function() {
-      // 随机选择真实性/公平性问题
       const randomPick = (arr) => arr[Math.floor(Math.random() * arr.length)];
       
       const authText = randomPick(authenticityTexts);
@@ -447,14 +383,13 @@
       document.getElementById('fairness-text').setAttribute('data-question', fairText);
       renderLikertScale('fairness-options', 'fairness_score', ['非常不公平', '不公平', '一般', '公平', '非常公平'], true);
       
-      // 渲染问卷部分的量表
       const likertOptions = ['非常不同意', '不同意', '不确定', '同意', '非常同意'];
       for(let i = 1; i <= 13; i++) {
           renderLikertScale(`q${i}-options`, `q${i}`, likertOptions);
       }
     });
 
-    // 4. 文件上传逻辑
+    // 4. 文件上传
     async function uploadFile(file) {
       const fd = new FormData();
       fd.append('file', file);
@@ -482,7 +417,7 @@
             }
             try {
               inputEl.disabled = true;
-              wrapper.classList.add('is-uploading'); // 可以添加上传中样式
+              wrapper.classList.add('is-uploading');
               const url = await uploadFile(file);
               document.querySelector(`[name="${hiddenName}"]`).value = url;
               inputEl.classList.add('is-valid');
@@ -490,7 +425,7 @@
             } catch (err) {
               alert(`${label}上传失败：${err.message}`);
               inputEl.classList.remove('is-valid');
-               wrapper.classList.remove('is-valid');
+              wrapper.classList.remove('is-valid');
             } finally {
               inputEl.disabled = false;
               wrapper.classList.remove('is-uploading');
@@ -500,7 +435,7 @@
       }
     });
 
-    // 5. Step1 表单提交，切换到Step2
+    // 5. Step1 表单提交
     let applyId = null;
     let firstStepContent = "";
     document.getElementById('infoForm').addEventListener('submit', async function(e) {
@@ -510,7 +445,6 @@
         form.reportValidity();
         return;
       }
-
       const btn = document.getElementById('infoSubmitBtn');
       const btnText = btn.querySelector('.btn-text');
       const spinner = btn.querySelector('.spinner-border');
@@ -519,7 +453,6 @@
       btnText.textContent = '正在处理...';
       spinner.classList.remove('d-none');
       
-      // 校验简历已上传
       if (!document.querySelector('[name="cv_url"]').value) {
         alert('请等待简历上传成功后再提交');
         btn.disabled = false;
@@ -528,28 +461,19 @@
         return;
       }
 
-      // 拼接数据
-      let basicArr = [];
-      const basicInputs = form.querySelectorAll('[name]:not([type="hidden"])');
-      basicInputs.forEach(el => {
-          let label = el.closest('div')?.querySelector('label')?.textContent.replace(/[*]/g, '').trim() || el.name;
-          if (el.type === 'radio') {
-            if (el.checked) {
-                const qLabel = el.closest('.mt-4')?.querySelector('.question-title')?.textContent.replace(/[*]/g, '').trim() || el.name;
-                const questionText = el.closest('.mt-4')?.querySelector('[data-question]')?.getAttribute('data-question') || '';
-                const answerText = el.parentElement.querySelector('.likert-text').textContent;
-                basicArr.push(`${qLabel}: ${questionText} -> 评分: ${answerText}(${el.value})`);
-            }
-          } else {
-            if (!basicArr.some(item => item.startsWith(label+':'))) {
-                basicArr.push(`${label}:${el.value || '无'}`);
-            }
-          }
+      let basicArr = [], uploadArr = [];
+      form.querySelectorAll('[name]:not([type="hidden"])').forEach(el => {
+        let label = el.closest('div')?.querySelector('label')?.textContent.replace(/[*]/g, '').trim() || el.name;
+        if (el.type === 'radio' && el.checked) {
+          const qLabel = el.closest('.mt-4')?.querySelector('.question-title')?.textContent.replace(/[*]/g, '').trim() || el.name;
+          const questionText = el.closest('.mt-4')?.querySelector('[data-question]')?.getAttribute('data-question') || '';
+          const answerText = el.parentElement.querySelector('.likert-text').textContent;
+          basicArr.push(`${qLabel}: ${questionText} -> 评分: ${answerText}(${el.value})`);
+        } else if (el.type !== 'radio' && !basicArr.some(item => item.startsWith(label+':'))) {
+          basicArr.push(`${label}:${el.value || '无'}`);
+        }
       });
-
-      let uploadArr = [];
-      const hiddenEls = form.querySelectorAll('input[type="hidden"][name$="_url"]');
-      hiddenEls.forEach(el => {
+      form.querySelectorAll('input[type="hidden"][name$="_url"]').forEach(el => {
         let label = el.closest('div.mb-3')?.querySelector('label')?.textContent.replace(/[*]/g, '').trim() || el.name;
         uploadArr.push(`${label}:${el.value || '无'}`);
       });
@@ -570,13 +494,12 @@
         setTimeout(() => {
           document.getElementById('step1').style.display = 'none';
           document.getElementById('step2').style.display = '';
-          window.scrollTo(0, 0); // 跳转后滚动到顶部
+          window.scrollTo(0, 0);
           currentStep = 2;
           btn.disabled = false;
           btnText.textContent = '提交信息，进入问卷';
           spinner.classList.add('d-none');
         }, 400);
-
       } catch (err) {
         alert('提交失败：' + err.message);
         btn.disabled = false;
@@ -597,14 +520,15 @@
       spinner.classList.remove('d-none');
 
       let surveyArr = [];
-      const checkedRadios = this.querySelectorAll('input[type="radio"]:checked');
-      checkedRadios.forEach(radio => {
+      this.querySelectorAll('input[type="radio"]:checked').forEach(radio => {
           const questionTitle = radio.closest('.mb-4')?.querySelector('.question-title')?.textContent.trim() || radio.name;
           const answerText = radio.parentElement.querySelector('.likert-text').textContent;
           surveyArr.push(`${questionTitle}: ${answerText}(${radio.value})`);
       });
 
-      const userBehavior = `Step1-Clicks:${step1Behavior.clickCount}; Step2-Clicks:${step2Behavior.clickCount}`;
+      // [修改] 恢复了完整的时间戳记录
+      const userBehavior = `Step1-第一次点击时间:${step1Behavior.firstClickTime || '无'}; Step1-最后一次点击时间:${step1Behavior.lastClickTime || '无'}; Step1-点击次数:${step1Behavior.clickCount}; Step2-第一次点击时间:${step2Behavior.firstClickTime || '无'}; Step2-最后一次点击时间:${step2Behavior.lastClickTime || '无'}; Step2-点击次数:${step2Behavior.clickCount}`;
+      
       const finalContent = `${firstStepContent}\n【问卷】\n${surveyArr.length > 0 ? surveyArr.join('; ') : '未作答'}\n【用户行为】\n${userBehavior}`;
 
       if (!applyId) {
@@ -623,18 +547,40 @@
         });
         if (!res.ok) throw new Error('提交失败，服务器错误');
         
-        alert('提交成功！感谢您的参与。');
-        window.location.reload(); // 成功后刷新页面
+        // [修改] 调用新的感谢页面函数，而不是弹窗+刷新
+        showThankYouPage();
 
       } catch (err) {
         alert('提交失败：' + err.message);
-      } finally {
         btn.disabled = false;
         btnText.textContent = '提交问卷';
         spinner.classList.add('d-none');
       }
     });
 
+    // [新增] 7. 显示感谢页面的函数
+    function showThankYouPage() {
+      const container = document.querySelector('.container');
+      
+      // 平滑地将表单替换为感谢信息
+      container.style.opacity = '0';
+      
+      setTimeout(() => {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 4rem 1rem;">
+            <i class="bi bi-check-circle-fill" style="font-size: 4.5rem; color: var(--success-color);"></i>
+            <h2 class="fw-bold" style="margin-top: 1.5rem; color: var(--text-color);">提交成功！</h2>
+            <p class="text-secondary" style="font-size: 1.1rem; margin-top: 0.5rem;">感谢您的参与。</p>
+          </div>
+        `;
+        // 移除页脚
+        const footer = document.querySelector('footer');
+        if (footer) footer.remove();
+
+        container.style.opacity = '1';
+        window.scrollTo(0, 0);
+      }, 300);
+    }
   </script>
 </body>
 </html>
