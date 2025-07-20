@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -6,185 +5,214 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>深圳大数据研究院 · （高级）法律研究人员</title>
+  <title>深圳大数据研究院 · （高级）法律研究人员招聘</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <style>
-    body {
-      padding-top: 40px;
+    /* ===== CSS 变量定义 ===== */
+    :root {
+      --primary-color: #4f8cff;
+      --primary-hover: #3b6fd8;
+      --light-gray: #f8f9fa;
+      --medium-gray: #e9ecef;
+      --dark-gray: #6c757d;
+      --text-color: #34495e;
+      --border-color: #ced4da;
+      --success-color: #198754;
+      --danger-color: #d00;
+      --body-bg: #f0f2f5;
+      --container-bg: #ffffff;
+      --border-radius: 0.5rem;
+      --shadow: 0 6px 30px 0 rgba(0, 0, 0, 0.07);
     }
 
+    body {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      background-color: var(--body-bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 800px;
+      background: var(--container-bg);
+      box-shadow: var(--shadow);
+      border-radius: 1rem;
+      padding: 2.5rem;
+    }
+
+    /* ===== Header ===== */
+    header h1 {
+      color: #2c3e50;
+    }
+    header p {
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== 表单通用 ===== */
     .required::after {
       content: " *";
-      color: #d00;
+      color: var(--danger-color);
+      font-weight: bold;
     }
 
     fieldset {
-      border: 1px solid #ced4da;
-      padding: 1.5rem;
-      border-radius: .5rem;
-      margin-bottom: 1.5rem;
+      border: 1px solid var(--border-color);
+      padding: 1.5rem 1.75rem;
+      border-radius: var(--border-radius);
+      margin-bottom: 2rem;
+      background-color: var(--light-gray);
     }
 
     legend {
       width: auto;
       padding: 0 .5rem;
       font-weight: 600;
-    }
-
-    .scale-hint {
-      font-size: .9rem;
-      color: #6c757d;
-    }
-
-    .is-valid {
-      border-color: #198754 !important;
-    }
-
-    .container {
-      max-width: 700px;
-      background: #fff;
-      box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
-      border-radius: 1rem;
-      padding: 2.5rem 2rem 2rem 2rem;
-    }
-
-    header {
-      margin-bottom: 2.5rem !important;
-    }
-
-    fieldset {
-      background: #f8f9fa;
-      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.03);
-      border-radius: .75rem;
-      border-width: 1.5px;
-      margin-bottom: 2rem;
-      padding: 2rem 1.5rem 1.5rem 1.5rem;
-    }
-
-    legend {
-      font-size: 1.15rem;
-      color: #2c3e50;
-      letter-spacing: 1px;
-      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      color: var(--text-color);
     }
 
     .form-label {
       font-weight: 500;
-      color: #34495e;
+      color: var(--text-color);
+      margin-bottom: 0.5rem;
     }
 
     .form-control,
     .form-select {
-      border-radius: .5rem;
+      border-radius: var(--border-radius);
       transition: border-color .2s, box-shadow .2s;
+      border: 1px solid var(--border-color);
     }
 
     .form-control:focus,
     .form-select:focus {
-      border-color: #4f8cff;
-      box-shadow: 0 0 0 2px #4f8cff33;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(79, 140, 255, 0.2);
     }
 
-    .form-control:hover,
-    .form-select:hover {
-      border-color: #4f8cff;
+    /* ===== 文件上传美化 ===== */
+    .file-upload-wrapper {
+      position: relative;
+    }
+    .file-upload-wrapper .form-control.is-valid {
+      border-color: var(--success-color);
+      background-color: #e8f5e9;
+    }
+    .file-upload-wrapper::after {
+      font-family: 'bootstrap-icons';
+      content: '\F59F'; /* Bootstrap Icon: cloud-arrow-up */
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--dark-gray);
+      font-size: 1.2rem;
+      transition: color .2s;
+    }
+    .file-upload-wrapper.is-valid::after {
+        content: '\F26A'; /* Bootstrap Icon: check-circle-fill */
+        color: var(--success-color);
     }
 
+    /* ===== Likert 量表美化 ===== */
+    .question-title {
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      color: #222;
+    }
+    .likert-scale-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    .likert-scale-container .likert-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      text-align: center;
+      width: 18%; /* 5个选项，留出间隙 */
+    }
+    .likert-scale-container input[type="radio"] {
+      display: none; /* 隐藏原始radio */
+    }
+    .likert-scale-container .likert-dot {
+      display: block;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid var(--border-color);
+      background-color: #fff;
+      transition: all 0.2s ease-in-out;
+      margin-bottom: 0.4rem;
+    }
+    .likert-scale-container .likert-text {
+      font-size: 0.85rem;
+      color: var(--dark-gray);
+    }
+    .likert-scale-container input[type="radio"]:checked ~ .likert-dot {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      transform: scale(1.1);
+    }
+    .likert-scale-container .likert-label:hover .likert-dot {
+      border-color: var(--primary-hover);
+    }
+
+    /* ===== 按钮 ===== */
     .btn-primary {
-      background: linear-gradient(90deg, #4f8cff 0, #3b6fd8 100%);
+      background: linear-gradient(90deg, var(--primary-color) 0, var(--primary-hover) 100%);
       border: none;
-      border-radius: .5rem;
+      border-radius: var(--border-radius);
       font-size: 1.15rem;
       font-weight: 600;
       padding: .75rem 0;
-      box-shadow: 0 2px 8px 0 rgba(79, 140, 255, 0.08);
-      transition: background .2s, box-shadow .2s;
+      box-shadow: 0 4px 12px 0 rgba(79, 140, 255, 0.2);
+      transition: all .2s;
     }
 
     .btn-primary:hover,
     .btn-primary:focus {
-      background: linear-gradient(90deg, #3b6fd8 0, #4f8cff 100%);
-      box-shadow: 0 4px 16px 0 rgba(79, 140, 255, 0.12);
+      background: linear-gradient(90deg, var(--primary-hover) 0, var(--primary-color) 100%);
+      box-shadow: 0 6px 18px 0 rgba(79, 140, 255, 0.25);
+      transform: translateY(-2px);
+    }
+    
+    /* ===== 第二页问卷 ===== */
+    #step2 h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: #2c3e50;
     }
 
     .alert-secondary {
-      background: #f3f6fa;
-      border-radius: .5rem;
+      background: #e9ecef;
+      border-radius: var(--border-radius);
       border: none;
-      color: #34495e;
+      color: var(--text-color);
       font-size: 1rem;
-      margin: 2rem 0 1.5rem 0;
-      box-shadow: 0 1px 4px 0 rgba(44, 62, 80, 0.04);
+      margin: 1.5rem 0;
     }
-
-    /* Likert量表美化 */
-    .question-title {
-      font-weight: 500;
-      margin-bottom: 0.3em;
-      color: #222;
-    }
-
-    .likert-group {
-      display: flex;
-      gap: 1.2em;
-      margin-bottom: 0.2em;
-    }
-
-    .likert-group label {
-      font-weight: 400;
-      color: #444;
-      display: flex;
-      align-items: center;
-      gap: 0.2em;
-      cursor: pointer;
-    }
-
-    .likert-group input[type="radio"] {
-      margin-right: 0.15em;
-      accent-color: #4f8cff;
-      transform: scale(1.15);
-    }
-
-    /* 文件上传区域美化 */
-    input[type="file"] {
-      background: #f8f9fa;
-      border-radius: .5rem;
-      padding: .5em;
-      border: 1.5px dashed #ced4da;
-      transition: border-color .2s;
-    }
-
-    input[type="file"]:focus {
-      border-color: #4f8cff;
-    }
-
-    /* 响应式优化 */
-    @media (max-width: 600px) {
+    
+    /* ===== 响应式优化 ===== */
+    @media (max-width: 768px) {
+      body {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
       .container {
-        padding: 1rem 0.2rem 1.5rem 0.2rem;
+        padding: 1.5rem;
       }
-
       fieldset {
-        padding: 1.2rem 0.5rem 1rem 0.5rem;
+        padding: 1.2rem 1rem;
       }
-
-      legend {
-        font-size: 1rem;
+      .likert-scale-container .likert-text {
+        font-size: 0.75rem;
       }
-
-      .btn-lg {
-        font-size: 1rem;
-        padding: .65rem 0;
-      }
-    }
-
-    .mb-2 {
-      margin-bottom: 1.5rem !important;
-    }
-
-    .mb-3 {
-      margin-bottom: 2rem !important;
     }
   </style>
 </head>
@@ -192,26 +220,19 @@
 <body>
   <div class="container">
 
-    <!-- Header -->
-    <header class="mb-4 text-center">
-      <img src="szbigdata.png" alt="深圳大数据研究院" style="height:80px" />
-      <h1 class="h3 fw-bold mb-3">
-      深圳大数据研究院 · 2025年招聘启事<br>
-      法律研究人员、高级法律研究人员（配合大模型研发）
-    </h1>
-    <p class="text-secondary lh-lg">
-      深圳市大数据研究院（Shenzhen Research Institute of Big Data）成立于2016年3月，是深圳市委、市政府支持的市属二类事业单位，前身为香港中文大学（深圳）大数据信息处理及应用创新团队。2019年，研究院成为深圳市基础研究机构之一，聚焦网络系统优化、人工智能大模型、优化与工程计算三大方向。<br>
-      法律大数据与人工智能团队承担司法部与科技部多项重点实验室和国家计划任务，致力于开发法律大模型、智能体及数据中台，深耕法律科技与产业转化。<br>
-      我们诚邀志同道合的法律与技术人才，共同打造世界级法律科技产品，推动行业革新与发展。
-    </p>
-  </div>
-      
-    </header>
-
-    <!-- ============ Step 1: 个人信息+文件上传 ============ -->
     <div id="step1">
+      <header class="mb-5 text-center">
+        <img src="szbigdata.png" alt="深圳大数据研究院" style="height:80px; margin-bottom: 1rem;" />
+        <h1 class="h3 fw-bold mb-3">
+          深圳大数据研究院 · 2025年招聘启事<br>
+          （高级）法律研究人员
+        </h1>
+        <p class="text-secondary lh-lg">
+          深圳市大数据研究院成立于2016年3月，是深圳市委、市政府支持的市属二类事业单位。我们诚邀志同道合的法律与技术人才，共同打造世界级法律科技产品，推动行业革新与发展。
+        </p>
+      </header>
+
       <form id="infoForm" autocomplete="off">
-        <!-- 1. 基本信息 -->
         <fieldset>
           <legend>一、基本信息</legend>
           <div class="row g-3">
@@ -244,42 +265,42 @@
               </select>
             </div>
           </div>
-          <!-- 必做打分题：真实性、公平性 -->
-          <div class="mt-4 mb-3">
-            <label class="form-label required" id="authenticity-label">请给下面文字描述的真实性打分？</label>
-            <div class="mb-2" id="authenticity-text" style="font-size:1.05em;color:#2c3e50;font-weight:500;"></div>
-            <div class="likert-group" id="authenticity-options">
-              <!-- 选项JS生成 -->
-            </div>
+          <div class="mt-4 pt-3 border-top">
+            <div class="question-title required" id="authenticity-label">请评价以下描述的真实性：</div>
+            <div class="mb-3" id="authenticity-text" style="font-size:1.05em;color:#2c3e50;font-weight:500;"></div>
+            <div class="likert-scale-container" id="authenticity-options"></div>
           </div>
-          <div class="mb-3">
-            <label class="form-label required" id="fairness-label">请给下面文字描述的公平性打分？</label>
-            <div class="mb-2" id="fairness-text" style="font-size:1.05em;color:#2c3e50;font-weight:500;"></div>
-            <div class="likert-group" id="fairness-options">
-              <!-- 选项JS生成 -->
-            </div>
+          <div class="mt-4 pt-3 border-top">
+            <div class="question-title required" id="fairness-label">请评价以下描述的公平性：</div>
+            <div class="mb-3" id="fairness-text" style="font-size:1.05em;color:#2c3e50;font-weight:500;"></div>
+            <div class="likert-scale-container" id="fairness-options"></div>
           </div>
         </fieldset>
 
-        <!-- 2. 上传材料 -->
         <fieldset>
           <legend>二、上传材料</legend>
           <div class="mb-3">
             <label class="form-label required">个人简历（PDF ≤10 MB）</label>
-            <input class="form-control" type="file" id="cv" accept="application/pdf" required>
+            <div class="file-upload-wrapper">
+                <input class="form-control" type="file" id="cv" accept="application/pdf" required>
+            </div>
             <input type="hidden" name="cv_url">
           </div>
           <div class="mb-3">
             <label class="form-label">硕士论文（PDF ≤30 MB）</label>
-            <input class="form-control" type="file" id="master_thesis" accept="application/pdf">
+             <div class="file-upload-wrapper">
+                <input class="form-control" type="file" id="master_thesis" accept="application/pdf">
+             </div>
             <input type="hidden" name="master_thesis_url">
           </div>
           <div class="mb-3">
             <label class="form-label">博士论文（PDF ≤30 MB）</label>
-            <input class="form-control" type="file" id="phd_thesis" accept="application/pdf">
+            <div class="file-upload-wrapper">
+                <input class="form-control" type="file" id="phd_thesis" accept="application/pdf">
+            </div>
             <input type="hidden" name="phd_thesis_url">
           </div>
-          <div class="form-text">⚠️ 选择文件后将自动上传，成功后输入框会变绿。</div>
+          <div class="form-text">⚠️ 选择文件后将自动上传，成功后输入框会变绿并显示<i class="bi bi-check-circle-fill text-success ms-1"></i>图标。</div>
         </fieldset>
 
         <button class="btn btn-primary btn-lg w-100" type="submit" id="infoSubmitBtn">
@@ -289,164 +310,83 @@
       </form>
     </div>
 
-    <!-- ============ Step 2: 问卷 ============ -->
     <div id="step2" style="display:none;">
+      <h2 class="fw-bold">问卷调查</h2>
       <form id="surveyForm" autocomplete="off">
         <div class="alert alert-secondary">
           <strong>问卷说明：</strong> 本问卷匿名，仅用于科研统计；全部为<strong>可选</strong>题。预计用时 8–10 分钟。
         </div>
         <fieldset>
           <legend>问卷（选答）</legend>
-          <!-- (一) 印象管理 -->
           <h6 class="mt-3">(一) 印象管理 — Likert 1–5</h6>
-          <div class="mb-2">
+          <div class="mb-4">
             <div class="question-title">1. 我从未故意说过会伤害他人感情的话。(反向)</div>
-            <div class="likert-group">
-              <label><input type="radio" name="q1" value="1"> 1</label>
-              <label><input type="radio" name="q1" value="2"> 2</label>
-              <label><input type="radio" name="q1" value="3"> 3</label>
-              <label><input type="radio" name="q1" value="4"> 4</label>
-              <label><input type="radio" name="q1" value="5"> 5</label>
-            </div>
+            <div class="likert-group" id="q1-options"></div>
           </div>
-          <div class="mb-2">
+          <div class="mb-4">
             <div class="question-title">2. 即使无人监督，我也始终遵守每一条规定。(反向)</div>
-            <div class="likert-group">
-              <label><input type="radio" name="q2" value="1"> 1</label>
-              <label><input type="radio" name="q2" value="2"> 2</label>
-              <label><input type="radio" name="q2" value="3"> 3</label>
-              <label><input type="radio" name="q2" value="4"> 4</label>
-              <label><input type="radio" name="q2" value="5"> 5</label>
-            </div>
+            <div class="likert-group" id="q2-options"></div>
           </div>
-          <div class="mb-2">
+          <div class="mb-4">
             <div class="question-title">3. 在某些场合，我会把公共物品（如公司文具）带回自用。(反向)</div>
-            <div class="likert-group">
-              <label><input type="radio" name="q3" value="1"> 1</label>
-              <label><input type="radio" name="q3" value="2"> 2</label>
-              <label><input type="radio" name="q3" value="3"> 3</label>
-              <label><input type="radio" name="q3" value="4"> 4</label>
-              <label><input type="radio" name="q3" value="5"> 5</label>
-            </div>
+            <div class="likert-group" id="q3-options"></div>
           </div>
-          <div class="mb-2">
+          <div class="mb-4">
             <div class="question-title">4. 面对他人冒犯，我有时会在心里生闷气。(反向)</div>
-            <div class="likert-group">
-              <label><input type="radio" name="q4" value="1"> 1</label>
-              <label><input type="radio" name="q4" value="2"> 2</label>
-              <label><input type="radio" name="q4" value="3"> 3</label>
-              <label><input type="radio" name="q4" value="4"> 4</label>
-              <label><input type="radio" name="q4" value="5"> 5</label>
-            </div>
+            <div class="likert-group" id="q4-options"></div>
           </div>
-          <div class="mb-3">
+          <div class="mb-4">
             <div class="question-title">5. 回顾过去，我也会反思自己是否始终足够诚实。(反向)</div>
-            <div class="likert-group">
-              <label><input type="radio" name="q5" value="1"> 1</label>
-              <label><input type="radio" name="q5" value="2"> 2</label>
-              <label><input type="radio" name="q5" value="3"> 3</label>
-              <label><input type="radio" name="q5" value="4"> 4</label>
-              <label><input type="radio" name="q5" value="5"> 5</label>
-            </div>
+            <div class="likert-group" id="q5-options"></div>
           </div>
-          <!-- (二) 尽责性 / 自我控制 -->
-          <h6 class="mt-3">(二) 尽责性 / 自我控制 — FREQ 1–5</h6>
-          <div class="mb-2">
+
+          <h6 class="mt-4 pt-3 border-top">(二) 尽责性 / 自我控制 — FREQ 1–5</h6>
+          <div class="mb-4">
             <div class="question-title">6. 我通常会在截止日期 24 小时以上前完成文件或报告。</div>
-            <div class="likert-group">
-              <label><input type="radio" name="q6" value="1"> 1</label>
-              <label><input type="radio" name="q6" value="2"> 2</label>
-              <label><input type="radio" name="q6" value="3"> 3</label>
-              <label><input type="radio" name="q6" value="4"> 4</label>
-              <label><input type="radio" name="q6" value="5"> 5</label>
-            </div>
+            <div class="likert-group" id="q6-options"></div>
           </div>
-          <div class="mb-2">
+          <div class="mb-4">
             <div class="question-title">7. 偶尔会因事务繁忙而错过截止日期或会议提醒。(反向)</div>
-            <div class="likert-group">
-              <label><input type="radio" name="q7" value="1"> 1</label>
-              <label><input type="radio" name="q7" value="2"> 2</label>
-              <label><input type="radio" name="q7" value="3"> 3</label>
-              <label><input type="radio" name="q7" value="4"> 4</label>
-              <label><input type="radio" name="q7" value="5"> 5</label>
-            </div>
+            <div class="likert-group" id="q7-options"></div>
           </div>
-          <div class="mb-2">
+          <div class="mb-4">
             <div class="question-title">8. 即使工作枯燥，我也坚持做到彻底完成。</div>
-            <div class="likert-group">
-              <label><input type="radio" name="q8" value="1"> 1</label>
-              <label><input type="radio" name="q8" value="2"> 2</label>
-              <label><input type="radio" name="q8" value="3"> 3</label>
-              <label><input type="radio" name="q8" value="4"> 4</label>
-              <label><input type="radio" name="q8" value="5"> 5</label>
-            </div>
+            <div class="likert-group" id="q8-options"></div>
           </div>
-          <div class="mb-2">
+          <div class="mb-4">
             <div class="question-title">9. 在工作时段，我会抽空查看消息或社交媒体。(反向)</div>
-            <div class="likert-group">
-              <label><input type="radio" name="q9" value="1"> 1</label>
-              <label><input type="radio" name="q9" value="2"> 2</label>
-              <label><input type="radio" name="q9" value="3"> 3</label>
-              <label><input type="radio" name="q9" value="4"> 4</label>
-              <label><input type="radio" name="q9" value="5"> 5</label>
-            </div>
+            <div class="likert-group" id="q9-options"></div>
           </div>
-          <div class="mb-2">
+          <div class="mb-4">
             <div class="question-title">10. 我会事先规划当天工作并基本照计划执行。</div>
-            <div class="likert-group">
-              <label><input type="radio" name="q10" value="1"> 1</label>
-              <label><input type="radio" name="q10" value="2"> 2</label>
-              <label><input type="radio" name="q10" value="3"> 3</label>
-              <label><input type="radio" name="q10" value="4"> 4</label>
-              <label><input type="radio" name="q10" value="5"> 5</label>
-            </div>
+            <div class="likert-group" id="q10-options"></div>
           </div>
-          <div class="mb-2">
+          <div class="mb-4">
             <div class="question-title">11. 开始任务前，我并不总是先核对全部资料是否齐备。(反向)</div>
-            <div class="likert-group">
-              <label><input type="radio" name="q11" value="1"> 1</label>
-              <label><input type="radio" name="q11" value="2"> 2</label>
-              <label><input type="radio" name="q11" value="3"> 3</label>
-              <label><input type="radio" name="q11" value="4"> 4</label>
-              <label><input type="radio" name="q11" value="5"> 5</label>
-            </div>
+            <div class="likert-group" id="q11-options"></div>
           </div>
-          <div class="mb-2">
+          <div class="mb-4">
             <div class="question-title">12. 当有更紧急/新颖的项目出现时，我会优先处理新项目。(反向)</div>
-            <div class="likert-group">
-              <label><input type="radio" name="q12" value="1"> 1</label>
-              <label><input type="radio" name="q12" value="2"> 2</label>
-              <label><input type="radio" name="q12" value="3"> 3</label>
-              <label><input type="radio" name="q12" value="4"> 4</label>
-              <label><input type="radio" name="q12" value="5"> 5</label>
-            </div>
+            <div class="likert-group" id="q12-options"></div>
           </div>
-          <div class="mb-3">
+          <div class="mb-4">
             <div class="question-title">13. 当零食、手机等诱惑可能干扰工作时，我能抵制它们。</div>
-            <div class="likert-group">
-              <label><input type="radio" name="q13" value="1"> 1</label>
-              <label><input type="radio" name="q13" value="2"> 2</label>
-              <label><input type="radio" name="q13" value="3"> 3</label>
-              <label><input type="radio" name="q13" value="4"> 4</label>
-              <label><input type="radio" name="q13" value="5"> 5</label>
-            </div>
+            <div class="likert-group" id="q13-options"></div>
           </div>
         </fieldset>
         <button class="btn btn-primary btn-lg w-100" type="submit" id="surveySubmitBtn">
-          <span class="btn-text">提交</span>
+          <span class="btn-text">提交问卷</span>
           <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
         </button>
       </form>
     </div>
 
-    <!-- Footer -->
     <footer class="mt-5 text-center small text-muted">
       <p>© 2025 深圳大数据研究院</p>
-      <p><a href="mailto:research@szbigdata.org.cn">research@szbigdata.org.cn</a></p>
+      <p><a href="mailto:research@szbigdata.org.cn" class="text-muted">research@szbigdata.org.cn</a></p>
     </footer>
   </div>
 
-  <!-- ================== JS ================== -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     // 0. 用户行为跟踪（分步）
@@ -467,249 +407,176 @@
     }
     document.addEventListener('click', handleStepClick);
 
-    // ========== 新增：真实性/公平性题库 ==========
-    const authenticityTexts = [
-      '描述A：这个世界充满了机遇和挑战。',
-      '描述B：所有人都能通过努力获得成功。',
-      '描述C：科技进步让生活更美好。',
-      '描述D：每个人都能实现自己的梦想。',
-      '描述E：社会资源分配完全公平。',
-      '描述F：教育是改变命运的唯一途径。',
-      '描述G：健康比金钱更重要。',
-      '描述H：友谊是人生最宝贵的财富。',
-      '描述I：法律面前人人平等。',
-      '描述J：努力工作一定会有回报。',
-      '描述K：幸福可以通过金钱获得。',
-      '描述L：每个人都能享有同等的医疗资源。',
-      '描述M：环境保护是每个人的责任。',
-      '描述N：网络信息都是真实可靠的。',
-      '描述O：社会对弱势群体足够关怀。',
-      '描述P：每个人都能自由表达观点。',
-      '描述Q：家庭是社会的基本单位。',
-      '描述R：所有职业都同样受人尊重。',
-      '描述S：社会治安越来越好。',
-      '描述T：每个人都能享有受教育的权利。'
-
-    ];
-    const fairnessTexts = [
-      '描述1：公司晋升机会对所有员工开放。',
-      '描述2：考试评分标准对每位考生一致。',
-      '描述3：社会福利政策惠及每个人。',
-      '描述4：招聘过程完全公开透明。',
-      '描述5：资源分配遵循公平原则。',
-      '描述6：每个人都能平等获得医疗服务。',
-      '描述7：教育机会对所有人开放。',
-      '描述8：法律对所有人一视同仁。',
-      '描述9：公司奖励机制公正合理。',
-      '描述10：社会保障体系覆盖所有群体。',
-      '描述11：晋升只看能力不看关系。',
-      '描述12：公共资源分配无歧视。',
-      '描述13：评优评奖过程公正公开。',
-      '描述14：住房分配遵循公平原则。',
-      '描述15：社会救助面向所有有需要的人。',
-      '描述16：考试无暗箱操作。',
-      '描述17：公司考核标准公开透明。',
-      '描述18：社会对弱势群体给予同等机会。',
-      '描述19：医疗资源分配公平。',
-      '描述20：教育资源分配合理。'
- 
-    ];
-    // ========== END ==========
-
+    // 题库
+    const authenticityTexts = ['描述A：这个世界充满了机遇和挑战。', '描述B：所有人都能通过努力获得成功。', '描述C：科技进步让生活更美好。', '描述D：每个人都能实现自己的梦想。', '描述E：社会资源分配完全公平。', '描述F：教育是改变命运的唯一途径。', '描述G：健康比金钱更重要。', '描述H：友谊是人生最宝贵的财富。', '描述I：法律面前人人平等。', '描述J：努力工作一定会有回报。', '描述K：幸福可以通过金钱获得。', '描述L：每个人都能享有同等的医疗资源。', '描述M：环境保护是每个人的责任。', '描述N：网络信息都是真实可靠的。', '描述O：社会对弱势群体足够关怀。', '描述P：每个人都能自由表达观点。', '描述Q：家庭是社会的基本单位。', '描述R：所有职业都同样受人尊重。', '描述S：社会治安越来越好。', '描述T：每个人都能享有受教育的权利。'];
+    const fairnessTexts = ['描述1：公司晋升机会对所有员工开放。', '描述2：考试评分标准对每位考生一致。', '描述3：社会福利政策惠及每个人。', '描述4：招聘过程完全公开透明。', '描述5：资源分配遵循公平原则。', '描述6：每个人都能平等获得医疗服务。', '描述7：教育机会对所有人开放。', '描述8：法律对所有人一视同仁。', '描述9：公司奖励机制公正合理。', '描述10：社会保障体系覆盖所有群体。', '描述11：晋升只看能力不看关系。', '描述12：公共资源分配无歧视。', '描述13：评优评奖过程公正公开。', '描述14：住房分配遵循公平原则。', '描述15：社会救助面向所有有需要的人。', '描述16：考试无暗箱操作。', '描述17：公司考核标准公开透明。', '描述18：社会对弱势群体给予同等机会。', '描述19：医疗资源分配公平。', '描述20：教育资源分配合理。'];
+    
     // 1. 出生年份下拉
     (() => {
       const sel = document.querySelector('[name="birth_year"]'), now = new Date().getFullYear();
-      for (let y = now - 70; y <= now; y++) sel.append(new Option(y, y));
+      let options = '<option value="">请选择</option>';
+      for (let y = now - 18; y >= now - 70; y--) options += `<option value="${y}">${y}</option>`;
+      sel.innerHTML = options;
     })();
 
-    // ========== 新增：渲染真实性/公平性打分题 ==========
-    function randomPick(arr) {
-      return arr[Math.floor(Math.random() * arr.length)];
-    }
-    function renderLikertOptions(containerId, name, options) {
+    // 2. Likert 量表渲染函数
+    function renderLikertScale(containerId, name, options, isRequired = false) {
       const container = document.getElementById(containerId);
-      container.innerHTML = options.map((opt, i) =>
-        `<label><input type="radio" name="${name}" value="${opt}" required> ${opt}</label>`
-      ).join(' ');
+      if (!container) return;
+      container.innerHTML = options.map((opt, i) => `
+        <label class="likert-label">
+          <input type="radio" name="${name}" value="${i+1}" ${isRequired ? 'required' : ''}>
+          <span class="likert-dot"></span>
+          <span class="likert-text">${opt}</span>
+        </label>
+      `).join('');
     }
-    // 页面加载时随机渲染
+
+    // 3. 页面加载时渲染所有互动元素
     document.addEventListener('DOMContentLoaded', function() {
-      // 真实性
+      // 随机选择真实性/公平性问题
+      const randomPick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+      
       const authText = randomPick(authenticityTexts);
       document.getElementById('authenticity-text').textContent = authText;
-      renderLikertOptions('authenticity-options', 'authenticity_score', [
-        '非常真实', '很真实', '真实', '不是很真实', '非常不真实'
-      ]);
-      // 公平性
+      document.getElementById('authenticity-text').setAttribute('data-question', authText);
+      renderLikertScale('authenticity-options', 'authenticity_score', ['非常不真实', '不真实', '一般', '真实', '非常真实'], true);
+
       const fairText = randomPick(fairnessTexts);
       document.getElementById('fairness-text').textContent = fairText;
-      renderLikertOptions('fairness-options', 'fairness_score', [
-        '非常公平', '很公平', '公平', '不是很公平', '非常不公平'
-      ]);
-      // 记录题干，便于提交
-      document.getElementById('authenticity-text').setAttribute('data-question', authText);
       document.getElementById('fairness-text').setAttribute('data-question', fairText);
+      renderLikertScale('fairness-options', 'fairness_score', ['非常不公平', '不公平', '一般', '公平', '非常公平'], true);
+      
+      // 渲染问卷部分的量表
+      const likertOptions = ['非常不同意', '不同意', '不确定', '同意', '非常同意'];
+      for(let i = 1; i <= 13; i++) {
+          renderLikertScale(`q${i}-options`, `q${i}`, likertOptions);
+      }
     });
-    // ========== END ==========
 
-    // 2. 文件上传函数
+    // 4. 文件上传逻辑
     async function uploadFile(file) {
       const fd = new FormData();
       fd.append('file', file);
       const res = await fetch('https://form5353.uuyianfei.site/file/upload', { method: 'POST', body: fd });
-      if (!res.ok) throw new Error('上传失败');
+      if (!res.ok) throw new Error('上传失败，请检查网络');
       const data = await res.json();
-      if (!data.url) throw new Error('未返回url');
+      if (!data.url) throw new Error('服务器未返回文件URL');
       return data.url;
     }
-    [
-      { inputId: 'cv', hiddenName: 'cv_url', maxSize: 10 * 1024 * 1024, label: '个人简历（≤10MB）' },
-      { inputId: 'master_thesis', hiddenName: 'master_thesis_url', maxSize: 30 * 1024 * 1024, label: '硕士论文（≤30MB）' },
-      { inputId: 'phd_thesis', hiddenName: 'phd_thesis_url', maxSize: 50 * 1024 * 1024, label: '博士论文（≤50MB）' }
+    
+    [{ inputId: 'cv', hiddenName: 'cv_url', maxSize: 10 * 1024 * 1024, label: '个人简历' },
+     { inputId: 'master_thesis', hiddenName: 'master_thesis_url', maxSize: 30 * 1024 * 1024, label: '硕士论文' },
+     { inputId: 'phd_thesis', hiddenName: 'phd_thesis_url', maxSize: 30 * 1024 * 1024, label: '博士论文' }
     ].forEach(({ inputId, hiddenName, maxSize, label }) => {
-      const el = document.getElementById(inputId);
-      if (el) {
-        el.addEventListener('change', async e => {
-          const f = e.target.files[0];
-          if (f) {
-            if (f.size > maxSize) {
-              alert(label + '文件不能超过' + (maxSize / 1024 / 1024) + 'MB！');
-              el.value = '';
-              el.classList.remove('is-valid');
-              el.dataset.uploaded = '';
-              document.querySelector(`[name="${hiddenName}"]`).value = '';
+      const inputEl = document.getElementById(inputId);
+      if (inputEl) {
+        inputEl.addEventListener('change', async e => {
+          const wrapper = inputEl.parentElement;
+          const file = e.target.files[0];
+          if (file) {
+            if (file.size > maxSize) {
+              alert(`${label}文件不能超过 ${maxSize / 1024 / 1024}MB！`);
+              inputEl.value = '';
               return;
             }
             try {
-              const url = await uploadFile(f);
+              inputEl.disabled = true;
+              wrapper.classList.add('is-uploading'); // 可以添加上传中样式
+              const url = await uploadFile(file);
               document.querySelector(`[name="${hiddenName}"]`).value = url;
-              el.dataset.uploaded = '1';
-              el.classList.add('is-valid');
+              inputEl.classList.add('is-valid');
+              wrapper.classList.add('is-valid');
             } catch (err) {
-              alert('文件上传失败：' + err.message);
+              alert(`${label}上传失败：${err.message}`);
+              inputEl.classList.remove('is-valid');
+               wrapper.classList.remove('is-valid');
+            } finally {
+              inputEl.disabled = false;
+              wrapper.classList.remove('is-uploading');
             }
           }
         });
       }
     });
 
-    // 3. Step1表单提交，切换到Step2
-    let applyId = null; // 新增：保存第一次提交返回的id
-    let firstStepContent = ""; // 新增：保存第一次提交的content
+    // 5. Step1 表单提交，切换到Step2
+    let applyId = null;
+    let firstStepContent = "";
     document.getElementById('infoForm').addEventListener('submit', async function(e) {
       e.preventDefault();
       const form = e.target;
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
       const btn = document.getElementById('infoSubmitBtn');
       const btnText = btn.querySelector('.btn-text');
       const spinner = btn.querySelector('.spinner-border');
+      
       btn.disabled = true;
-      btnText.textContent = '正在进入问卷...';
+      btnText.textContent = '正在处理...';
       spinner.classList.remove('d-none');
-      // 检查简历是否上传完成
-      const cv = document.getElementById('cv');
-      if (cv.required && !cv.dataset.uploaded) {
-        alert('请等待简历上传完成再进入问卷');
+      
+      // 校验简历已上传
+      if (!document.querySelector('[name="cv_url"]').value) {
+        alert('请等待简历上传成功后再提交');
         btn.disabled = false;
         btnText.textContent = '提交信息，进入问卷';
         spinner.classList.add('d-none');
         return;
       }
-      // 校验必填项
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        btn.disabled = false;
-        btnText.textContent = '提交信息，进入问卷';
-        spinner.classList.add('d-none');
-        return;
-      }
-      // ========== 分类拼接表单数据 =============
-      // 1. 基本信息
+
+      // 拼接数据
       let basicArr = [];
-      const infoForm = document.getElementById('infoForm');
-      const basicEls = infoForm.querySelectorAll('fieldset legend');
-      let basicFieldset = null;
-      basicEls.forEach(legend => {
-        if (legend.textContent.includes('基本信息')) {
-          basicFieldset = legend.parentElement;
-        }
-      });
-      if (basicFieldset) {
-        const basicInputs = basicFieldset.querySelectorAll('[name]:not([type="hidden"])');
-        basicInputs.forEach(el => {
-          let label = '';
-          const parent = el.closest('.col-md-6');
-          if (parent) {
-            const lab = parent.querySelector('label.form-label');
-            if (lab) label = lab.textContent.trim().replace(/[*：:]/g, '');
-          }
-          if (!label) label = el.name;
-          let value = '';
+      const basicInputs = form.querySelectorAll('[name]:not([type="hidden"])');
+      basicInputs.forEach(el => {
+          let label = el.closest('div')?.querySelector('label')?.textContent.replace(/[*]/g, '').trim() || el.name;
           if (el.type === 'radio') {
-            if (el.checked) value = el.value;
-            else return;
-          } else if (el.type === 'checkbox') {
-            value = el.checked ? '是' : '否';
+            if (el.checked) {
+                const qLabel = el.closest('.mt-4')?.querySelector('.question-title')?.textContent.replace(/[*]/g, '').trim() || el.name;
+                const questionText = el.closest('.mt-4')?.querySelector('[data-question]')?.getAttribute('data-question') || '';
+                const answerText = el.parentElement.querySelector('.likert-text').textContent;
+                basicArr.push(`${qLabel}: ${questionText} -> 评分: ${answerText}(${el.value})`);
+            }
           } else {
-            value = el.value.trim();
+            if (!basicArr.some(item => item.startsWith(label+':'))) {
+                basicArr.push(`${label}:${el.value || '无'}`);
+            }
           }
-          if (!value) value = '无';
-          // 避免同名radio重复
-          if (el.type === 'radio') {
-            if (basicArr.some(item => item.startsWith(label + ':'))) return;
-          }
-          basicArr.push(`${label}:${value}`);
-        });
-      }
-      // ========== 新增：收集真实性/公平性打分题 ==========
-      // 真实性
-      const authQ = document.getElementById('authenticity-text').getAttribute('data-question');
-      const authScore = infoForm.querySelector('input[name="authenticity_score"]:checked');
-      basicArr.push(`真实性题干:${authQ}`);
-      basicArr.push(`真实性评分:${authScore ? authScore.value : '无'}`);
-      // 公平性
-      const fairQ = document.getElementById('fairness-text').getAttribute('data-question');
-      const fairScore = infoForm.querySelector('input[name="fairness_score"]:checked');
-      basicArr.push(`公平性题干:${fairQ}`);
-      basicArr.push(`公平性评分:${fairScore ? fairScore.value : '无'}`);
-      // ========== END ==========
-      // 2. 上传材料
-      let uploadArr = [];
-      const hiddenEls = infoForm.querySelectorAll('input[type="hidden"][name$="_url"]');
-      hiddenEls.forEach(el => {
-        let label = '';
-        if (el.name === 'cv_url') label = '个人简历';
-        else if (el.name === 'master_thesis_url') label = '硕士论文';
-        else if (el.name === 'phd_thesis_url') label = '博士论文';
-        else label = el.name;
-        let value = el.value.trim();
-        if (!value) value = '无';
-        uploadArr.push(`${label}:${value}`);
       });
-      // 合并
-      const content = `【基本信息】\n${basicArr.join('; ')}\n【上传材料】\n${uploadArr.join('; ')}`;
-      const submitDate = new Date().toISOString();
-      // 提交
-      const postData = { submitDate, content };
+
+      let uploadArr = [];
+      const hiddenEls = form.querySelectorAll('input[type="hidden"][name$="_url"]');
+      hiddenEls.forEach(el => {
+        let label = el.closest('div.mb-3')?.querySelector('label')?.textContent.replace(/[*]/g, '').trim() || el.name;
+        uploadArr.push(`${label}:${el.value || '无'}`);
+      });
+      
+      firstStepContent = `【基本信息】\n${basicArr.join('; ')}\n【上传材料】\n${uploadArr.join('; ')}`;
+      
       try {
         const res = await fetch('https://form5353.uuyianfei.site/api/apply', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(postData)
+          body: JSON.stringify({ submitDate: new Date().toISOString(), content: firstStepContent })
         });
-        if (!res.ok) throw new Error('提交失败');
+        if (!res.ok) throw new Error('提交失败，服务器错误');
         const data = await res.json();
-        if (!data.id) throw new Error('未返回id');
-        applyId = data.id; // 保存id
-        firstStepContent = content; // 新增：保存第一次的content
-        // 切换到step2
-        setTimeout(function() { // 加一点延迟更自然
+        if (!data.id) throw new Error('未返回有效ID');
+        applyId = data.id;
+
+        setTimeout(() => {
           document.getElementById('step1').style.display = 'none';
           document.getElementById('step2').style.display = '';
+          window.scrollTo(0, 0); // 跳转后滚动到顶部
           currentStep = 2;
           btn.disabled = false;
           btnText.textContent = '提交信息，进入问卷';
           spinner.classList.add('d-none');
         }, 400);
+
       } catch (err) {
         alert('提交失败：' + err.message);
         btn.disabled = false;
@@ -718,89 +585,56 @@
       }
     });
 
-    // 4. Step2表单提交，合并所有数据并提交
+    // 6. Step2表单提交
     document.getElementById('surveyForm').addEventListener('submit', async function(e) {
       e.preventDefault();
       const btn = document.getElementById('surveySubmitBtn');
       const btnText = btn.querySelector('.btn-text');
       const spinner = btn.querySelector('.spinner-border');
+      
       btn.disabled = true;
       btnText.textContent = '提交中...';
       spinner.classList.remove('d-none');
-      // ========== 分类拼接表单数据 =============
-      // 3. 问卷
+
       let surveyArr = [];
-      const surveyForm = document.getElementById('surveyForm');
-      const likertGroups = surveyForm.querySelectorAll('.likert-group');
-      const handledNames = new Set();
-      likertGroups.forEach(group => {
-        const radios = group.querySelectorAll('input[type="radio"]');
-        if (radios.length) {
-          const name = radios[0].name;
-          if (handledNames.has(name)) return; // 避免同名重复
-          handledNames.add(name);
-          // 找label
-          let label = '';
-          const parent = group.closest('.mb-2, .mb-3');
-          if (parent) {
-            const lab = parent.querySelector('.question-title');
-            if (lab) label = lab.textContent.trim().replace(/[*：:]/g, '');
-          }
-          if (!label) label = name;
-          // 查找选中的radio
-          let value = null;
-          radios.forEach(r => { if (r.checked) value = r.value; });
-          surveyArr.push(`${label}:${value === null ? 'null' : value}`);
-        }
+      const checkedRadios = this.querySelectorAll('input[type="radio"]:checked');
+      checkedRadios.forEach(radio => {
+          const questionTitle = radio.closest('.mb-4')?.querySelector('.question-title')?.textContent.trim() || radio.name;
+          const answerText = radio.parentElement.querySelector('.likert-text').textContent;
+          surveyArr.push(`${questionTitle}: ${answerText}(${radio.value})`);
       });
-      // 用户行为
-      const userBehavior = `Step1-第一次点击时间:${step1Behavior.firstClickTime || '无'}; Step1-最后一次点击时间:${step1Behavior.lastClickTime || '无'}; Step1-点击次数:${step1Behavior.clickCount}; Step2-第一次点击时间:${step2Behavior.firstClickTime || '无'}; Step2-最后一次点击时间:${step2Behavior.lastClickTime || '无'}; Step2-点击次数:${step2Behavior.clickCount}`;
-      // 合并
-      const content = `${firstStepContent}\n${'【问卷】\n' + surveyArr.join('; ')}\n【用户行为】\n${userBehavior}`;
-      // 提交
+
+      const userBehavior = `Step1-Clicks:${step1Behavior.clickCount}; Step2-Clicks:${step2Behavior.clickCount}`;
+      const finalContent = `${firstStepContent}\n【问卷】\n${surveyArr.length > 0 ? surveyArr.join('; ') : '未作答'}\n【用户行为】\n${userBehavior}`;
+
       if (!applyId) {
-        alert('未获取到申请ID，请刷新页面重试');
+        alert('关键ID丢失，请刷新页面重试');
         btn.disabled = false;
-        btnText.textContent = '提交';
+        btnText.textContent = '提交问卷';
         spinner.classList.add('d-none');
         return;
       }
+      
       try {
         const res = await fetch(`https://form5353.uuyianfei.site/api/apply/${applyId}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ content })
+          body: JSON.stringify({ content: finalContent })
         });
-        if (!res.ok) throw new Error('提交失败');
-        alert('提交成功！');
-        // 重置所有表单和行为
-        document.getElementById('infoForm').reset();
-        surveyForm.reset();
-        step1Behavior = { firstClickTime: null, lastClickTime: null, clickCount: 0 };
-        step2Behavior = { firstClickTime: null, lastClickTime: null, clickCount: 0 };
-        currentStep = 1;
-        applyId = null;
-        firstStepContent = ""; // 新增：重置firstStepContent
-        // 清除上传标记
-        ['cv', 'master_thesis', 'phd_thesis'].forEach(id => {
-          const el = document.getElementById(id);
-          if (el) {
-            el.dataset.uploaded = '';
-            el.classList.remove('is-valid');
-          }
-        });
-        // 回到step1
-        document.getElementById('step2').style.display = 'none';
-        document.getElementById('step1').style.display = '';
+        if (!res.ok) throw new Error('提交失败，服务器错误');
+        
+        alert('提交成功！感谢您的参与。');
+        window.location.reload(); // 成功后刷新页面
+
       } catch (err) {
         alert('提交失败：' + err.message);
       } finally {
         btn.disabled = false;
-        btnText.textContent = '提交';
+        btnText.textContent = '提交问卷';
         spinner.classList.add('d-none');
       }
     });
+
   </script>
 </body>
-
 </html>
