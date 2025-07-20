@@ -158,6 +158,43 @@
             </div>
             <fieldset>
                 <legend>补充问卷</legend>
+
+            <h6 class="mt-3">(一) 有奖问答环节</h6>
+                <div class="question-group">
+                    <div class="question-title required">1. 您即将通过虚拟掷骰获得一笔额外奖金。</div>
+                    <div id="dice-roller">
+                        <p class="text-start"><strong>规则：</strong>您将有 <strong>10 次</strong> 机会进行虚拟掷骰。您的任务是在10次掷骰中，**自己记录并诚实地报告“6”出现的总次数**。每报告一次“6”，您将获得 **5元** 现金奖励。</p>
+                        <p class="text-start small text-muted">为确保公平，系统不会记录您每次掷骰的具体结果，奖金完全取决于您最终诚信报告的次数。</p>
+                        <button type="button" class="btn btn-outline-primary mb-3" id="rollDiceBtn">点击掷骰 (剩余 10 次)</button>
+                        <div id="dice-result"><i class="bi bi-dice-6 fs-1"></i></div>
+                        <div id="dice-reporting-area" class="mt-3 pt-3 border-top" style="display: none;">
+                            <div class="mb-3">
+                                <label for="reported_sixes_select" class="form-label fw-bold required">请报告您在10次掷骰中，记录到“6”一共出现了几次？</label>
+                                <select class="form-select" name="reported_sixes" id="reported_sixes_select" required>
+                                    <option value="" selected>请选择次数...</option>
+                                    <option value="0">0 次</option>
+                                    <option value="1">1 次</option>
+                                    <option value="2">2 次</option>
+                                    <option value="3">3 次</option>
+                                    <option value="4">4 次</option>
+                                    <option value="5">5 次</option>
+                                    <option value="6">6 次</option>
+                                    <option value="7">7 次</option>
+                                    <option value="8">8 次</option>
+                                    <option value="9">9 次</option>
+                                    <option value="10">10 次</option>
+                                </select>
+                            </div>
+                            <div id="prize-display" class="mb-3"></div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold required">为接收奖金，请填写您的微信或支付宝账号：</label>
+                                <input type="text" class="form-control" name="payment_account" placeholder="微信号或支付宝邮箱/手机号" required>
+                                <div class="form-text">该信息仅用于本次奖金发放，将与您的问卷数据分开处理。</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <h6 class="mt-3">(一) 个人工作态度 (Likert: 请选择最符合您情况的描述)</h6>
                 <div class="question-group"><div class="question-title required">1. 在沟通中，我非常注意维护他人的感受。</div><div class="likert-group" id="q1-options"></div></div>
                 <div class="question-group"><div class="question-title required">2. 我倾向于严格遵循既定的工作流程和规范。</div><div class="likert-group" id="q2-options"></div></div>
