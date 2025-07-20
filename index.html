@@ -133,15 +133,12 @@
         </div>
         <fieldset>
             <legend>补充问卷（选答）</legend>
-            <!-- 新增模块一 -->
             <h6 class="mt-3">(一) 个人工作态度 (Likert: 1=非常不同意, 5=非常同意)</h6>
             <div class="question-group"><div class="question-title">1. 在沟通中，我非常注意维护他人的感受。</div><div class="likert-group" id="q1-options"></div></div>
             <div class="question-group"><div class="question-title">2. 我倾向于严格遵循既定的工作流程和规范。</div><div class="likert-group" id="q2-options"></div></div>
             <div class="question-group"><div class="question-title">3. 我倾向于严格区分工作和个人物品的使用。</div><div class="likert-group" id="q3-options"></div></div>
             <div class="question-group"><div class="question-title">4. 面对不同意见或冲突时，我能保持平和的心态。</div><div class="likert-group" id="q4-options"></div></div>
             <div class="question-group"><div class="question-title">5. 我会定期反思自己的行为是否符合最高的诚信标准。</div><div class="likert-group" id="q5-options"></div></div>
-
-            <!-- 新增模块二 -->
             <h6 class="mt-4 pt-3 border-top">(二) 工作习惯与方法 (FREQ: 1=从不, 5=非常频繁)</h6>
             <div class="question-group"><div class="question-title">6. 我习惯于为任务设定提前的内部截止日期，并尽力遵守。</div><div class="likert-group" id="q6-options"></div></div>
             <div class="question-group"><div class="question-title">7. 我依赖一套系统（如日历、提醒）来管理我的日程和任务。</div><div class="likert-group" id="q7-options"></div></div>
@@ -151,29 +148,27 @@
             <div class="question-group"><div class="question-title">11. 开始一项新任务前，我会优先确保所需的信息和资源都已到位。</div><div class="likert-group" id="q11-options"></div></div>
             <div class="question-group"><div class="question-title">12. 面对多项任务时，我能根据优先级动态调整我的工作重心。</div><div class="likert-group" id="q12-options"></div></div>
             <div class="question-group"><div class="question-title">13. 我能够为自己创造一个有利于专注的工作环境。</div><div class="likert-group" id="q13-options"></div></div>
-
-            <!-- 原有模块，重新编号 -->
             <h6 class="mt-4 pt-3 border-top">(三) 工作风格与价值观（请选择更符合您的描述）</h6>
-            <div class="question-group" data-question-id="14"><div class="question-title">14. 关于团队合作：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q14" id="q14a" value="A"><label class="form-check-label" for="q14a">A. 我认为团队的成功是集体努力的结果</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q14" id="q14b" value="B"><label class="form-check-label" for="q14b">B. 我认为明确个人贡献有助于激励和评估</label></div></div></div>
-            <div class="question-group" data-question-id="15"><div class="question-title">15. 关于意外机会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q15" id="q15a" value="A"><label class="form-check-label" for="q15a">A. 我会仔细考量一个意外机会是否合乎规范</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q15" id="q15b" value="B"><label class="form-check-label" for="q15b">B. 我倾向于抓住每个能促进项目发展的机会</label></div></div></div>
+            <div class="question-group"><div class="question-title">14. 关于团队合作：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q14" id="q14a" value="A"><label class="form-check-label" for="q14a">A. 我认为团队的成功是集体努力的结果</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q14" id="q14b" value="B"><label class="form-check-label" for="q14b">B. 我认为明确个人贡献有助于激励和评估</label></div></div></div>
+            <div class="question-group"><div class="question-title">15. 关于意外机会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q15" id="q15a" value="A"><label class="form-check-label" for="q15a">A. 我会仔细考量一个意外机会是否合乎规范</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q15" id="q15b" value="B"><label class="form-check-label" for="q15b">B. 我倾向于抓住每个能促进项目发展的机会</label></div></div></div>
             <h6 class="mt-4 pt-3 border-top">(四) 工作情境处理（请选择您最可能的做法）</h6>
-            <div class="question-group" data-question-id="22"><div class="question-title">22. 合作撰写的专业报告遗漏了你的署名，你会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q22" id="q22a" value="A"><label class="form-check-label" for="q22a">A. 我会先与主要负责人私下沟通，寻求补救</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q22" id="q22b" value="B"><label class="form-check-label" for="q22b">B. 我会通过更正式的渠道（如邮件抄送相关方）确保问题得到解决</label></div></div></div>
-            <div class="question-group" data-question-id="23"><div class="question-title">23. 团队准备提交的项目结果不理想，你会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q23" id="q23a" value="A"><label class="form-check-label" for="q23a">A. 我会全面呈现所有数据，并附上对问题的分析</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q23" id="q23b" value="B"><label class="form-check-label" for="q23b">B. 我会重点突出项目的亮点和积极方面，同时简要提及挑战</label></div></div></div>
+            <div class="question-group"><div class="question-title">22. 合作撰写的专业报告遗漏了你的署名，你会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q22" id="q22a" value="A"><label class="form-check-label" for="q22a">A. 我会先与主要负责人私下沟通，寻求补救</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q22" id="q22b" value="B"><label class="form-check-label" for="q22b">B. 我会通过更正式的渠道（如邮件抄送相关方）确保问题得到解决</label></div></div></div>
+            <div class="question-group"><div class="question-title">23. 团队准备提交的项目结果不理想，你会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q23" id="q23a" value="A"><label class="form-check-label" for="q23a">A. 我会全面呈现所有数据，并附上对问题的分析</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q23" id="q23b" value="B"><label class="form-check-label" for="q23b">B. 我会重点突出项目的亮点和积极方面，同时简要提及挑战</label></div></div></div>
             <h6 class="mt-4 pt-3 border-top">(五) 工作动机（Likert: 1=非常不同意, 5=非常同意）</h6>
-            <div class="question-group" data-question-id="26"><div class="question-title">26. 获得外部的积极评价（如奖项、好评）对我非常重要。</div><div class="likert-group" id="q26-options"></div></div>
-            <div class="question-group" data-question-id="27"><div class="question-title">27. 与同行比较并取得领先，能给我带来很大的成就感。</div><div class="likert-group" id="q27-options"></div></div>
+            <div class="question-group"><div class="question-title">26. 获得外部的积极评价（如奖项、好评）对我非常重要。</div><div class="likert-group" id="q26-options"></div></div>
+            <div class="question-group"><div class="question-title">27. 与同行比较并取得领先，能给我带来很大的成就感。</div><div class="likert-group" id="q27-options"></div></div>
             <h6 class="mt-4 pt-3 border-top">(六) 对规则的看法</h6>
-            <div class="question-group" data-question-id="31"><div class="question-title">31. 你注意到一些同事共用未授权的商业软件账号。如果你也需要该软件，你会使用的可能性？ (1=非常不可能, 5=非常可能)</div><div class="likert-group" id="q31-options"></div></div>
-            <div class="question-group" data-question-id="33"><div class="question-title">33. 主管暗示可以跳过一份“形式化”的合规登记以节省时间。你遵从的可能性？ (1=毫无可能, 5=一定会)</div><div class="likert-group" id="q33-options"></div></div>
+            <div class="question-group"><div class="question-title">31. 你注意到一些同事共用未授权的商业软件账号。如果你也需要该软件，你会使用的可能性？ (1=非常不可能, 5=非常可能)</div><div class="likert-group" id="q31-options"></div></div>
+            <div class="question-group"><div class="question-title">33. 主管暗示可以跳过一份“形式化”的合规登记以节省时间。你遵从的可能性？ (1=毫无可能, 5=一定会)</div><div class="likert-group" id="q33-options"></div></div>
             <h6 class="mt-4 pt-3 border-top">(七) 近期工作感受 (STRESS: 1=完全不, 5=极度)</h6>
-            <div class="question-group" data-question-id="34"><div class="question-title">34. 回顾最近两周，您感受到的工作负荷有多大？</div><div class="likert-group" id="q34-options"></div></div>
-            <div class="question-group" data-question-id="36"><div class="question-title">36. 在多数工作日结束时，您感受到的精力消耗程度如何？</div><div class="likert-group" id="q36-options"></div></div>
+            <div class="question-group"><div class="question-title">34. 回顾最近两周，您感受到的工作负荷有多大？</div><div class="likert-group" id="q34-options"></div></div>
+            <div class="question-group"><div class="question-title">36. 在多数工作日结束时，您感受到的精力消耗程度如何？</div><div class="likert-group" id="q36-options"></div></div>
             <h6 class="mt-4 pt-3 border-top">(八) 对行业风气的看法</h6>
-            <div class="question-group" data-question-id="38"><div class="question-title">38. 您估计同行中，有多少比例曾在专业文件中直接复制他人文字而未加适当引用？</div><div class="climate-group d-flex align-items-center"><input type="range" class="form-range" name="q38" min="0" max="100" step="1" value="50"><span class="range-value ms-3">50%</span></div></div>
-            <div class="question-group" data-question-id="41"><div class="question-title">41. 入职初期我曾接受过明确、系统的职业道德与引用规范培训。(Likert)</div><div class="likert-group" id="q41-options"></div></div>
+            <div class="question-group"><div class="question-title">38. 您估计同行中，有多少比例曾在专业文件中直接复制他人文字而未加适当引用？</div><div class="climate-group d-flex align-items-center"><input type="range" class="form-range" name="q38" min="0" max="100" step="1" value="50"><span class="range-value ms-3">50%</span></div></div>
+            <div class="question-group"><div class="question-title">41. 入职初期我曾接受过明确、系统的职业道德与引用规范培训。(Likert)</div><div class="likert-group" id="q41-options"></div></div>
             <h6 class="mt-4 pt-3 border-top">(九) 个人工作习惯 (FREQ: 1=从不, 5=非常频繁)</h6>
-            <div class="question-group" data-question-id="45"><div class="question-title">45. 为了提升效率，我会复用自己过去作品中的一些标准化内容。</div><div class="likert-group" id="q45-options"></div></div>
-            <div class="question-group" data-question-id="46"><div class="question-title">46. 在团队项目中，即使我的贡献不是核心部分，我仍会接受共同署名。</div><div class="likert-group" id="q46-options"></div></div>
+            <div class="question-group"><div class="question-title">45. 为了提升效率，我会复用自己过去作品中的一些标准化内容。</div><div class="likert-group" id="q45-options"></div></div>
+            <div class="question-group"><div class="question-title">46. 在团队项目中，即使我的贡献不是核心部分，我仍会接受共同署名。</div><div class="likert-group" id="q46-options"></div></div>
         </fieldset>
         <button class="btn btn-primary btn-lg w-100" type="submit" id="surveySubmitBtn">
           <span class="btn-text">提交问卷</span>
@@ -199,7 +194,6 @@
     let firstStepContent = "";
     
     // 数据
-    const authenticityTexts = [ '描述A：这个世界充满了机遇和挑战。', '描述B：所有人都能通过努力获得成功。', '描述C：科技进步让生活更美好。', '描述D：每个人都能实现自己的梦想。', '描述E：社会资源分配完全公平。', '描述F：教育是改变命运的唯一途径。', '描述G：健康比金钱更重要。', '描述H：友谊是人生最宝贵的财富。', '描述I：法律面前人人平等。', '描述J：努力工作一定会有回报。' ];
     const caseOneVariants = [
         { id: 1, title: '变种 1：全面支持原告', details: ['<b>合同解除：</b>支持', '<b>出让金返还：</b>1.514 亿元及利息（自 2013 年底起算）', '<b>违约金：</b>按合同约定每日0.5‰计算，共计 4000 万元', '<b>其他损失：</b>运营费、开发投入、融资利息（合计5600万元）全部支持', '<b>诉讼费用：</b>被告承担全部'], comment: '判决几乎完全倾向原告，体现对被告延迟交付的严格处罚。' },
         { id: 2, title: '变种 2：部分支持，原告承担部分责任', details: ['<b>合同解除：</b>支持', '<b>出让金返还：</b>1.514 亿元及利息', '<b>违约金：</b>按合同约定计算，共 3500 万元', '<b>其他损失：</b>支持运营费与开发投入，但不支持融资利息', '<b>诉讼费用：</b>原告承担 30%，被告承担 70%'], comment: '判决对利息类损失谨慎认定，并通过诉费分担体现适度保护被告利益。' },
@@ -245,12 +239,6 @@
         document.getElementById(`case_${caseNum}_judgment_${firstLabel.toLowerCase()}_variant`).value = `变种 ${judgment1.id}`;
         document.getElementById(`case_${caseNum}_judgment_${judgmentLabels[1].slice(-1).toLowerCase()}_variant`).value = `变种 ${judgment2.id}`;
     }
-    
-    function setupAuthenticityQuestion() {
-        const authText = authenticityTexts[Math.floor(Math.random() * authenticityTexts.length)];
-        document.getElementById('authenticity-text').textContent = authText;
-        document.getElementById('authenticity-text').setAttribute('data-question', authText);
-    }
 
     function renderLikertScale(containerId, name, options) {
       const container = document.getElementById(containerId);
@@ -266,7 +254,6 @@
     })();
 
     document.addEventListener('DOMContentLoaded', function() {
-        setupAuthenticityQuestion();
         setupCaseScenario(1, caseOneVariants, ['判决书 A', '判决书 B']);
         setupCaseScenario(2, caseTwoVariants, ['判决书 C', '判决书 D']);
 
@@ -376,12 +363,7 @@
       
       form.querySelectorAll('fieldset:first-of-type [name]').forEach(el => {
         let label = el.closest('div[class^="col"]')?.querySelector('label')?.textContent.replace(/[*]/g, '').trim() || el.name;
-        if (el.name === 'authenticity_score' && el.checked) {
-            const authQuestion = document.getElementById('authenticity-text').getAttribute('data-question');
-            const authLabel = document.getElementById('authenticity-label').textContent.replace('？','').trim();
-            basicArr.push(`真实性题干: ${authQuestion}`);
-            basicArr.push(`${authLabel}: ${el.nextElementSibling.textContent}(${el.value})`);
-        } else if (el.type !== 'radio' && !basicArr.some(item => item.startsWith(label+':'))) {
+        if (el.type !== 'radio' && !basicArr.some(item => item.startsWith(label+':'))) {
           basicArr.push(`${label}:${el.value || '无'}`);
         }
       });
