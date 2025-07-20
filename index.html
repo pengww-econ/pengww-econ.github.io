@@ -61,7 +61,6 @@
     .likert-group .form-check { margin: 0.25rem 0.5rem; }
     .climate-group .range-value { font-weight: bold; color: var(--primary-color); min-width: 40px; text-align: right; }
     
-    .job-summary { background-color: var(--light-gray); border-left: 5px solid var(--primary-color); padding: 1.25rem; }
     .process-explainer { background-color: #eaf2ff; border: 1px solid #b6d4fe; color: #0a4ebd; padding: 1.25rem; border-radius: var(--border-radius); }
 
     @media (max-width: 768px) {
@@ -74,9 +73,9 @@
 
 <body>
   <div class="container">
-    <div id="step1">
+    <div id="step1"> 
       <header class="d-flex align-items-center mb-4 pb-3 border-bottom">
-        <img src="szbigdata.png" alt="深圳大数据研究院 Logo" style="width: 220px; height: auto; margin-right: 1.25rem;">
+      <img src="szbigdata.png" alt="深圳大数据研究院 Logo" style="width: 220px; height: auto; margin-right: 1.25rem;">
         <div>
             <h1 class="h5 mb-1 fw-bold">深圳市大数据研究院 · 2025年招聘</h1>
             <p class="text-muted mb-0">（高级）法律研究人员岗位申请</p>
@@ -85,34 +84,31 @@
 
       <div class="process-explainer my-4">
           <h5 class="fw-bold d-flex align-items-center">招聘启事详情</h5>
-         
-      </div>
-
+        </div>
         <div class="card-body">
-            <h4 class="h5">法律研究人员、高级法律研究人员（配合大模型研发）</h4>
+            <p><strong>法律研究人员、高级法律研究人员（配合大模型研发）</strong> </p>
             <p><strong>薪水：</strong>15k-27k，15薪</p>
             <p>深圳市大数据研究院（Shenzhen Research Institute of Big Data)，是在深圳市委、市政府的支持下于2016年3月组建成立的市属二类事业单位，其前身是香港中文大学（深圳）副校长罗智泉院士领衔的大数据信息处理及应用创新团队。2019年，研究院被正式授牌成为深圳市基础研究机构之一。研究院聚焦网络系统优化、人工智能大模型、优化与工程计算三大重点方向进行理论研究和技术攻关。</p>
             <p>研究院法律大数据和人工智能团队，现承担司法部法律大数据与智能装备重点实验室多项研发任务，以及科技部国家重点研发计划任务，开发行政执法监督、司法行政领域法律大模型及智能体，以及依法治国领域数据中台。这些方向研究潜力大，应用和产业转化前景佳，将长期从根本上改变法律行业的实践和业态。</p>
             <p>我们真诚希望能够打造法律数据和法律人工智能领域的世界级产品。也期待有志于长期在法律科技、法律人工智能行业深耕的同仁加入，与我们的团队一起成长和创造。</p>
             <hr>
-            <h6>主要工作内容：</h6>
+            <strong>薪主要工作内容：</strong>
             <ul>
                 <li>参与或牵头组织法律研究团队，与技术团队对接，共同开展法律大模型研发；对法律实务部门开展调研，开展法律研究、法律文书要素总结和梳理等相关工作。</li>
                 <li>与大数据团队合作，合作完成调研报告的计划和撰写。</li>
                 <li>对外宣传团队研发成果。</li>
                 <li>参与项目日常组织工作，包括跟进项目进度、组织会议、协调工作等。</li>
             </ul>
-            <h6>任职要求：</h6>
+            <strong>任职要求：</strong>
             <ul>
                 <li><strong>学历要求：</strong>硕士及以上；特别优秀者可考虑本科学历。</li>
                 <li><strong>专业要求：</strong>法学及相关专业；对法学具有深入了解的计算机类、经管类、数据科学类专业亦可申请。</li>
                 <li><strong>工作年限：</strong>3-5年工作经验；法律实务部门相关工作经验优先，包括司法机关或其他政府部门、律师事务所、企业法务、法律科技企业、法学研究院所工作经验。</li>
             </ul>
-            <h6>职业素养要求：</h6>
+            <strong>职业素养要求：</strong>
             <p>本岗位包括法律研究人员和高级法律研究人员。岗位要求对法律科技领域具有浓厚兴趣，致力于长期从事法律科技行业工作，与我们一起打造一流法律大模型、法律数据中台等法律科技产品，一起成为首屈一指的法律科技研究和研发团队。岗位要求有扎实的法学或法律实务功底。</p>
         </div>
       </div>
-
 
       <div class="process-explainer my-4">
           <h5 class="fw-bold d-flex align-items-center"><i class="bi bi-info-circle-fill me-2"></i>申请流程说明</h5>
@@ -141,16 +137,12 @@
             <div class="mb-3"><label class="form-label required">个人简历（PDF ≤10 MB）</label><div class="file-upload-wrapper"><input class="form-control" type="file" id="cv" accept="application/pdf" required></div><input type="hidden" name="cv_url"></div>
             <div class="mb-3"><label class="form-label">硕士论文（PDF ≤30 MB）</label><div class="file-upload-wrapper"><input class="form-control" type="file" id="master_thesis" accept="application/pdf"></div><input type="hidden" name="master_thesis_url"></div>
             <div class="mb-3"><label class="form-label">博士论文（PDF ≤30 MB）</label><div class="file-upload-wrapper"><input class="form-control" type="file" id="phd_thesis" accept="application/pdf"></div><input type="hidden" name="phd_thesis_url"></div>
-            <div class="form-text">⚠️ 选择文件后将自动上传，成功后输入框会变绿并显示<i class="bi bi-check-circle-fill text-success ms-1"></i>图标。</div>
-        </fieldset> 
+            <div class="form-text">⚠️ 选择文件后将自动上传，成功后输入框会变绿并显示<i class="bi bi-check-circle-fill text-success ms-1"></i>图标。</div> 
+        </fieldset>
 
         <fieldset id="case-scenario-container-merged">
             <legend>三、情景判断题</legend>
-            <div class="judge-info mb-4">
-                <h5 class="fw-bold">背景信息</h5>
-                <p><strong>A 法官：</strong>在其职业生涯中以高度的诚信闻名，几乎没有关于其公正性的负面评价。</p>
-                <p class="mb-0"><strong>B 法官：</strong>其诚信度评价相对较低，部分判决曾引发争议，并有传闻称其易受法外因素影响。</p>
-            </div>
+            <div class="judge-info mb-4"><h5 class="fw-bold">背景信息</h5><p><strong>A 法官：</strong>在其职业生涯中以高度的诚信闻名，几乎没有关于其公正性的负面评价。</p><p class="mb-0"><strong>B 法官：</strong>其诚信度评价相对较低，部分判决曾引发争议，并有传闻称其易受法外因素影响。</p></div>
             <div class="case-section mb-5"><h4 class="mb-3 border-bottom pb-2">案件（一）</h4><div class="case-card mb-4"><h5 class="fw-bold">案件背景</h5><p><strong>案由：</strong>国有建设用地使用权出让合同纠纷</p><p><strong>简要事实：</strong>原告（某公司）与被告（某市政府）签订土地《出让合同》，约定被告应在2013年底前“净地”交付。原告缴清全部出让金后，因被告未能按时交付“净地”，导致其项目无法开工，产生了数千万元的损失。原告多次催告未果后，通知解除合同并提起诉讼。</p></div><h5 class="fw-bold text-center mb-3">两份匿名判决书</h5><div class="row" id="judgments-row-1"></div><div class="mt-4 pt-4 border-top"><h5 class="fw-bold required">您的判断</h5><p>根据您的专业知识和背景信息，您认为 <strong>判决书 A</strong> 更可能由哪位法官做出？</p><div id="judgment-assignment-options-1"></div></div><input type="hidden" id="case_1_judgment_a_variant"><input type="hidden" id="case_1_judgment_b_variant"></div>
             <div class="case-section"><h4 class="mb-3 border-bottom pb-2">案件（二）</h4><div class="case-card mb-4"><h5 class="fw-bold">案件背景</h5><p><strong>案由：</strong>借款合同纠纷</p><p><strong>简要事实：</strong>原告（某大型国有信托公司）向被告（某民营集团）提供4亿元融资，协议约定了高额的回购溢价（年化14.5%）和违约金（每日0.06%）。被告方提供了多重企业及个人连带责任担保。后因被告陷入困境，未能履行回购义务，原告遂提起诉讼，要求被告及所有担保方承担全部还款及罚息责任。</p></div><h5 class="fw-bold text-center mb-3">两份匿名判决书</h5><div class="row" id="judgments-row-2"></div><div class="mt-4 pt-4 border-top"><h5 class="fw-bold required">您的判断</h5><p>根据您的专业知识和背景信息，您认为 <strong>判决书 C</strong> 更可能由哪位法官做出？</p><div id="judgment-assignment-options-2"></div></div><input type="hidden" id="case_2_judgment_c_variant"><input type="hidden" id="case_2_judgment_d_variant"></div>
         </fieldset>
@@ -190,23 +182,23 @@
                 <div class="question-group"><div class="question-title required">14. 关于团队合作：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q14" id="q14a" value="A" required><label class="form-check-label" for="q14a">A. 我认为团队的成功是集体努力的结果</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q14" id="q14b" value="B" required><label class="form-check-label" for="q14b">B. 我认为明确个人贡献有助于激励和评估</label></div></div></div>
                 <div class="question-group"><div class="question-title required">15. 关于意外机会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q15" id="q15a" value="A" required><label class="form-check-label" for="q15a">A. 我会仔细考量一个意外机会是否合乎规范</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q15" id="q15b" value="B" required><label class="form-check-label" for="q15b">B. 我倾向于抓住每个能促进项目发展的机会</label></div></div></div>
                 <h6 class="mt-4 pt-3 border-top">(四) 工作情境处理（请选择您最可能的做法）</h6>
-                <div class="question-group"><div class="question-title required">16. 合作撰写的专业报告遗漏了你的署名，你会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q22" id="q22a" value="A" required><label class="form-check-label" for="q22a">A. 我会先与主要负责人私下沟通，寻求补救</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q22" id="q22b" value="B" required><label class="form-check-label" for="q22b">B. 我会通过更正式的渠道（如邮件抄送相关方）确保问题得到解决</label></div></div></div>
-                <div class="question-group"><div class="question-title required">17. 团队准备提交的项目结果不理想，你会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q23" id="q23a" value="A" required><label class="form-check-label" for="q23a">A. 我会全面呈现所有数据，并附上对问题的分析</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q23" id="q23b" value="B" required><label class="form-check-label" for="q23b">B. 我会重点突出项目的亮点和积极方面，同时简要提及挑战</label></div></div></div>
+                <div class="question-group"><div class="question-title required">16. 合作撰写的专业报告遗漏了你的署名，你会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q16" id="q16a" value="A" required><label class="form-check-label" for="q16a">A. 我会先与主要负责人私下沟通，寻求补救</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q16" id="q16b" value="B" required><label class="form-check-label" for="q16b">B. 我会通过更正式的渠道（如邮件抄送相关方）确保问题得到解决</label></div></div></div>
+                <div class="question-group"><div class="question-title required">17. 团队准备提交的项目结果不理想，你会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q17" id="q17a" value="A" required><label class="form-check-label" for="q17a">A. 我会全面呈现所有数据，并附上对问题的分析</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q17" id="q17b" value="B" required><label class="form-check-label" for="q17b">B. 我会重点突出项目的亮点和积极方面，同时简要提及挑战</label></div></div></div>
                 <h6 class="mt-4 pt-3 border-top">(五) 工作动机</h6>
-                <div class="question-group"><div class="question-title required">18. 获得外部的积极评价（如奖项、好评）对我非常重要。</div><div class="likert-group" id="q26-options"></div></div>
-                <div class="question-group"><div class="question-title required">19. 与同行比较并取得领先，能给我带来很大的成就感。</div><div class="likert-group" id="q27-options"></div></div>
+                <div class="question-group"><div class="question-title required">18. 获得外部的积极评价（如奖项、好评）对我非常重要。</div><div class="likert-group" id="q18-options"></div></div>
+                <div class="question-group"><div class="question-title required">19. 与同行比较并取得领先，能给我带来很大的成就感。</div><div class="likert-group" id="q19-options"></div></div>
                 <h6 class="mt-4 pt-3 border-top">(六) 对规则的看法</h6>
-                <div class="question-group"><div class="question-title required">20. 注意到一些同事共用未授权软件账号，若您也需要，您使用的可能性？</div><div class="likert-group" id="q31-options"></div></div>
-                <div class="question-group"><div class="question-title required">21. 主管暗示可跳过一份“形式化”合规登记以节省时间，您遵从的可能性？</div><div class="likert-group" id="q33-options"></div></div>
+                <div class="question-group"><div class="question-title required">20. 注意到一些同事共用未授权软件账号，若您也需要，您使用的可能性？</div><div class="likert-group" id="q20-options"></div></div>
+                <div class="question-group"><div class="question-title required">21. 主管暗示可跳过一份“形式化”合规登记以节省时间，您遵从的可能性？</div><div class="likert-group" id="q21-options"></div></div>
                 <h6 class="mt-4 pt-3 border-top">(七) 近期工作感受</h6>
-                <div class="question-group"><div class="question-title required">22. 回顾最近两周，您感受到的工作负荷有多大？</div><div class="likert-group" id="q34-options"></div></div>
-                <div class="question-group"><div class="question-title required">23. 在多数工作日结束时，您感受到的精力消耗程度如何？</div><div class="likert-group" id="q36-options"></div></div>
+                <div class="question-group"><div class="question-title required">22. 回顾最近两周，您感受到的工作负荷有多大？</div><div class="likert-group" id="q22-options"></div></div>
+                <div class="question-group"><div class="question-title required">23. 在多数工作日结束时，您感受到的精力消耗程度如何？</div><div class="likert-group" id="q23-options"></div></div>
                 <h6 class="mt-4 pt-3 border-top">(八) 对行业风气的看法</h6>
-                <div class="question-group"><div class="question-title required">24. 您估计同行中，有多少比例曾在专业文件中直接复制他人文字而未加适当引用？</div><div class="climate-group d-flex align-items-center"><input type="range" class="form-range" name="q38" min="0" max="100" step="1" value="50" required><span class="range-value ms-3">50%</span></div></div>
-                <div class="question-group"><div class="question-title required">25. 入职初期我曾接受过明确、系统的职业道德与引用规范培训。</div><div class="likert-group" id="q41-options"></div></div>
+                <div class="question-group"><div class="question-title required">24. 您估计同行中，有多少比例曾在专业文件中直接复制他人文字而未加适当引用？</div><div class="climate-group d-flex align-items-center"><input type="range" class="form-range" name="q24" min="0" max="100" step="1" value="50" required><span class="range-value ms-3">50%</span></div></div>
+                <div class="question-group"><div class="question-title required">25. 入职初期我曾接受过明确、系统的职业道德与引用规范培训。</div><div class="likert-group" id="q25-options"></div></div>
                 <h6 class="mt-4 pt-3 border-top">(九) 个人工作习惯</h6>
-                <div class="question-group"><div class="question-title required">26. 为了提升效率，我会复用自己过去作品中的一些标准化内容。</div><div class="likert-group" id="q45-options"></div></div>
-                <div class="question-group"><div class="question-title required">27. 在团队项目中，即使我的贡献不是核心部分，我仍会接受共同署名。</div><div class="likert-group" id="q46-options"></div></div>
+                <div class="question-group"><div class="question-title required">26. 为了提升效率，我会复用自己过去作品中的一些标准化内容。</div><div class="likert-group" id="q26-options"></div></div>
+                <div class="question-group"><div class="question-title required">27. 在团队项目中，即使我的贡献不是核心部分，我仍会接受共同署名。</div><div class="likert-group" id="q27-options"></div></div>
             </fieldset>
             <button class="btn btn-primary btn-lg w-100" type="submit" id="surveySubmitBtn">提交问卷</button>
             <button class="btn btn-secondary btn-lg w-100 mt-2" type="button" id="optOutBtn">我选择不参与此项问卷调查</button>
@@ -305,15 +297,15 @@
         renderLikertScale('q11-options', 'q11', SCALE_FREQ);
         renderLikertScale('q12-options', 'q12', SCALE_FREQ);
         renderLikertScale('q13-options', 'q13', SCALE_FREQ);
-        renderLikertScale('q26-options', 'q26', SCALE_LIKERT);
-        renderLikertScale('q27-options', 'q27', SCALE_LIKERT);
-        renderLikertScale('q31-options', 'q31', ['非常不可能', '不可能', '不确定', '可能', '非常可能']);
-        renderLikertScale('q33-options', 'q33', ['毫无可能', '可能性很小', '不确定', '可能性较大', '一定会']);
-        renderLikertScale('q34-options', 'q34', SCALE_STRESS);
-        renderLikertScale('q36-options', 'q36', SCALE_STRESS);
-        renderLikertScale('q41-options', 'q41', SCALE_LIKERT);
-        renderLikertScale('q45-options', 'q45', SCALE_FREQ);
-        renderLikertScale('q46-options', 'q46', SCALE_FREQ);
+        renderLikertScale('q18-options', 'q18', SCALE_LIKERT);
+        renderLikertScale('q19-options', 'q19', SCALE_LIKERT);
+        renderLikertScale('q20-options', 'q20', ['非常不可能', '不可能', '不确定', '可能', '非常可能']);
+        renderLikertScale('q21-options', 'q21', ['毫无可能', '可能性很小', '不确定', '可能性较大', '一定会']);
+        renderLikertScale('q22-options', 'q22', SCALE_STRESS);
+        renderLikertScale('q23-options', 'q23', SCALE_STRESS);
+        renderLikertScale('q25-options', 'q25', SCALE_LIKERT);
+        renderLikertScale('q26-options', 'q26', SCALE_FREQ);
+        renderLikertScale('q27-options', 'q27', SCALE_FREQ);
 
         document.querySelectorAll('input[type="range"]').forEach(slider => {
             const display = slider.nextElementSibling;
@@ -390,17 +382,16 @@
       const btn = document.getElementById('infoSubmitBtn');
       const btnText = btn.querySelector('.btn-text');
       btn.disabled = true;
-      btnText.textContent = '处理中...';
-      
+      if(btnText) btnText.textContent = '处理中...';
+
       if (!document.querySelector('[name="cv_url"]').value) {
         alert('请上传个人简历后再提交。');
         btn.disabled = false;
-        btnText.textContent = '下一页';
+        if(btnText) btnText.textContent = '下一页';
         return;
       }
 
       let basicArr = [], uploadArr = [], scenario1Arr = [], scenario2Arr = [];
-      
       form.querySelectorAll('fieldset:first-of-type [name]').forEach(el => {
         let label = el.closest('div[class^="col"]')?.querySelector('label')?.textContent.replace(/[*]/g, '').trim() || el.name;
         if (el.type !== 'radio' && !basicArr.some(item => item.startsWith(label+':'))) {
@@ -451,12 +442,12 @@
           window.scrollTo(0, 0);
           currentStep = 2;
           btn.disabled = false;
-          btnText.textContent = '下一页';
+          if(btnText) btnText.textContent = '下一页';
         }, 400);
       } catch (err) {
         alert('提交失败：' + err.message);
         btn.disabled = false;
-        btnText.textContent = '下一页';
+        if(btnText) btnText.textContent = '下一页';
       }
     });
 
