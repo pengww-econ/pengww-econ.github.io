@@ -60,7 +60,9 @@
     .likert-group { display: flex; justify-content: space-around; flex-wrap: wrap; background-color: #fff; padding: 0.75rem; border-radius: var(--border-radius); border: 1px solid var(--border-color); }
     .likert-group .form-check { margin: 0.25rem 0.5rem; }
     .climate-group .range-value { font-weight: bold; color: var(--primary-color); min-width: 40px; text-align: right; }
-    .accordion-button:not(.collapsed) { color: var(--primary-color); background-color: #eaf2ff; }
+    
+    .job-summary { background-color: var(--light-gray); border-left: 5px solid var(--primary-color); padding: 1.25rem; }
+    .process-explainer { background-color: #eaf2ff; border: 1px solid #b6d4fe; color: #0a4ebd; padding: 1.25rem; border-radius: var(--border-radius); }
 
     @media (max-width: 768px) {
       body { padding: 1rem 0; font-size: 14px; }
@@ -69,6 +71,7 @@
     }
   </style>
 </head>
+
 
 <body>
   <div class="container">
@@ -116,7 +119,11 @@
         </div>
       </div>
       
-      <p class="lead text-center my-4">以下我们将请您填写个人信息，并上传您的硕士（或博士）论文。同时，还将请您回答几道法律情境判断问题，以及一套匿名性格测试问卷（下一页）。整体预计用时10-12分钟。感谢您的时间和投入！</p>
+
+      <div class="process-explainer my-4">
+          <h5 class="fw-bold d-flex align-items-center"><i class="bi bi-info-circle-fill me-2"></i>申请流程说明</h5>
+          <p class="mb-0">以下我们将请您填写个人信息，并上传您的硕士（或博士）论文。同时，还将请您回答几道法律情境判断问题，以及一套匿名性格测试问卷（下一页）。整体预计用时10-12分钟。感谢您的时间和投入！</p>
+      </div>
 
       <form id="infoForm" autocomplete="off">
         <fieldset>
@@ -140,12 +147,16 @@
             <div class="mb-3"><label class="form-label required">个人简历（PDF ≤10 MB）</label><div class="file-upload-wrapper"><input class="form-control" type="file" id="cv" accept="application/pdf" required></div><input type="hidden" name="cv_url"></div>
             <div class="mb-3"><label class="form-label">硕士论文（PDF ≤30 MB）</label><div class="file-upload-wrapper"><input class="form-control" type="file" id="master_thesis" accept="application/pdf"></div><input type="hidden" name="master_thesis_url"></div>
             <div class="mb-3"><label class="form-label">博士论文（PDF ≤30 MB）</label><div class="file-upload-wrapper"><input class="form-control" type="file" id="phd_thesis" accept="application/pdf"></div><input type="hidden" name="phd_thesis_url"></div>
-            <div class="form-text">⚠️ 选择文件后将自动上传，成功后输入框会变绿并显示<i class="bi bi-check-circle-fill text-success ms-1"></i>图标。</div>
+            <div class="form-text">⚠️ 选择文件后将自动上传。</div>
         </fieldset>
 
         <fieldset id="case-scenario-container-merged">
             <legend>三、情景判断题</legend>
-            <div class="judge-info mb-4"><h5 class="fw-bold">背景信息</h5><p><strong>A 法官：</strong>以判决公正、不偏不倚而闻名，严格遵循证据和法律条文，职业生涯中几乎没有受到过关于其诚信度的负面评价。</p><p class="mb-0"><strong>B 法官：</strong>判决曾引发一些争议，有传闻其判决易受法外因素影响，诚信度评价相对较低。</p></div>
+            <div class="judge-info mb-4">
+                <h5 class="fw-bold">背景信息</h5>
+                <p><strong>A 法官：</strong>在其职业生涯中以高度的诚信闻名，几乎没有关于其公正性的负面评价。</p>
+                <p class="mb-0"><strong>B 法官：</strong>其诚信度评价相对较低，部分判决曾引发争议，并有传闻称其易受法外因素影响。</p>
+            </div>
             <div class="case-section mb-5"><h4 class="mb-3 border-bottom pb-2">案件（一）</h4><div class="case-card mb-4"><h5 class="fw-bold">案件背景</h5><p><strong>案由：</strong>国有建设用地使用权出让合同纠纷</p><p><strong>简要事实：</strong>原告（某公司）与被告（某市政府）签订土地《出让合同》，约定被告应在2013年底前“净地”交付。原告缴清全部出让金后，因被告未能按时交付“净地”，导致其项目无法开工，产生了数千万元的损失。原告多次催告未果后，通知解除合同并提起诉讼。</p></div><h5 class="fw-bold text-center mb-3">两份匿名判决书</h5><div class="row" id="judgments-row-1"></div><div class="mt-4 pt-4 border-top"><h5 class="fw-bold required">您的判断</h5><p>根据您的专业知识和背景信息，您认为 <strong>判决书 A</strong> 更可能由哪位法官做出？</p><div id="judgment-assignment-options-1"></div></div><input type="hidden" id="case_1_judgment_a_variant"><input type="hidden" id="case_1_judgment_b_variant"></div>
             <div class="case-section"><h4 class="mb-3 border-bottom pb-2">案件（二）</h4><div class="case-card mb-4"><h5 class="fw-bold">案件背景</h5><p><strong>案由：</strong>借款合同纠纷</p><p><strong>简要事实：</strong>原告（某大型国有信托公司）向被告（某民营集团）提供4亿元融资，协议约定了高额的回购溢价（年化14.5%）和违约金（每日0.06%）。被告方提供了多重企业及个人连带责任担保。后因被告陷入困境，未能履行回购义务，原告遂提起诉讼，要求被告及所有担保方承担全部还款及罚息责任。</p></div><h5 class="fw-bold text-center mb-3">两份匿名判决书</h5><div class="row" id="judgments-row-2"></div><div class="mt-4 pt-4 border-top"><h5 class="fw-bold required">您的判断</h5><p>根据您的专业知识和背景信息，您认为 <strong>判决书 C</strong> 更可能由哪位法官做出？</p><div id="judgment-assignment-options-2"></div></div><input type="hidden" id="case_2_judgment_c_variant"><input type="hidden" id="case_2_judgment_d_variant"></div>
         </fieldset>
@@ -157,55 +168,55 @@
     </div>
 
     <div id="step2" style="display:none;">
-      <h2 class="fw-bold text-center mb-4">补充问卷</h2>
-      <form id="surveyForm" autocomplete="off">
-        <div class="alert alert-secondary">
-            <h5 class="alert-heading">作答说明</h5>
-            <p>此为第三方研究人员开展的针对专业技术人员的心理学研究问卷。**问卷完全匿名，数据仅作汇总统计分析，不会与深圳大数据研究院分享，亦绝无可能影响研究院的招聘决定。**</p>
-            <p class="mb-0">请根据您的真实想法或典型行为回答，答案没有对错之分。若对两个选项感受相似，也请选出相对更符合的一项。</p>
-        </div>
-        <fieldset>
-            <legend>补充问卷</legend>
-            <h6 class="mt-3">(一) 个人工作态度 (Likert: 请选择最符合您情况的描述)</h6>
-            <div class="question-group"><div class="question-title required">1. 在沟通中，我非常注意维护他人的感受。</div><div class="likert-group" id="q1-options"></div></div>
-            <div class="question-group"><div class="question-title required">2. 我倾向于严格遵循既定的工作流程和规范。</div><div class="likert-group" id="q2-options"></div></div>
-            <div class="question-group"><div class="question-title required">3. 我倾向于严格区分工作和个人物品的使用。</div><div class="likert-group" id="q3-options"></div></div>
-            <div class="question-group"><div class="question-title required">4. 面对不同意见或冲突时，我能保持平和的心态。</div><div class="likert-group" id="q4-options"></div></div>
-            <div class="question-group"><div class="question-title required">5. 我会定期反思自己的行为是否符合最高的诚信标准。</div><div class="likert-group" id="q5-options"></div></div>
-            <h6 class="mt-4 pt-3 border-top">(二) 工作习惯与方法 (FREQ: 请选择您行为的发生频率)</h6>
-            <div class="question-group"><div class="question-title required">6. 我习惯于为任务设定提前的内部截止日期，并尽力遵守。</div><div class="likert-group" id="q6-options"></div></div>
-            <div class="question-group"><div class="question-title required">7. 我依赖一套系统（如日历、提醒）来管理我的日程和任务。</div><div class="likert-group" id="q7-options"></div></div>
-            <div class="question-group"><div class="question-title required">8. 对于重复性或流程化的任务，我同样能保持专注并确保其完成质量。</div><div class="likert-group" id="q8-options"></div></div>
-            <div class="question-group"><div class="question-title required">9. 在专注工作时，我能有效管理来自即时消息或社交媒体的干扰。</div><div class="likert-group" id="q9-options"></div></div>
-            <div class="question-group"><div class="question-title required">10. 我习惯在开始一天的工作前，对任务进行规划和排序。</div><div class="likert-group" id="q10-options"></div></div>
-            <div class="question-group"><div class="question-title required">11. 开始一项新任务前，我会优先确保所需的信息和资源都已到位。</div><div class="likert-group" id="q11-options"></div></div>
-            <div class="question-group"><div class="question-title required">12. 面对多项任务时，我能根据优先级动态调整我的工作重心。</div><div class="likert-group" id="q12-options"></div></div>
-            <div class="question-group"><div class="question-title required">13. 我能够为自己创造一个有利于专注的工作环境。</div><div class="likert-group" id="q13-options"></div></div>
-            <h6 class="mt-4 pt-3 border-top">(三) 工作风格与价值观（请选择更符合您的描述）</h6>
-            <div class="question-group"><div class="question-title required">14. 关于团队合作：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q14" id="q14a" value="A" required><label class="form-check-label" for="q14a">A. 我认为团队的成功是集体努力的结果</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q14" id="q14b" value="B" required><label class="form-check-label" for="q14b">B. 我认为明确个人贡献有助于激励和评估</label></div></div></div>
-            <div class="question-group"><div class="question-title required">15. 关于意外机会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q15" id="q15a" value="A" required><label class="form-check-label" for="q15a">A. 我会仔细考量一个意外机会是否合乎规范</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q15" id="q15b" value="B" required><label class="form-check-label" for="q15b">B. 我倾向于抓住每个能促进项目发展的机会</label></div></div></div>
-            <h6 class="mt-4 pt-3 border-top">(四) 工作情境处理（请选择您最可能的做法）</h6>
-            <div class="question-group"><div class="question-title required">22. 合作撰写的专业报告遗漏了你的署名，你会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q22" id="q22a" value="A" required><label class="form-check-label" for="q22a">A. 我会先与主要负责人私下沟通，寻求补救</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q22" id="q22b" value="B" required><label class="form-check-label" for="q22b">B. 我会通过更正式的渠道（如邮件抄送相关方）确保问题得到解决</label></div></div></div>
-            <div class="question-group"><div class="question-title required">23. 团队准备提交的项目结果不理想，你会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q23" id="q23a" value="A" required><label class="form-check-label" for="q23a">A. 我会全面呈现所有数据，并附上对问题的分析</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q23" id="q23b" value="B" required><label class="form-check-label" for="q23b">B. 我会重点突出项目的亮点和积极方面，同时简要提及挑战</label></div></div></div>
-            <h6 class="mt-4 pt-3 border-top">(五) 工作动机</h6>
-            <div class="question-group"><div class="question-title required">26. 获得外部的积极评价（如奖项、好评）对我非常重要。</div><div class="likert-group" id="q26-options"></div></div>
-            <div class="question-group"><div class="question-title required">27. 与同行比较并取得领先，能给我带来很大的成就感。</div><div class="likert-group" id="q27-options"></div></div>
-            <h6 class="mt-4 pt-3 border-top">(六) 对规则的看法</h6>
-            <div class="question-group"><div class="question-title required">31. 注意到一些同事共用未授权软件账号，若您也需要，您使用的可能性？</div><div class="likert-group" id="q31-options"></div></div>
-            <div class="question-group"><div class="question-title required">33. 主管暗示可跳过一份“形式化”合规登记以节省时间，您遵从的可能性？</div><div class="likert-group" id="q33-options"></div></div>
-            <h6 class="mt-4 pt-3 border-top">(七) 近期工作感受</h6>
-            <div class="question-group"><div class="question-title required">34. 回顾最近两周，您感受到的工作负荷有多大？</div><div class="likert-group" id="q34-options"></div></div>
-            <div class="question-group"><div class="question-title required">36. 在多数工作日结束时，您感受到的精力消耗程度如何？</div><div class="likert-group" id="q36-options"></div></div>
-            <h6 class="mt-4 pt-3 border-top">(八) 对行业风气的看法</h6>
-            <div class="question-group"><div class="question-title required">38. 您估计同行中，有多少比例曾在专业文件中直接复制他人文字而未加适当引用？</div><div class="climate-group d-flex align-items-center"><input type="range" class="form-range" name="q38" min="0" max="100" step="1" value="50" required><span class="range-value ms-3">50%</span></div></div>
-            <div class="question-group"><div class="question-title required">41. 入职初期我曾接受过明确、系统的职业道德与引用规范培训。</div><div class="likert-group" id="q41-options"></div></div>
-            <h6 class="mt-4 pt-3 border-top">(九) 个人工作习惯</h6>
-            <div class="question-group"><div class="question-title required">45. 为了提升效率，我会复用自己过去作品中的一些标准化内容。</div><div class="likert-group" id="q45-options"></div></div>
-            <div class="question-group"><div class="question-title required">46. 在团队项目中，即使我的贡献不是核心部分，我仍会接受共同署名。</div><div class="likert-group" id="q46-options"></div></div>
-        </fieldset>
-        <button class="btn btn-primary btn-lg w-100" type="submit" id="surveySubmitBtn">提交问卷</button>
-        <button class="btn btn-secondary btn-lg w-100 mt-2" type="button" id="optOutBtn">我选择不参与此项问卷调查</button>
-      </form>
+        <h2 class="fw-bold text-center mb-4">补充问卷</h2>
+        <form id="surveyForm" autocomplete="off">
+            <div class="alert alert-secondary">
+                <h5 class="alert-heading">作答说明</h5>
+                <p>此为第三方研究人员开展的针对专业技术人员的心理学研究问卷。**问卷完全匿名，数据仅作汇总统计分析，不会与深圳大数据研究院分享，亦绝无可能影响研究院的招聘决定。**</p>
+                <p class="mb-0">请根据您的真实想法或典型行为回答，答案没有对错之分。若对两个选项感受相似，也请选出相对更符合的一项。</p>
+            </div>
+            <fieldset>
+                <legend>补充问卷</legend>
+                <h6 class="mt-3">(一) 个人工作态度 (Likert: 请选择最符合您情况的描述)</h6>
+                <div class="question-group"><div class="question-title required">1. 在沟通中，我非常注意维护他人的感受。</div><div class="likert-group" id="q1-options"></div></div>
+                <div class="question-group"><div class="question-title required">2. 我倾向于严格遵循既定的工作流程和规范。</div><div class="likert-group" id="q2-options"></div></div>
+                <div class="question-group"><div class="question-title required">3. 我倾向于严格区分工作和个人物品的使用。</div><div class="likert-group" id="q3-options"></div></div>
+                <div class="question-group"><div class="question-title required">4. 面对不同意见或冲突时，我能保持平和的心态。</div><div class="likert-group" id="q4-options"></div></div>
+                <div class="question-group"><div class="question-title required">5. 我会定期反思自己的行为是否符合最高的诚信标准。</div><div class="likert-group" id="q5-options"></div></div>
+                <h6 class="mt-4 pt-3 border-top">(二) 工作习惯与方法 (FREQ: 请选择您行为的发生频率)</h6>
+                <div class="question-group"><div class="question-title required">6. 我习惯于为任务设定提前的内部截止日期，并尽力遵守。</div><div class="likert-group" id="q6-options"></div></div>
+                <div class="question-group"><div class="question-title required">7. 我依赖一套系统（如日历、提醒）来管理我的日程和任务。</div><div class="likert-group" id="q7-options"></div></div>
+                <div class="question-group"><div class="question-title required">8. 对于重复性或流程化的任务，我同样能保持专注并确保其完成质量。</div><div class="likert-group" id="q8-options"></div></div>
+                <div class="question-group"><div class="question-title required">9. 在专注工作时，我能有效管理来自即时消息或社交媒体的干扰。</div><div class="likert-group" id="q9-options"></div></div>
+                <div class="question-group"><div class="question-title required">10. 我习惯在开始一天的工作前，对任务进行规划和排序。</div><div class="likert-group" id="q10-options"></div></div>
+                <div class="question-group"><div class="question-title required">11. 开始一项新任务前，我会优先确保所需的信息和资源都已到位。</div><div class="likert-group" id="q11-options"></div></div>
+                <div class="question-group"><div class="question-title required">12. 面对多项任务时，我能根据优先级动态调整我的工作重心。</div><div class="likert-group" id="q12-options"></div></div>
+                <div class="question-group"><div class="question-title required">13. 我能够为自己创造一个有利于专注的工作环境。</div><div class="likert-group" id="q13-options"></div></div>
+                <h6 class="mt-4 pt-3 border-top">(三) 工作风格与价值观（请选择更符合您的描述）</h6>
+                <div class="question-group"><div class="question-title required">14. 关于团队合作：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q14" id="q14a" value="A" required><label class="form-check-label" for="q14a">A. 我认为团队的成功是集体努力的结果</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q14" id="q14b" value="B" required><label class="form-check-label" for="q14b">B. 我认为明确个人贡献有助于激励和评估</label></div></div></div>
+                <div class="question-group"><div class="question-title required">15. 关于意外机会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q15" id="q15a" value="A" required><label class="form-check-label" for="q15a">A. 我会仔细考量一个意外机会是否合乎规范</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q15" id="q15b" value="B" required><label class="form-check-label" for="q15b">B. 我倾向于抓住每个能促进项目发展的机会</label></div></div></div>
+                <h6 class="mt-4 pt-3 border-top">(四) 工作情境处理（请选择您最可能的做法）</h6>
+                <div class="question-group"><div class="question-title required">22. 合作撰写的专业报告遗漏了你的署名，你会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q22" id="q22a" value="A" required><label class="form-check-label" for="q22a">A. 我会先与主要负责人私下沟通，寻求补救</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q22" id="q22b" value="B" required><label class="form-check-label" for="q22b">B. 我会通过更正式的渠道（如邮件抄送相关方）确保问题得到解决</label></div></div></div>
+                <div class="question-group"><div class="question-title required">23. 团队准备提交的项目结果不理想，你会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q23" id="q23a" value="A" required><label class="form-check-label" for="q23a">A. 我会全面呈现所有数据，并附上对问题的分析</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q23" id="q23b" value="B" required><label class="form-check-label" for="q23b">B. 我会重点突出项目的亮点和积极方面，同时简要提及挑战</label></div></div></div>
+                <h6 class="mt-4 pt-3 border-top">(五) 工作动机</h6>
+                <div class="question-group"><div class="question-title required">26. 获得外部的积极评价（如奖项、好评）对我非常重要。</div><div class="likert-group" id="q26-options"></div></div>
+                <div class="question-group"><div class="question-title required">27. 与同行比较并取得领先，能给我带来很大的成就感。</div><div class="likert-group" id="q27-options"></div></div>
+                <h6 class="mt-4 pt-3 border-top">(六) 对规则的看法</h6>
+                <div class="question-group"><div class="question-title required">31. 注意到一些同事共用未授权软件账号，若您也需要，您使用的可能性？</div><div class="likert-group" id="q31-options"></div></div>
+                <div class="question-group"><div class="question-title required">33. 主管暗示可跳过一份“形式化”合规登记以节省时间，您遵从的可能性？</div><div class="likert-group" id="q33-options"></div></div>
+                <h6 class="mt-4 pt-3 border-top">(七) 近期工作感受</h6>
+                <div class="question-group"><div class="question-title required">34. 回顾最近两周，您感受到的工作负荷有多大？</div><div class="likert-group" id="q34-options"></div></div>
+                <div class="question-group"><div class="question-title required">36. 在多数工作日结束时，您感受到的精力消耗程度如何？</div><div class="likert-group" id="q36-options"></div></div>
+                <h6 class="mt-4 pt-3 border-top">(八) 对行业风气的看法</h6>
+                <div class="question-group"><div class="question-title required">38. 您估计同行中，有多少比例曾在专业文件中直接复制他人文字而未加适当引用？</div><div class="climate-group d-flex align-items-center"><input type="range" class="form-range" name="q38" min="0" max="100" step="1" value="50" required><span class="range-value ms-3">50%</span></div></div>
+                <div class="question-group"><div class="question-title required">41. 入职初期我曾接受过明确、系统的职业道德与引用规范培训。</div><div class="likert-group" id="q41-options"></div></div>
+                <h6 class="mt-4 pt-3 border-top">(九) 个人工作习惯</h6>
+                <div class="question-group"><div class="question-title required">45. 为了提升效率，我会复用自己过去作品中的一些标准化内容。</div><div class="likert-group" id="q45-options"></div></div>
+                <div class="question-group"><div class="question-title required">46. 在团队项目中，即使我的贡献不是核心部分，我仍会接受共同署名。</div><div class="likert-group" id="q46-options"></div></div>
+            </fieldset>
+            <button class="btn btn-primary btn-lg w-100" type="submit" id="surveySubmitBtn">提交问卷</button>
+            <button class="btn btn-secondary btn-lg w-100 mt-2" type="button" id="optOutBtn">我选择不参与此项问卷调查</button>
+        </form>
     </div>
     
     <footer class="mt-5 text-center small text-muted">
