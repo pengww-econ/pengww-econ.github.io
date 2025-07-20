@@ -110,12 +110,27 @@
       transform: translateY(-50%);
       color: #6c757d;
       font-size: 1.2rem;
-      transition: color .2s;
+      transition: all .2s;
+    }
+    .file-upload-wrapper.is-uploading::after {
+        content: ''; /* Hide icon and show spinner */
+        width: 1.2rem;
+        height: 1.2rem;
+        border: 2px solid var(--primary-color);
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
     }
     .file-upload-wrapper.is-valid::after {
         content: '\F26A'; /* Bootstrap Icon: check-circle-fill */
         color: var(--success-color);
+        animation: none;
     }
+
+    @keyframes spin {
+        to { transform: translateY(-50%) rotate(360deg); }
+    }
+
 
     /* ===== Likert 量表美化 ===== */
     .question-title {
@@ -410,6 +425,10 @@
           const wrapper = inputEl.parentElement;
           const file = e.target.files[0];
           if (file) {
+            // 重置状态以允许重新上传
+            wrapper.classList.remove('is-valid');
+            inputEl.classList.remove('is-valid');
+
             if (file.size > maxSize) {
               alert(`${label}文件不能超过 ${maxSize / 1024 / 1024}MB！`);
               inputEl.value = '';
@@ -424,8 +443,7 @@
               wrapper.classList.add('is-valid');
             } catch (err) {
               alert(`${label}上传失败：${err.message}`);
-              inputEl.classList.remove('is-valid');
-              wrapper.classList.remove('is-valid');
+              inputEl.value = ''; // 失败后清空选择
             } finally {
               inputEl.disabled = false;
               wrapper.classList.remove('is-uploading');
@@ -440,6 +458,13 @@
     let firstStepContent = "";
     document.getElementById('infoForm').addEventListener('submit', async function(e) {
       e.preventDefault();
+
+      // [新增逻辑] 检查是否有文件正在上传
+      if (document.querySelector('.is-uploading')) {
+          alert('文件正在上传中，请等待上传完成后再提交。');
+          return; // 中断提交过程
+      }
+
       const form = e.target;
       if (!form.checkValidity()) {
         form.reportValidity();
@@ -463,7 +488,7 @@
 
       let basicArr = [], uploadArr = [];
       form.querySelectorAll('[name]:not([type="hidden"])').forEach(el => {
-        let label = el.closest('div')?.querySelector('label')?.textContent.replace(/[*]/g, '').trim() || el.name;
+        let label = el.closest('div[class^="col"]')?.querySelector('label')?.textContent.replace(/[*]/g, '').trim() || el.name;
         if (el.type === 'radio' && el.checked) {
           const qLabel = el.closest('.mt-4')?.querySelector('.question-title')?.textContent.replace(/[*]/g, '').trim() || el.name;
           const questionText = el.closest('.mt-4')?.querySelector('[data-question]')?.getAttribute('data-question') || '';
@@ -526,7 +551,6 @@
           surveyArr.push(`${questionTitle}: ${answerText}(${radio.value})`);
       });
 
-      // [修改] 恢复了完整的时间戳记录
       const userBehavior = `Step1-第一次点击时间:${step1Behavior.firstClickTime || '无'}; Step1-最后一次点击时间:${step1Behavior.lastClickTime || '无'}; Step1-点击次数:${step1Behavior.clickCount}; Step2-第一次点击时间:${step2Behavior.firstClickTime || '无'}; Step2-最后一次点击时间:${step2Behavior.lastClickTime || '无'}; Step2-点击次数:${step2Behavior.clickCount}`;
       
       const finalContent = `${firstStepContent}\n【问卷】\n${surveyArr.length > 0 ? surveyArr.join('; ') : '未作答'}\n【用户行为】\n${userBehavior}`;
@@ -547,7 +571,6 @@
         });
         if (!res.ok) throw new Error('提交失败，服务器错误');
         
-        // [修改] 调用新的感谢页面函数，而不是弹窗+刷新
         showThankYouPage();
 
       } catch (err) {
@@ -558,11 +581,11 @@
       }
     });
 
-    // [新增] 7. 显示感谢页面的函数
+    // 7. 显示感谢页面的函数
     function showThankYouPage() {
       const container = document.querySelector('.container');
       
-      // 平滑地将表单替换为感谢信息
+      container.style.transition = 'opacity 0.3s ease-out';
       container.style.opacity = '0';
       
       setTimeout(() => {
@@ -573,7 +596,6 @@
             <p class="text-secondary" style="font-size: 1.1rem; margin-top: 0.5rem;">感谢您的参与。</p>
           </div>
         `;
-        // 移除页脚
         const footer = document.querySelector('footer');
         if (footer) footer.remove();
 
