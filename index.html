@@ -49,11 +49,7 @@
     .case-card ul { padding-left: 1.2rem; margin-bottom: 0.5rem; }
     .case-card ul li { margin-bottom: 0.5rem; }
     .judge-info { background-color: #e9ecef; padding: 1rem; border-radius: var(--border-radius); }
-
-    /* [CSS 修复] 只让分栏中的卡片等高，避免拉伸“案件背景”卡片 */
-    .row > [class*="col-"] > .case-card {
-        height: 100%;
-    }
+    .row > [class*="col-"] > .case-card { height: 100%; }
     
     /* 第二页问卷样式 */
     .question-group { margin-bottom: 1.75rem; }
@@ -78,7 +74,7 @@
   <div class="container">
     <div id="step1">
       <header class="mb-5 text-center">
-        <img src="szbigdata.png" alt="深圳大数据研究院" style="height:80px; margin-bottom: 1rem;" />
+        <img src="https://www.sribd.cn/images/logo-1.png" alt="深圳大数据研究院" style="height:80px; margin-bottom: 1rem;" />
         <h1 class="h3 fw-bold mb-3">深圳大数据研究院 · 2025年招聘启事<br>（高级）法律研究人员</h1>
         <p class="text-secondary lh-lg">深圳市大数据研究院成立于2016年3月，是深圳市委、市政府支持的市属二类事业单位。我们诚邀志同道合的法律与技术人才，共同打造世界级法律科技产品，推动行业革新与发展。</p>
       </header>
@@ -148,7 +144,27 @@
         </div>
         <fieldset>
             <legend>补充问卷（选答）</legend>
-            <h6 class="mt-3">(三) 工作风格与价值观（请选择更符合您的描述）</h6>
+            <!-- 新增模块一 -->
+            <h6 class="mt-3">(一) 个人工作态度 (Likert: 1=非常不同意, 5=非常同意)</h6>
+            <div class="question-group"><div class="question-title">1. 在沟通中，我非常注意维护他人的感受。</div><div class="likert-group" id="q1-options"></div></div>
+            <div class="question-group"><div class="question-title">2. 我倾向于严格遵循既定的工作流程和规范。</div><div class="likert-group" id="q2-options"></div></div>
+            <div class="question-group"><div class="question-title">3. 我倾向于严格区分工作和个人物品的使用。</div><div class="likert-group" id="q3-options"></div></div>
+            <div class="question-group"><div class="question-title">4. 面对不同意见或冲突时，我能保持平和的心态。</div><div class="likert-group" id="q4-options"></div></div>
+            <div class="question-group"><div class="question-title">5. 我会定期反思自己的行为是否符合最高的诚信标准。</div><div class="likert-group" id="q5-options"></div></div>
+
+            <!-- 新增模块二 -->
+            <h6 class="mt-4 pt-3 border-top">(二) 工作习惯与方法 (FREQ: 1=从不, 5=非常频繁)</h6>
+            <div class="question-group"><div class="question-title">6. 我习惯于为任务设定提前的内部截止日期，并尽力遵守。</div><div class="likert-group" id="q6-options"></div></div>
+            <div class="question-group"><div class="question-title">7. 我依赖一套系统（如日历、提醒）来管理我的日程和任务。</div><div class="likert-group" id="q7-options"></div></div>
+            <div class="question-group"><div class="question-title">8. 对于重复性或流程化的任务，我同样能保持专注并确保其完成质量。</div><div class="likert-group" id="q8-options"></div></div>
+            <div class="question-group"><div class="question-title">9. 在专注工作时，我能有效管理来自即时消息或社交媒体的干扰。</div><div class="likert-group" id="q9-options"></div></div>
+            <div class="question-group"><div class="question-title">10. 我习惯在开始一天的工作前，对任务进行规划和排序。</div><div class="likert-group" id="q10-options"></div></div>
+            <div class="question-group"><div class="question-title">11. 开始一项新任务前，我会优先确保所需的信息和资源都已到位。</div><div class="likert-group" id="q11-options"></div></div>
+            <div class="question-group"><div class="question-title">12. 面对多项任务时，我能根据优先级动态调整我的工作重心。</div><div class="likert-group" id="q12-options"></div></div>
+            <div class="question-group"><div class="question-title">13. 我能够为自己创造一个有利于专注的工作环境。</div><div class="likert-group" id="q13-options"></div></div>
+
+            <!-- 原有模块，重新编号 -->
+            <h6 class="mt-4 pt-3 border-top">(三) 工作风格与价值观（请选择更符合您的描述）</h6>
             <div class="question-group" data-question-id="14"><div class="question-title">14. 关于团队合作：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q14" id="q14a" value="A"><label class="form-check-label" for="q14a">A. 我认为团队的成功是集体努力的结果</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q14" id="q14b" value="B"><label class="form-check-label" for="q14b">B. 我认为明确个人贡献有助于激励和评估</label></div></div></div>
             <div class="question-group" data-question-id="15"><div class="question-title">15. 关于意外机会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q15" id="q15a" value="A"><label class="form-check-label" for="q15a">A. 我会仔细考量一个意外机会是否合乎规范</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q15" id="q15b" value="B"><label class="form-check-label" for="q15b">B. 我倾向于抓住每个能促进项目发展的机会</label></div></div></div>
             <h6 class="mt-4 pt-3 border-top">(四) 工作情境处理（请选择您最可能的做法）</h6>
@@ -265,15 +281,19 @@
         setupCaseScenario(1, caseOneVariants, ['判决书 A', '判决书 B']);
         setupCaseScenario(2, caseTwoVariants, ['判决书 C', '判决书 D']);
 
-        renderLikertScale('q26-options', 'q26', ['1', '2', '3', '4', '5']);
-        renderLikertScale('q27-options', 'q27', ['1', '2', '3', '4', '5']);
-        renderLikertScale('q31-options', 'q31', ['1', '2', '3', '4', '5']);
-        renderLikertScale('q33-options', 'q33', ['1', '2', '3', '4', '5']);
-        renderLikertScale('q34-options', 'q34', ['1', '2', '3', '4', '5']);
-        renderLikertScale('q36-options', 'q36', ['1', '2', '3', '4', '5']);
-        renderLikertScale('q41-options', 'q41', ['1', '2', '3', '4', '5']);
-        renderLikertScale('q45-options', 'q45', ['1', '2', '3', '4', '5']);
-        renderLikertScale('q46-options', 'q46', ['1', '2', '3', '4', '5']);
+        const likertOptions = ['1', '2', '3', '4', '5'];
+        for (let i = 1; i <= 13; i++) {
+            renderLikertScale(`q${i}-options`, `q${i}`, likertOptions);
+        }
+        renderLikertScale('q26-options', 'q26', likertOptions);
+        renderLikertScale('q27-options', 'q27', likertOptions);
+        renderLikertScale('q31-options', 'q31', likertOptions);
+        renderLikertScale('q33-options', 'q33', likertOptions);
+        renderLikertScale('q34-options', 'q34', likertOptions);
+        renderLikertScale('q36-options', 'q36', likertOptions);
+        renderLikertScale('q41-options', 'q41', likertOptions);
+        renderLikertScale('q45-options', 'q45', likertOptions);
+        renderLikertScale('q46-options', 'q46', likertOptions);
 
         document.querySelectorAll('input[type="range"]').forEach(slider => {
             const display = slider.nextElementSibling;
