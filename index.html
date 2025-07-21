@@ -664,11 +664,11 @@
     const diceIcons = [
       'bi-dice-1', 'bi-dice-2', 'bi-dice-3', 'bi-dice-4', 'bi-dice-5', 'bi-dice-6'
     ];
-    function showDice(num) {
-      diceResultDiv.innerHTML =
-        `<i class="bi ${diceIcons[num-1]} fs-1"></i>
-         <div class="mt-1 small text-muted">本次结果：${num}</div>`;
-    }
+  function showDice(num) {
+   diceResultDiv.innerHTML =
+    `<i class="bi ${diceIcons[num-1]} fs-1 text-primary"></i>
+    <div class="mt-2">本次结果： <span class="fw-bold fs-2 text-dark">${num}</span></div>`;
+  }
     rollBtn.addEventListener('click', function() {
       if (window.diceGameVars.currentRoll >= window.diceGameVars.totalRolls) return;
       const result = Math.floor(Math.random() * 6) + 1;
@@ -705,6 +705,9 @@
   })();
 
     // ===================== Dice Game 完整实现结束 =====================
+
+
+
   </script>
 </body>
 </html>
