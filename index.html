@@ -1,718 +1,747 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>深圳市大数据研究院-法律研究人员岗位申请</title>
+ <meta charset="utf-8" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ <meta name="viewport" content="width=device-width,initial-scale=1" />
+ <title>深圳市大数据研究院-法律研究人员岗位申请</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <style>
-    :root {
-      --primary-color: #4f8cff;
-      --primary-hover: #3b6fd8;
-      --success-color: #198754;
-      --light-gray: #f8f9fa;
-      --text-color: #34495e;
-      --border-color: #ced4da;
-      --body-bg: #f0f2f5;
-      --container-bg: #ffffff;
-      --border-radius: 0.5rem;
-      --shadow: 0 6px 30px 0 rgba(0, 0, 0, 0.07);
-    }
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+ <style>
+  :root {
+   --primary-color: #4f8cff;
+   --primary-hover: #3b6fd8;
+   --success-color: #198754;
+   --light-gray: #f8f9fa;
+   --text-color: #34495e;
+   --border-color: #ced4da;
+   --body-bg: #f0f2f5;
+   --container-bg: #ffffff;
+   --border-radius: 0.5rem;
+   --shadow: 0 6px 30px 0 rgba(0, 0, 0, 0.07);
+  }
 
-    body { padding: 2rem 0; background-color: var(--body-bg); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 15px; }
-    .container { max-width: 800px; background: var(--container-bg); box-shadow: var(--shadow); border-radius: 1rem; padding: 2.5rem; }
-    .required::after { content: " *"; color: #d00; font-weight: bold; }
-    fieldset { border: 1px solid var(--border-color); padding: 1.5rem 1.75rem; border-radius: var(--border-radius); margin-bottom: 2rem; background-color: var(--light-gray); }
-    legend { width: auto; padding: 0 .5rem; font-weight: 600; font-size: 1.2rem; color: var(--text-color); }
-    .form-label { font-weight: 500; color: var(--text-color); margin-bottom: 0.5rem; }
-    .form-control, .form-select { border-radius: var(--border-radius); transition: border-color .2s, box-shadow .2s; border: 1px solid var(--border-color); }
-    .form-control:focus, .form-select:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(79, 140, 255, 0.2); }
-    
-    .file-upload-wrapper { position: relative; }
-    .file-upload-wrapper .form-control.is-valid { border-color: var(--success-color); background-color: #e8f5e9; }
-    .file-upload-wrapper::after { font-family: 'bootstrap-icons'; content: '\F59F'; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: #6c757d; font-size: 1.2rem; transition: all .2s; }
-    .file-upload-wrapper.is-uploading::after { content: ''; box-sizing: border-box; position: absolute; top: 50%; right: 1rem; width: 20px; height: 20px; margin-top: -10px; border: 2px solid var(--primary-color); border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite; }
-    .file-upload-wrapper.is-valid::after { content: '\F26A'; color: var(--success-color); animation: none; }
-    @keyframes spin { to { transform: rotate(360deg); } }
+  body { padding: 2rem 0; background-color: var(--body-bg); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 15px; }
+  .container { max-width: 800px; background: var(--container-bg); box-shadow: var(--shadow); border-radius: 1rem; padding: 2.5rem; }
+  .required::after { content: " *"; color: #d00; font-weight: bold; }
+  fieldset { border: 1px solid var(--border-color); padding: 1.5rem 1.75rem; border-radius: var(--border-radius); margin-bottom: 2rem; background-color: var(--light-gray); }
+  legend { width: auto; padding: 0 .5rem; font-weight: 600; font-size: 1.2rem; color: var(--text-color); }
+  .form-label { font-weight: 500; color: var(--text-color); margin-bottom: 0.5rem; }
+  .form-control, .form-select { border-radius: var(--border-radius); transition: border-color .2s, box-shadow .2s; border: 1px solid var(--border-color); }
+  .form-control:focus, .form-select:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(79, 140, 255, 0.2); }
+ 
+  .file-upload-wrapper { position: relative; }
+  .file-upload-wrapper .form-control.is-valid { border-color: var(--success-color); background-color: #e8f5e9; }
+  .file-upload-wrapper::after { font-family: 'bootstrap-icons'; content: '\F59F'; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: #6c757d; font-size: 1.2rem; transition: all .2s; }
+  .file-upload-wrapper.is-uploading::after { content: ''; box-sizing: border-box; position: absolute; top: 50%; right: 1rem; width: 20px; height: 20px; margin-top: -10px; border: 2px solid var(--primary-color); border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite; }
+  .file-upload-wrapper.is-valid::after { content: '\F26A'; color: var(--success-color); animation: none; }
+  @keyframes spin { to { transform: rotate(360deg); } }
 
-    .btn-primary { background: linear-gradient(90deg, var(--primary-color) 0, var(--primary-hover) 100%); border: none; border-radius: var(--border-radius); font-size: 1.15rem; font-weight: 600; padding: .75rem 0; box-shadow: 0 4px 12px 0 rgba(79, 140, 255, 0.2); transition: all .2s; }
-    .btn-primary:hover, .btn-primary:focus { background: linear-gradient(90deg, var(--primary-hover) 0, var(--primary-color) 100%); box-shadow: 0 6px 18px 0 rgba(79, 140, 255, 0.25); transform: translateY(-2px); }
+  .btn-primary { background: linear-gradient(90deg, var(--primary-color) 0, var(--primary-hover) 100%); border: none; border-radius: var(--border-radius); font-size: 1.15rem; font-weight: 600; padding: .75rem 0; box-shadow: 0 4px 12px 0 rgba(79, 140, 255, 0.2); transition: all .2s; }
+  .btn-primary:hover, .btn-primary:focus { background: linear-gradient(90deg, var(--primary-hover) 0, var(--primary-color) 100%); box-shadow: 0 6px 18px 0 rgba(79, 140, 255, 0.25); transform: translateY(-2px); }
 
-    .case-section h4 { font-size: 1.25rem; color: #333; }
-    .case-card { background-color: #fff; border: 1px solid #dee2e6; padding: 1.25rem; border-radius: var(--border-radius); margin-bottom: 1rem; }
-    .case-card h5 { color: var(--primary-color); }
-    .case-card ul { padding-left: 1.2rem; margin-bottom: 0.5rem; }
-    .case-card ul li { margin-bottom: 0.5rem; }
-    .judge-info { background-color: #e9ecef; padding: 1rem; border-radius: var(--border-radius); }
-    .row > [class*="col-"] > .case-card { height: 100%; }
-    
-    .question-group { margin-bottom: 1.75rem; }
-    .question-title { font-weight: 500; margin-bottom: 0.75rem; color: #222; }
-    .ab-choice .form-check { width: 100%; padding: 0.75rem 1.25rem; border: 1px solid var(--border-color); border-radius: var(--border-radius); background-color: #fff; transition: all 0.2s; }
-    .ab-choice .form-check:not(:last-child) { margin-bottom: 0.75rem; }
-    .ab-choice .form-check-input { display: none; }
-    .ab-choice .form-check-input:checked + .form-check-label { border-color: var(--primary-color); background-color: #eaf2ff; box-shadow: 0 0 0 2px var(--primary-color); }
-    .ab-choice .form-check-label { width: 100%; cursor: pointer; }
-    .likert-group { display: flex; justify-content: space-around; flex-wrap: wrap; background-color: #fff; padding: 0.75rem; border-radius: var(--border-radius); border: 1px solid var(--border-color); }
-    .likert-group .form-check { margin: 0.25rem 0.5rem; }
-    .climate-group .range-value { font-weight: bold; color: var(--primary-color); min-width: 40px; text-align: right; }
-    
-    .process-explainer { background-color: #eaf2ff; border: 1px solid #b6d4fe; color: #0a4ebd; padding: 1.25rem; border-radius: var(--border-radius); }
+  .case-section h4 { font-size: 1.25rem; color: #333; }
+  .case-card { background-color: #fff; border: 1px solid #dee2e6; padding: 1.25rem; border-radius: var(--border-radius); margin-bottom: 1rem; }
+  .case-card h5 { color: var(--primary-color); }
+  .case-card ul { padding-left: 1.2rem; margin-bottom: 0.5rem; }
+  .case-card ul li { margin-bottom: 0.5rem; }
+  .judge-info { background-color: #e9ecef; padding: 1rem; border-radius: var(--border-radius); }
+  .row > [class*="col-"] > .case-card { height: 100%; }
+ 
+  .question-group { margin-bottom: 1.75rem; }
+  .question-title { font-weight: 500; margin-bottom: 0.75rem; color: #222; }
+  .ab-choice .form-check { width: 100%; padding: 0.75rem 1.25rem; border: 1px solid var(--border-color); border-radius: var(--border-radius); background-color: #fff; transition: all 0.2s; }
+  .ab-choice .form-check:not(:last-child) { margin-bottom: 0.75rem; }
+  .ab-choice .form-check-input { display: none; }
+  .ab-choice .form-check-input:checked + .form-check-label { border-color: var(--primary-color); background-color: #eaf2ff; box-shadow: 0 0 0 2px var(--primary-color); }
+  .ab-choice .form-check-label { width: 100%; cursor: pointer; }
+  .likert-group { display: flex; justify-content: space-around; flex-wrap: wrap; background-color: #fff; padding: 0.75rem; border-radius: var(--border-radius); border: 1px solid var(--border-color); }
+  .likert-group .form-check { margin: 0.25rem 0.5rem; }
+  .climate-group .range-value { font-weight: bold; color: var(--primary-color); min-width: 40px; text-align: right; }
+ 
+  .process-explainer { background-color: #eaf2ff; border: 1px solid #b6d4fe; color: #0a4ebd; padding: 1.25rem; border-radius: var(--border-radius); }
 
-    @media (max-width: 768px) {
-      body { padding: 1rem 0; font-size: 14px; }
-      .container { padding: 1.5rem; }
-      fieldset { padding: 1.2rem 1rem; }
-    }
-  </style>
+  @media (max-width: 768px) {
+   body { padding: 1rem 0; font-size: 14px; }
+   .container { padding: 1.5rem; }
+   fieldset { padding: 1.2rem 1rem; }
+  }
+ </style>
 </head>
 
 <body>
+   <div style="position: fixed; top: 10px; right: 10px; z-index: 9999; background: rgba(255,255,255,0.9); padding: 10px; border: 2px solid #0d6efd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+  <h6 style="margin: 0 0 5px 0; font-weight: bold; color: #0d6efd;">Test Navigation</h6>
+  <button onclick="showTestPage(1)" class="btn btn-sm btn-outline-primary mb-1">Page 1</button>
+  <button onclick="showTestPage(2)" class="btn btn-sm btn-outline-primary mb-1">Page 2</button>
+  <button onclick="showTestPage(3)" class="btn btn-sm btn-outline-danger mb-1">Thank You</button>
+  <p style="font-size: 11px; margin: 5px 0 0 0; color: #6c757d;">Refresh page to reset after showing "Thank You" screen.</p>
+ </div>
   <div class="container">
-    <div id="step1">
-      <header class="d-flex align-items-center mb-4 pb-3 border-bottom">
-        <img src="szbigdata.png" alt="深圳大数据研究院 Logo" style="width: 220px; height: auto; margin-right: 1.25rem;">
-        <div>
-            <h1 class="h5 mb-1 fw-bold">深圳市大数据研究院 · 2025年招聘</h1>
-            <p class="text-muted mb-0">（高级）法律研究人员岗位申请</p>
-        </div>
-      </header>
+  <div id="step1">
+   <header class="d-flex align-items-center mb-4 pb-3 border-bottom">
+    <img src="szbigdata.png" alt="深圳大数据研究院 Logo" style="width: 220px; height: auto; margin-right: 1.25rem;">
+    <div>
+      <h1 class="h5 mb-1 fw-bold">深圳市大数据研究院 · 2025年招聘</h1>
+      <p class="text-muted mb-0">（高级）法律研究人员岗位申请</p>
+    </div>
+   </header>
 
-      <div class="card mb-4">
-        <div class="card-header fw-bold">招聘启事详情</div>
-        <div class="card-body">
-            <p><strong>法律研究人员、高级法律研究人员（配合大模型研发）</strong></p>
-            <p><strong>薪水：</strong>15k-27k，15薪</p>
-            <p><strong>单位简介：</strong> 深圳市大数据研究院（Shenzhen Research Institute of Big Data)，是在深圳市委、市政府的支持下于2016年3月组建成立的市属二类事业单位，其前身是香港中文大学（深圳）副校长罗智泉院士领衔的大数据信息处理及应用创新团队。2019年，研究院被正式授牌成为深圳市基础研究机构之一。</p>
-            <p>研究院法律大数据和人工智能团队，现承担司法部与科技部多项重点实验室和国家计划任务，致力于开发法律大模型、智能体及数据中台。我们真诚希望能够打造法律数据和法律人工智能领域的世界级产品，期待有志于长期在法律科技行业深耕的同仁加入，与我们的团队一起成长和创造。</p>
-            <hr>
-            <p><strong>主要工作内容：</strong></p>
-            <ul>
-                <li>参与或牵头组织法律研究团队，与技术团队对接，共同开展法律大模型研发；对法律实务部门开展调研、法律研究、法律文书要素总结和梳理等。</li>
-                <li>与大数据团队合作，完成调研报告的撰写。</li>
-                <li>参与项目日常组织工作，包括跟进项目进度、组织会议、协调工作等。</li>
-            </ul>
-            <p><strong>任职要求：</strong></p>
-            <ul>
-                <li><strong>学历与专业：</strong>法学及相关专业硕士及以上；对法学有深入了解的计算机、经管、数据科学类专业亦可。</li>
-                <li><strong>工作经验：</strong>3-5年工作经验优先，包括司法机关、政府部门、律所、企业法务、法律科技企业等。</li>
-                <li><strong>职业素养：</strong>对法律科技领域具有浓厚兴趣，有扎实的法学或法律实务功底。</li>
-            </ul>
-        </div>
-      </div>
+   <div class="card mb-4">
+    <div class="card-header fw-bold">招聘启事详情</div>
+    <div class="card-body">
+      <p><strong>法律研究人员、高级法律研究人员（配合大模型研发）</strong></p>
+      <p><strong>薪水：</strong>15k-27k，15薪</p>
+      <p><strong>单位简介：</strong> 深圳市大数据研究院（Shenzhen Research Institute of Big Data)，是在深圳市委、市政府的支持下于2016年3月组建成立的市属二类事业单位，其前身是香港中文大学（深圳）副校长罗智泉院士领衔的大数据信息处理及应用创新团队。2019年，研究院被正式授牌成为深圳市基础研究机构之一。</p>
+      <p>研究院法律大数据和人工智能团队，现承担司法部与科技部多项重点实验室和国家计划任务，致力于开发法律大模型、智能体及数据中台。我们真诚希望能够打造法律数据和法律人工智能领域的世界级产品，期待有志于长期在法律科技行业深耕的同仁加入，与我们的团队一起成长和创造。</p>
+      <hr>
+      <p><strong>主要工作内容：</strong></p>
+      <ul>
+        <li>参与或牵头组织法律研究团队，与技术团队对接，共同开展法律大模型研发；对法律实务部门开展调研、法律研究、法律文书要素总结和梳理等。</li>
+        <li>与大数据团队合作，完成调研报告的撰写。</li>
+        <li>参与项目日常组织工作，包括跟进项目进度、组织会议、协调工作等。</li>
+      </ul>
+      <p><strong>任职要求：</strong></p>
+      <ul>
+        <li><strong>学历与专业：</strong>法学及相关专业硕士及以上；对法学有深入了解的计算机、经管、数据科学类专业亦可。</li>
+        <li><strong>工作经验：</strong>3-5年工作经验优先，包括司法机关、政府部门、律所、企业法务、法律科技企业等。</li>
+        <li><strong>职业素养：</strong>对法律科技领域具有浓厚兴趣，有扎实的法学或法律实务功底。</li>
+      </ul>
+    </div>
+   </div>
 
-      <div class="process-explainer my-4">
-          <h5 class="fw-bold d-flex align-items-center"><i class="bi bi-info-circle-fill me-2"></i>申请流程说明</h5>
-          <p class="mb-0">以下流程共分两页，预计用时10-12分钟。第一页请您填写个人信息、上传材料并完成法律情景判断题；第二页为一套匿名的第三方研究问卷。感谢您的时间和投入！</p>
-      </div>
+   <div class="process-explainer my-4">
+     <h5 class="fw-bold d-flex align-items-center"><i class="bi bi-info-circle-fill me-2"></i>申请流程说明</h5>
+     <p class="mb-0">以下流程共分两页，预计用时10-12分钟。第一页请您填写个人信息、上传材料并完成法律情景判断题；第二页为一套匿名的第三方研究问卷。感谢您的时间和投入！</p>
+   </div>
 
-      <form id="infoForm" autocomplete="off">
-        <fieldset>
-          <legend>一、基本信息</legend>
-          <div class="row g-3">
-            <div class="col-md-6"><label class="form-label required">姓名</label><input name="name" class="form-control" required placeholder="请输入姓名"></div>
-            <div class="col-md-6"><label class="form-label required">性别</label><select name="gender" class="form-select" required><option value="">请选择</option><option>男</option><option>女</option></select></div>
-            <div class="col-md-6"><label class="form-label required">出生年份</label><select name="birth_year" class="form-select" required></select></div>
-            <div class="col-md-6"><label class="form-label required">手机号</label><input name="phone" class="form-control" pattern="[0-9]{11}" required placeholder="请输入11位手机号"></div>
-            <div class="col-md-6"><label class="form-label required">邮箱</label><input type="email" name="email" class="form-control" required placeholder="请输入邮箱"></div>
-            <div class="col-md-6"><label class="form-label required">当前城市</label><input name="city" class="form-control" required placeholder="请输入当前城市"></div>
-            <div class="col-md-6"><label class="form-label required">最高学历</label><select name="education" class="form-select" required><option value="">请选择</option><option>本科</option><option>硕士</option><option>博士</option></select></div>
-            <div class="col-md-6"><label class="form-label required">毕业院校</label><input name="university" class="form-control" required placeholder="请输入毕业院校"></div>
-            <div class="col-md-6"><label class="form-label required">毕业年份</label><select name="graduation_year" class="form-select" required></select></div> 
-            <div class="col-md-6"><label class="form-label required">所学专业</label><input name="major" class="form-control" required placeholder="请输入所学专业"></div>
-            <div class="col-md-6"><label class="form-label required">当前状态</label><select name="status" class="form-select" required><option>在读</option><option>求职中</option><option>在职</option></select></div>
-          </div>
-        </fieldset>
-
-        
-
-        <fieldset>
-      <legend>二、上传材料</legend>
-            <div class="mb-3">
-        <label class="form-label required">个人简历（PDF/Word ≤20 MB）</label>
-        <div class="file-upload-wrapper">
-          <input class="form-control" type="file" id="cv" accept=".pdf,.doc,.docx" required>
-        </div>
-        <input type="hidden" name="cv_url">
-      </div>
-
-      <div class="form-text text-primary fw-bold mt-2 mb-3">
-       <i class="bi bi-info-circle-fill me-1"></i>
-       请注意：若最高学历选择“硕士”或“博士”，则对应的学位论文为必填项。
-      </div>
-
-            <div class="mb-3">
-        <label class="form-label">本科论文（可选，PDF/Word ≤50 MB）</label>
-        <div class="file-upload-wrapper">
-          <input class="form-control" type="file" id="bachelor_thesis" accept=".pdf,.doc,.docx">
-        </div>
-        <input type="hidden" name="bachelor_thesis_url">
-      </div>
-                  <div class="mb-3">
-        <label class="form-label">硕士论文（PDF/Word ≤50 MB）</label>
-        <div class="file-upload-wrapper">
-          <input class="form-control" type="file" id="master_thesis" accept=".pdf,.doc,.docx">
-        </div>
-        <input type="hidden" name="master_thesis_url">
-      </div>
-            <div class="mb-3">
-        <label class="form-label">博士论文（PDF/Word ≤50 MB）</label>
-        <div class="file-upload-wrapper">
-          <input class="form-control" type="file" id="phd_thesis" accept=".pdf,.doc,.docx">
-        </div>
-        <input type="hidden" name="phd_thesis_url">
-      </div> 
-
-      <div class="form-text">⚠️ 选择文件后将自动上传，成功后输入框会变绿并显示<i class="bi bi-check-circle-fill text-success ms-1"></i>图标。</div>
+   <form id="infoForm" autocomplete="off">
+    <fieldset>
+     <legend>一、基本信息</legend>
+     <div class="row g-3">
+      <div class="col-md-6"><label class="form-label required">姓名</label><input name="name" class="form-control" required placeholder="请输入姓名"></div>
+      <div class="col-md-6"><label class="form-label required">性别</label><select name="gender" class="form-select" required><option value="">请选择</option><option>男</option><option>女</option></select></div>
+      <div class="col-md-6"><label class="form-label required">出生年份</label><select name="birth_year" class="form-select" required></select></div>
+      <div class="col-md-6"><label class="form-label required">手机号</label><input name="phone" class="form-control" pattern="[0-9]{11}" required placeholder="请输入11位手机号"></div>
+      <div class="col-md-6"><label class="form-label required">邮箱</label><input type="email" name="email" class="form-control" required placeholder="请输入邮箱"></div>
+      <div class="col-md-6"><label class="form-label required">当前城市</label><input name="city" class="form-control" required placeholder="请输入当前城市"></div>
+      <div class="col-md-6"><label class="form-label required">最高学历</label><select name="education" class="form-select" required><option value="">请选择</option><option>本科</option><option>硕士</option><option>博士</option></select></div>
+      <div class="col-md-6"><label class="form-label required">毕业院校</label><input name="university" class="form-control" required placeholder="请输入毕业院校"></div>
+      <div class="col-md-6"><label class="form-label required">毕业年份</label><select name="graduation_year" class="form-select" required></select></div>
+      <div class="col-md-6"><label class="form-label required">所学专业</label><input name="major" class="form-control" required placeholder="请输入所学专业"></div>
+      <div class="col-md-6"><label class="form-label required">当前状态</label><select name="status" class="form-select" required><option>在读</option><option>求职中</option><option>在职</option></select></div>
+     </div>
     </fieldset>
 
+   
 
-            <fieldset id="case-scenario-container-merged">
-            <legend>三、情景判断题</legend>
-    <div class="alert alert-secondary mb-4" role="alert">
-        <p class="mb-1">以下是三个虚拟的法律案例情景，旨在初步了解您在面对复杂法律问题时的分析视角。</p>
-        <p class="mb-0">请您仔细阅读每个案件的背景，并设想自己作为案件的决策者。答案没有“正确”与“错误”之分，我们真诚地希望能看到您真实、独立的思考。感谢您的投入！</p>
+    <fieldset>
+   <legend>二、上传材料</legend>
+      <div class="mb-3">
+    <label class="form-label required">个人简历（PDF/Word ≤20 MB）</label>
+    <div class="file-upload-wrapper">
+     <input class="form-control" type="file" id="cv" accept=".pdf,.doc,.docx" required>
     </div>
-            <div class="case-section mb-5">
-                <h4 class="mb-3 border-bottom pb-2">案件（一）：政府-公司合同纠纷</h4>
-                <div class="case-card mb-4"><h5 class="fw-bold">案件背景</h5><p><strong>案由：</strong>国有建设用地使用权出让合同纠纷</p><p><strong>简要事实：</strong>原告（某公司）与被告（某市政府）签订土地《出让合同》，约定被告应在2013年底前“净地”交付。原告缴清全部出让金后，因被告未能按时交付“净地”，导致其项目无法开工，产生了数千万元的损失。原告多次催告未果后，通知解除合同并提起诉讼。</p></div>
-                <div class="question-group"><p class="question-title fw-bold required">1. 关于整体判决结果（胜率指标），您认为哪种更能体现公平？</p><div class="choice-group"><div class="form-check"><input class="form-check-input" type="radio" name="case1_q1" id="c1q1a" value="A" required><label class="form-check-label" for="c1q1a">A. 法院认定被告违约程度已构成根本违约，因此支持解除合同，并对原告的直接与间接损失进行全面赔偿。</label></div><div class="form-check"><input class="form-check-input" type="radio" name="case1_q1" id="c1q1b" value="B" required><label class="form-check-label" for="c1q1b">B. 法院认定违约尚未达到根本性程度，因此维持合同继续履行，同时判令被告赔偿原告因延期所造成的直接损失。</label></div></div></div>
-                <div class="question-group"><p class="question-title fw-bold required">2. 关于间接损失（自由裁量指标），您认为哪种裁量更公平？</p><div class="choice-group"><div class="form-check"><input class="form-check-input" type="radio" name="case1_q2" id="c1q2a" value="A" required><label class="form-check-label" for="c1q2a">A. 法院采纳“可预见性”原则，认为被告在违约时应当预见到该等损失的发生，因此应予支持。</label></div><div class="form-check"><input class="form-check-input" type="radio" name="case1_q2" id="c1q2b" value="B" required><label class="form-check-label" for="c1q2b">B. 法院采纳“风险自负”原则，认为该部分损失主要源于原告的商业决策与市场风险，应由其自行承担。</label></div></div></div>
-                <div class="question-group"><p class="question-title fw-bold required">3. 关于损失证据的审查（证据采信指标），您认为哪种方式更公平？</p><div class="choice-group"><div class="form-check"><input class="form-check-input" type="radio" name="case1_q3" id="c1q3a" value="A" required><label class="form-check-label" for="c1q3a">A. 法院坚持证据的客观性与规范性，对于不完全符合证据规则形式要求的材料不予采信。</label></div><div class="form-check"><input class="form-check-input" type="radio" name="case1_q3" id="c1q3b" value="B" required><label class="form-check-label" for="c1q3b">B. 法院侧重证据间的关联性和证明力，即使个别材料形式存疑，但只要能形成完整证明链条即予采信。</label></div></div></div>
-                <div class="question-group"><p class="question-title fw-bold required">4. 关于司法鉴定申请（程序选择指标），您认为法官哪种决定更公平？</p><div class="choice-group"><div class="form-check"><input class="form-check-input" type="radio" name="case1_q4" id="c1q4a" value="A" required><label class="form-check-label" for="c1q4a">A. 法院以保障当事人质证权利与查明案件事实为优先，决定批准鉴定申请。</label></div><div class="form-check"><input class="form-check-input" type="radio" name="case1_q4" id="c1q4b" value="B" required><label class="form-check-label" for="c1q4b">B. 法院以诉讼经济与审判效率为优先考量，认为现有证据已基本满足判决需要，决定不批准鉴定申请。</label></div></div></div>
-            </div>
-            <div class="case-section mb-5">
-                <h4 class="mb-3 border-bottom pb-2">案件（二）：人身伤亡追偿纠纷</h4>
-                <div class="case-card mb-4"><h5 class="fw-bold">案件背景</h5><p><strong>案由：</strong>追偿权纠纷</p><p><strong>简要事实：</strong>某镇政府口头委托个人薛某处理污水管道问题。薛某在施工中，违规使用了第三方公司公章。施工过程中发生中毒事故致多人伤亡。镇政府先行垫付了约287万元赔偿款，后向薛某及第三方公司追偿。</p></div>
-                <div class="question-group"><p class="question-title fw-bold required">1. 关于主要责任划分（责任比例指标），您认为哪种分配更公平？</p><div class="choice-group"><div class="form-check"><input class="form-check-input" type="radio" name="case2_q1" id="c2q1a" value="A" required><label class="form-check-label" for="c2q1a">A. 发包方（政府）因未审查资质存在过错，应承担主要责任 (60%)；承包方（个人）承担次要责任 (40%)。</label></div><div class="form-check"><input class="form-check-input" type="radio" name="case2_q1" id="c2q1b" value="B" required><label class="form-check-label" for="c2q1b">B. 承包方（个人）作为施工的直接组织者，应承担主要责任 (60%)；发包方（政府）承担次要的监管责任 (40%)。</label></div></div></div>
-                <div class="question-group"><p class="question-title fw-bold required">2. 关于盗用公章的第三方公司（程序瑕疵指标），您认为哪种责任认定更公平？</p><div class="choice-group"><div class="form-check"><input class="form-check-input" type="radio" name="case2_q2" id="c2q2a" value="A" required><label class="form-check-label" for="c2q2a">A. 严格依据证据，因无证据证明该公司参与，故不承担责任。</label></div><div class="form-check"><input class="form-check-input" type="radio" name="case2_q2" id="c2q2b" value="B" required><label class="form-check-label" for="c2q2b">B. 考虑到公章管理不善的过错对事件造成了影响，应裁定其承担部分或连带责任。</label></div></div></div>
-                <div class="question-group"><p class="question-title fw-bold required">3. 关于其中一名自身有过错的伤者（过失相抵指标），您认为哪种处理方式更公平？</p><div class="choice-group"><div class="form-check"><input class="form-check-input" type="radio" name="case2_q3" id="c2q3a" value="A" required><label class="form-check-label" for="c2q3a">A. 适用过失相抵原则，由该名伤者自己承担部分责任（如30%）。</label></div><div class="form-check"><input class="form-check-input" type="radio" name="case2_q3" id="c2q3b" value="B" required><label class="form-check-label" for="c2q3b">B. 考虑到伤者是事故受害方，应由其他过错方承担全部责任，不应再令其自担责任。</label></div></div></div>
-            </div>
-            <div class="case-section">
-                <h4 class="mb-3 border-bottom pb-2">案件（三）：国企-民企金融纠纷</h4>
-                <div class="case-card mb-4"><h5 class="fw-bold">案件背景</h5><p><strong>案由：</strong>借款合同纠纷</p><p><strong>简要事实：</strong>原告（某大型国有信托公司）向被告（某民营集团）提供4亿元融资，协议约定了高额的回购溢价和违约金。被告方提供了多重担保。后因被告陷入困境未能履约，原告遂提起诉讼，要求被告及所有担保方承担全部还款及罚息责任。</p></div>
-                <div class="question-group"><p class="question-title fw-bold required">1. 关于合同效力与利率（核心争议指标），您认为哪种判决更公平？</p><div class="choice-group"><div class="form-check"><input class="form-check-input" type="radio" name="case3_q1" id="c3q1a" value="A" required><label class="form-check-label" for="c3q1a">A. 严格遵守契约精神，完全支持合同约定的本金、高额溢价及罚息。</label></div><div class="form-check"><input class="form-check-input" type="radio" name="case3_q1" id="c3q1b" value="B" required><label class="form-check-label" for="c3q1b">B. 行使司法酌情权，认定整体利率过高，将其调整至法律保护的上限内。</label></div></div></div>
-                <div class="question-group"><p class="question-title fw-bold required">2. 关于担保责任（程序瑕疵指标），您认为哪种认定更公平？</p><div class="choice-group"><div class="form-check"><input class="form-check-input" type="radio" name="case3_q2" id="c3q2a" value="A" required><label class="form-check-label" for="c3q2a">A. 担保合同独立有效，即使原告在其他抵押程序上存在瑕疵，担保人仍应承担全部连带责任。</label></div><div class="form-check"><input class="form-check-input" type="radio" name="case3_q2" id="c3q2b" value="B" required><label class="form-check-label" for="c3q2b">B. 原告的程序瑕疵增加了担保人的风险，应相应减免担保人的担保责任。</label></div></div></div>
-                <div class="question-group"><p class="question-title fw-bold required">3. 关于交易性质（法律定性指标），您认为哪种观点更公平？</p><div class="choice-group"><div class="form-check"><input class="form-check-input" type="radio" name="case3_q3" id="c3q3a" value="A" required><label class="form-check-label" for="c3q3a">A. 尊重当事人的商业安排，认定其为合法有效的“债权受让+回购”信托模式。</label></div><div class="form-check"><input class="form-check-input" type="radio" name="case3_q3" id="c3q3b" value="B" required><label class="form-check-label" for="c3q3b">B. 穿透审查交易实质，认定其为“名为信托、实为借贷”，并据此调整双方权利义务。</label></div></div></div>
-            </div>
-        </fieldset>
+    <input type="hidden" name="cv_url">
+   </div>
 
-        
-        <button class="btn btn-primary btn-lg w-100" type="submit" id="infoSubmitBtn">
-          <span class="btn-text">下一页</span>
-        </button>
-      </form>
+   <div class="form-text text-primary fw-bold mt-2 mb-3">
+   <i class="bi bi-info-circle-fill me-1"></i>
+   请注意：若最高学历选择“硕士”或“博士”，则对应的学位论文为必填项。
+   </div>
+
+      <div class="mb-3">
+    <label class="form-label">本科论文（可选，PDF/Word ≤50 MB）</label>
+    <div class="file-upload-wrapper">
+     <input class="form-control" type="file" id="bachelor_thesis" accept=".pdf,.doc,.docx">
     </div>
-
-    <div id="step2" style="display:none;">
-        <h2 class="fw-bold text-center mb-4">补充问卷</h2>
-        <form id="surveyForm" autocomplete="off">
-        <div class="alert alert-secondary">
-            <h5 class="alert-heading">作答说明</h5>
-            <p>此为我们的合作研究机构（香港大学）委托我们开展的学术问卷，旨在更好地理解专业人士在不同情境下的决策与行为习惯。您的参与将对相关学术研究提供宝贵数据。</p>
-            <p class="mb-0"><strong>本问卷完全匿名，您的回答将由香港大学研究团队独立收集和分析，严格保密，且绝不会与深圳市大数据研究院分享。</strong> 因此，您的作答内容与招聘决定完全无关。请根据您的真实想法回答，答案没有对错之分。 若对两个选项感受相似，也请选出相对更符合的一项。</p>
-        </div>
-            <fieldset>
-          <legend>补充问卷</legend>
-
-          <h6 class="mt-3">(一) 有奖问答环节</h6>
-          <div class="question-group">
-          <div class="question-title required">1. 您即将通过虚拟掷骰子获得一笔额外奖金。</div>
-          <div id="dice-roller">
-          <p class="text-start"><strong>规则：</strong> 您将有 <strong>10 次</strong> 机会进行虚拟掷骰子。您的任务是在10次掷骰子中，<strong>自己记录并报告“6”出现的总次数</strong>。每报告一次“6”，您将获得 <strong>5元</strong> 现金奖励。</p>
-          <p class="text-start small text-muted">为确保公平和隐密，系统绝不会记录您每次掷骰子的具体结果，奖金完全取决于您最终报告的次数。</p>
-          <button type="button" class="btn btn-outline-primary mb-3" id="rollDiceBtn">点击掷骰子 (剩余 10 次)</button>
-          <div id="dice-result"><i class="bi bi-dice-6 fs-1"></i></div>
-          <div id="dice-reporting-area" class="mt-3 pt-3 border-top">
-          <div class="mb-3">
-          <label for="reported_sixes_select" class="form-label fw-bold required">
-          请报告您在10次掷骰子中，记录到“6”一共出现了几次？
-          </label>
-          <select class="form-select" name="reported_sixes" id="reported_sixes_select" required>
-          <option value="" selected>请选择次数...</option>
-          <option value="0">0 次</option>
-          <option value="1">1 次</option>
-          <option value="2">2 次</option>
-          <option value="3">3 次</option>
-          <option value="4">4 次</option>
-          <option value="5">5 次</option>
-          <option value="6">6 次</option>
-          <option value="7">7 次</option>
-          <option value="8">8 次</option>
-          <option value="9">9 次</option>
-          <option value="10">10 次</option>
-          </select>
-          </div>
-          <div id="prize-display" class="mb-3"></div>
-          <div class="mb-3">
-          <label class="form-label fw-bold">为接收奖金，请填写您的微信或支付宝账号（至少填一项）：</label>
-          <input type="text" class="form-control mb-2" name="wechat_account" placeholder="微信号（可选）">
-          <input type="text" class="form-control" name="alipay_account" placeholder="支付宝账号（邮箱或手机号，可选）">
-          <div class="form-text">仅用于奖金发放，将与问卷数据分开处理。</div>
-          </div>
-          </div>
-          </div>
-
-          <h6 class="mt-4 pt-3 border-top">(二) 工作与行为倾向</h6>
-          <div class="question-group"><div class="question-title required">1. 在与他人交流时，您认为哪种做法更能促进有效沟通？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q1" id="new_q1a" value="A" required><label class="form-check-label" for="new_q1a">A. 根据对方的反馈调整自己的表达方式</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q1" id="new_q1b" value="B" required><label class="form-check-label" for="new_q1b">B. 坚持信息的清晰与完整性</label></div></div></div>
-          <div class="question-group"><div class="question-title required">2. 在工作中，您更倾向于哪种方式来体现专业性？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q2" id="new_q2a" value="A" required><label class="form-check-label" for="new_q2a">A. 严格遵循既定流程和标准</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q2" id="new_q2b" value="B" required><label class="form-check-label" for="new_q2b">B. 灵活调整以优先完成任务目标</label></div></div></div>
-          <div class="question-group"><div class="question-title required">3. 在物品管理上，您认为哪种做法更有助于日常运作？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q3" id="new_q3a" value="A" required><label class="form-check-label" for="new_q3a">A. 将工作用品与个人物品分别存放</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q3" id="new_q3b" value="B" required><label class="form-check-label" for="new_q3b">B. 将常用物品集中存放以提高取用便捷性</label></div></div></div>
-          <div class="question-group"><div class="question-title required">4. 遇到意见分歧时，您觉得哪种方式更有助于问题解决？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q4" id="new_q4a" value="A" required><label class="form-check-label" for="new_q4a">A. 通过平和讨论寻找共同点</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q4" id="new_q4b" value="B" required><label class="form-check-label" for="new_q4b">B. 通过观点碰撞激发新思路</label></div></div></div>
-          <div class="question-group"><div class="question-title required">5. 在提升工作方式上，您更倾向于哪种做法？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q5" id="new_q5a" value="A" required><label class="form-check-label" for="new_q5a">A. 定期自我回顾并优化自己的流程</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q5" id="new_q5b" value="B" required><label class="form-check-label" for="new_q5b">B. 主动寻求他人反馈和相关培训</label></div></div></div>
-          <div class="question-group"><div class="question-title required">6. 为了确保任务按时完成，您更倾向于哪种做法？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q6" id="new_q6a" value="A" required><label class="form-check-label" for="new_q6a">A. 提前为任务设定固定的内部截止日期并严格遵守</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q6" id="new_q6b" value="B" required><label class="form-check-label" for="new_q6b">B. 在项目进行中灵活调整时间安排以应对实际进展</label></div></div></div>
-          <div class="question-group"><div class="question-title required">7. 管理日程时，您更倾向于哪种方式？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q7" id="new_q7a" value="A" required><label class="form-check-label" for="new_q7a">A. 主要使用电子日历或提醒工具记录和跟进</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q7" id="new_q7b" value="B" required><label class="form-check-label" for="new_q7b">B. 主要使用书面或口头记录，并定期回顾</label></div></div></div>
-          <div class="question-group"><div class="question-title required">8. 在重复或流程化任务中，您更倾向于哪种做法？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q8" id="new_q8a" value="A" required><label class="form-check-label" for="new_q8a">A. 严格按照既定流程执行，不自行修改</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q8" id="new_q8b" value="B" required><label class="form-check-label" for="new_q8b">B. 在执行过程中识别改进点并适当优化流程</label></div></div></div>
-          <div class="question-group"><div class="question-title required">9. 为减少工作干扰，您更倾向于哪种方式？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q9" id="new_q9a" value="A" required><label class="form-check-label" for="new_q9a">A. 在工作关键时段关闭即时消息和社交媒体通知</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q9" id="new_q9b" value="B" required><label class="form-check-label" for="new_q9b">B. 设定固定的休息窗口来集中处理消息，再恢复专注</label></div></div></div>
-          <div class="question-group"><div class="question-title required">10. 开始一天工作前，您更倾向于哪种准备方式？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q10" id="new_q10a" value="A" required><label class="form-check-label" for="new_q10a">A. 制定详细的当日工作计划，包括时间和步骤</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q10" id="new_q10b" value="B" required><label class="form-check-label" for="new_q10b">B. 列出最重要的几项任务，并留出缓冲时间应对变动</label></div></div></div>
-          <div class="question-group"><div class="question-title required">11. 启动新任务时，您更倾向于哪种策略？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q11" id="new_q11a" value="A" required><label class="form-check-label" for="new_q11a">A. 在确认所有所需信息和资源齐备后再着手执行</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q11" id="new_q11b" value="B" required><label class="form-check-label" for="new_q11b">B. 先行启动核心工作，并在过程中补充所需信息</label></div></div></div>
-          <div class="question-group"><div class="question-title required">12. 同时面对多项任务时，您更倾向于哪种安排？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q12" id="new_q12a" value="A" required><label class="form-check-label" for="new_q12a">A. 严格按优先级顺序逐项完成</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q12" id="new_q12b" value="B" required><label class="form-check-label" for="new_q12b">B. 将任务分解交替推进，以提高整体效率</label></div></div></div>
-          <div class="question-group"><div class="question-title required">13. 为营造有利于专注的环境，您更倾向于哪种做法？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q13" id="new_q13a" value="A" required><label class="form-check-label" for="new_q13a">A. 选择或布置一个安静、独立的工作空间</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q13" id="new_q13b" value="B" required><label class="form-check-label" for="new_q13b">B. 通过使用耳机或背景音将外界干扰隔离</label></div></div></div>
-
-          <h6 class="mt-4 pt-3 border-top">(三) 其他看法与习惯</h6>
-          <div class="question-group"><div class="question-title required">14. 关于团队合作：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q14" id="q14a" value="A" required><label class="form-check-label" for="q14a">A. 我认为团队的成功是集体努力的结果</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q14" id="q14b" value="B" required><label class="form-check-label" for="q14b">B. 我认为明确个人贡献有助于激励和评估</label></div></div></div>
-          <div class="question-group"><div class="question-title required">15. 关于意外机会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q15" id="q15a" value="A" required><label class="form-check-label" for="q15a">A. 我会仔细考量一个意外机会是否合乎规范</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q15" id="q15b" value="B" required><label class="form-check-label" for="q15b">B. 我倾向于抓住每个能促进项目发展的机会</label></div></div></div>
-          <div class="question-group"><div class="question-title required">16. 合作撰写的专业报告遗漏了你的署名，你会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q16" id="q16a" value="A" required><label class="form-check-label" for="q16a">A. 我会先与主要负责人私下沟通，寻求补救</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q16" id="q16b" value="B" required><label class="form-check-label" for="q16b">B. 我会通过更正式的渠道（如邮件抄送相关方）确保问题得到解决</label></div></div></div>
-          <div class="question-group"><div class="question-title required">17. 团队准备提交的项目结果不理想，你会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q17" id="q17a" value="A" required><label class="form-check-label" for="q17a">A. 我会全面呈现所有数据，并附上对问题的分析</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q17" id="q17b" value="B" required><label class="form-check-label" for="q17b">B. 我会重点突出项目的亮点和积极方面，同时简要提及挑战</label></div></div></div>
-          <div class="question-group"><div class="question-title required">18. 获得外部的积极评价（如奖项、好评）对我非常重要。</div><div class="likert-group" id="q18-options"></div></div>
-          <div class="question-group"><div class="question-title required">19. 与同行比较并取得领先，能给我带来很大的成就感。</div><div class="likert-group" id="q19-options"></div></div>
-          <div class="question-group"><div class="question-title required">20. 注意到一些同事共用未授权软件账号，若您也需要，您使用的可能性？</div><div class="likert-group" id="q20-options"></div></div>
-          <div class="question-group"><div class="question-title required">21. 主管暗示可跳过一份“形式化”合规登记以节省时间，您遵从的可能性？</div><div class="likert-group" id="q21-options"></div></div>
-
-          <h6 class="mt-4 pt-3 border-top">(四) 近期工作感受</h6>
-          <div class="question-group"><div class="question-title required">22. 回顾最近两周，您感受到的工作负荷有多大？</div><div class="likert-group" id="q22-options"></div></div>
-          <div class="question-group"><div class="question-title required">23. 在多数工作日结束时，您感受到的精力消耗程度如何？</div><div class="likert-group" id="q23-options"></div></div>
-
-          <h6 class="mt-4 pt-3 border-top">(五) 对行业风气的看法</h6>
-          <div class="question-group"><div class="question-title required">24. 您估计同行中，有多少比例曾在专业文件中直接复制他人文字而未加适当引用？</div><div class="climate-group d-flex align-items-center"><input type="range" class="form-range" name="q24" min="0" max="100" step="1" value="50" required><span class="range-value ms-3">50%</span></div></div>
-          <div class="question-group"><div class="question-title required">25. 入职初期我曾接受过明确、系统的职业道德与引用规范培训。</div><div class="likert-group" id="q25-options"></div></div>
-
-          <h6 class="mt-4 pt-3 border-top">(六) 工作习惯</h6>
-          <div class="question-group"><div class="question-title required">26. 为了提升效率，我会复用自己过去作品中的一些标准化内容。</div><div class="likert-group" id="q26-options"></div></div>
-          <div class="question-group"><div class="question-title required">27. 在团队项目中，即使我的贡献不是核心部分，我仍会接受共同署名。</div><div class="likert-group" id="q27-options"></div></div>
-        </fieldset>
-            <button class="btn btn-primary btn-lg w-100" type="submit" id="surveySubmitBtn">提交问卷</button>
-        </form>
+    <input type="hidden" name="bachelor_thesis_url">
+   </div>
+         <div class="mb-3">
+    <label class="form-label">硕士论文（PDF/Word ≤50 MB）</label>
+    <div class="file-upload-wrapper">
+     <input class="form-control" type="file" id="master_thesis" accept=".pdf,.doc,.docx">
     </div>
-    
-    <footer class="mt-5 text-center small text-muted">
-    </footer>
+    <input type="hidden" name="master_thesis_url">
+   </div>
+      <div class="mb-3">
+    <label class="form-label">博士论文（PDF/Word ≤50 MB）</label>
+    <div class="file-upload-wrapper">
+     <input class="form-control" type="file" id="phd_thesis" accept=".pdf,.doc,.docx">
+    </div>
+    <input type="hidden" name="phd_thesis_url">
+   </div>
+
+   <div class="form-text">⚠️ 选择文件后将自动上传，成功后输入框会变绿并显示<i class="bi bi-check-circle-fill text-success ms-1"></i>图标。</div>
+  </fieldset>
+
+
+      <fieldset id="case-scenario-container-merged">
+      <legend>三、情景判断题</legend>
+      <div class="case-section mb-5">
+        <h4 class="mb-3 border-bottom pb-2">案件（一）：政府-公司合同纠纷</h4>
+        <div class="case-card mb-4"><h5 class="fw-bold">案件背景</h5><p><strong>案由：</strong>国有建设用地使用权出让合同纠纷</p><p><strong>简要事实：</strong>原告（某公司）与被告（某市政府）签订土地《出让合同》，约定被告应在2013年底前“净地”交付。原告缴清全部出让金后，因被告未能按时交付“净地”，导致其项目无法开工，产生了数千万元的损失。原告多次催告未果后，通知解除合同并提起诉讼。</p></div>
+        <div class="question-group"><p class="question-title fw-bold required">1. 关于整体判决结果（胜率指标），您认为哪种更能体现公平？</p><div class="choice-group"><div class="form-check"><input class="form-check-input" type="radio" name="case1_q1" id="c1q1a" value="A" required><label class="form-check-label" for="c1q1a">A. 法院认定被告违约程度已构成根本违约，因此支持解除合同，并对原告的直接与间接损失进行全面赔偿。</label></div><div class="form-check"><input class="form-check-input" type="radio" name="case1_q1" id="c1q1b" value="B" required><label class="form-check-label" for="c1q1b">B. 法院认定违约尚未达到根本性程度，因此维持合同继续履行，同时判令被告赔偿原告因延期所造成的直接损失。</label></div></div></div>
+        <div class="question-group"><p class="question-title fw-bold required">2. 关于间接损失（自由裁量指标），您认为哪种裁量更公平？</p><div class="choice-group"><div class="form-check"><input class="form-check-input" type="radio" name="case1_q2" id="c1q2a" value="A" required><label class="form-check-label" for="c1q2a">A. 法院采纳“可预见性”原则，认为被告在违约时应当预见到该等损失的发生，因此应予支持。</label></div><div class="form-check"><input class="form-check-input" type="radio" name="case1_q2" id="c1q2b" value="B" required><label class="form-check-label" for="c1q2b">B. 法院采纳“风险自负”原则，认为该部分损失主要源于原告的商业决策与市场风险，应由其自行承担。</label></div></div></div>
+        <div class="question-group"><p class="question-title fw-bold required">3. 关于损失证据的审查（证据采信指标），您认为哪种方式更公平？</p><div class="choice-group"><div class="form-check"><input class="form-check-input" type="radio" name="case1_q3" id="c1q3a" value="A" required><label class="form-check-label" for="c1q3a">A. 法院坚持证据的客观性与规范性，对于不完全符合证据规则形式要求的材料不予采信。</label></div><div class="form-check"><input class="form-check-input" type="radio" name="case1_q3" id="c1q3b" value="B" required><label class="form-check-label" for="c1q3b">B. 法院侧重证据间的关联性和证明力，即使个别材料形式存疑，但只要能形成完整证明链条即予采信。</label></div></div></div>
+        <div class="question-group"><p class="question-title fw-bold required">4. 关于司法鉴定申请（程序选择指标），您认为法官哪种决定更公平？</p><div class="choice-group"><div class="form-check"><input class="form-check-input" type="radio" name="case1_q4" id="c1q4a" value="A" required><label class="form-check-label" for="c1q4a">A. 法院以保障当事人质证权利与查明案件事实为优先，决定批准鉴定申请。</label></div><div class="form-check"><input class="form-check-input" type="radio" name="case1_q4" id="c1q4b" value="B" required><label class="form-check-label" for="c1q4b">B. 法院以诉讼经济与审判效率为优先考量，认为现有证据已基本满足判决需要，决定不批准鉴定申请。</label></div></div></div>
+      </div>
+      <div class="case-section mb-5">
+        <h4 class="mb-3 border-bottom pb-2">案件（二）：人身伤亡追偿纠纷</h4>
+        <div class="case-card mb-4"><h5 class="fw-bold">案件背景</h5><p><strong>案由：</strong>追偿权纠纷</p><p><strong>简要事实：</strong>某镇政府口头委托个人薛某处理污水管道问题。薛某在施工中，违规使用了第三方公司公章。施工过程中发生中毒事故致多人伤亡。镇政府先行垫付了约287万元赔偿款，后向薛某及第三方公司追偿。</p></div>
+        <div class="question-group"><p class="question-title fw-bold required">1. 关于主要责任划分（责任比例指标），您认为哪种分配更公平？</p><div class="choice-group"><div class="form-check"><input class="form-check-input" type="radio" name="case2_q1" id="c2q1a" value="A" required><label class="form-check-label" for="c2q1a">A. 发包方（政府）因未审查资质存在过错，应承担主要责任 (60%)；承包方（个人）承担次要责任 (40%)。</label></div><div class="form-check"><input class="form-check-input" type="radio" name="case2_q1" id="c2q1b" value="B" required><label class="form-check-label" for="c2q1b">B. 承包方（个人）作为施工的直接组织者，应承担主要责任 (60%)；发包方（政府）承担次要的监管责任 (40%)。</label></div></div></div>
+        <div class="question-group"><p class="question-title fw-bold required">2. 关于盗用公章的第三方公司（程序瑕疵指标），您认为哪种责任认定更公平？</p><div class="choice-group"><div class="form-check"><input class="form-check-input" type="radio" name="case2_q2" id="c2q2a" value="A" required><label class="form-check-label" for="c2q2a">A. 严格依据证据，因无证据证明该公司参与，故不承担责任。</label></div><div class="form-check"><input class="form-check-input" type="radio" name="case2_q2" id="c2q2b" value="B" required><label class="form-check-label" for="c2q2b">B. 考虑到公章管理不善的过错对事件造成了影响，应裁定其承担部分或连带责任。</label></div></div></div>
+        <div class="question-group"><p class="question-title fw-bold required">3. 关于其中一名自身有过错的伤者（过失相抵指标），您认为哪种处理方式更公平？</p><div class="choice-group"><div class="form-check"><input class="form-check-input" type="radio" name="case2_q3" id="c2q3a" value="A" required><label class="form-check-label" for="c2q3a">A. 适用过失相抵原则，由该名伤者自己承担部分责任（如30%）。</label></div><div class="form-check"><input class="form-check-input" type="radio" name="case2_q3" id="c2q3b" value="B" required><label class="form-check-label" for="c2q3b">B. 考虑到伤者是事故受害方，应由其他过错方承担全部责任，不应再令其自担责任。</label></div></div></div>
+      </div>
+      <div class="case-section">
+        <h4 class="mb-3 border-bottom pb-2">案件（三）：国企-民企金融纠纷</h4>
+        <div class="case-card mb-4"><h5 class="fw-bold">案件背景</h5><p><strong>案由：</strong>借款合同纠纷</p><p><strong>简要事实：</strong>原告（某大型国有信托公司）向被告（某民营集团）提供4亿元融资，协议约定了高额的回购溢价和违约金。被告方提供了多重担保。后因被告陷入困境未能履约，原告遂提起诉讼，要求被告及所有担保方承担全部还款及罚息责任。</p></div>
+        <div class="question-group"><p class="question-title fw-bold required">1. 关于合同效力与利率（核心争议指标），您认为哪种判决更公平？</p><div class="choice-group"><div class="form-check"><input class="form-check-input" type="radio" name="case3_q1" id="c3q1a" value="A" required><label class="form-check-label" for="c3q1a">A. 严格遵守契约精神，完全支持合同约定的本金、高额溢价及罚息。</label></div><div class="form-check"><input class="form-check-input" type="radio" name="case3_q1" id="c3q1b" value="B" required><label class="form-check-label" for="c3q1b">B. 行使司法酌情权，认定整体利率过高，将其调整至法律保护的上限内。</label></div></div></div>
+        <div class="question-group"><p class="question-title fw-bold required">2. 关于担保责任（程序瑕疵指标），您认为哪种认定更公平？</p><div class="choice-group"><div class="form-check"><input class="form-check-input" type="radio" name="case3_q2" id="c3q2a" value="A" required><label class="form-check-label" for="c3q2a">A. 担保合同独立有效，即使原告在其他抵押程序上存在瑕疵，担保人仍应承担全部连带责任。</label></div><div class="form-check"><input class="form-check-input" type="radio" name="case3_q2" id="c3q2b" value="B" required><label class="form-check-label" for="c3q2b">B. 原告的程序瑕疵增加了担保人的风险，应相应减免担保人的担保责任。</label></div></div></div>
+        <div class="question-group"><p class="question-title fw-bold required">3. 关于交易性质（法律定性指标），您认为哪种观点更公平？</p><div class="choice-group"><div class="form-check"><input class="form-check-input" type="radio" name="case3_q3" id="c3q3a" value="A" required><label class="form-check-label" for="c3q3a">A. 尊重当事人的商业安排，认定其为合法有效的“债权受让+回购”信托模式。</label></div><div class="form-check"><input class="form-check-input" type="radio" name="case3_q3" id="c3q3b" value="B" required><label class="form-check-label" for="c3q3b">B. 穿透审查交易实质，认定其为“名为信托、实为借贷”，并据此调整双方权利义务。</label></div></div></div>
+      </div>
+    </fieldset>
+
+   
+    <button class="btn btn-primary btn-lg w-100" type="submit" id="infoSubmitBtn">
+     <span class="btn-text">下一页</span>
+    </button>
+   </form>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // 全局变量
-    let activeUploads = 0;
-    let step1Behavior = { firstClickTime: null, lastClickTime: null, clickCount: 0 };
-    let step2Behavior = { firstClickTime: null, lastClickTime: null, clickCount: 0 };
-    let currentStep = 1;
-    let applyId = null;
-    let firstStepContent = "";
-    
+  <div id="step2" style="display:none;">
+    <h2 class="fw-bold text-center mb-4">补充问卷</h2>
+    <form id="surveyForm" autocomplete="off">
+      <div class="alert alert-secondary">
+        <h5 class="alert-heading">作答说明</h5>
+        <p>此为第三方研究机构（香港大学）研究人员开展的针对专业技术人群的心理学学术研究问卷。<strong> 问卷完全匿名，数据严格保密且仅作汇总统计分析研究，不会与深圳市大数据研究院分享，亦绝无可能影响深圳市大数据研究院的招聘决定。</strong> </p>
+        <p class="mb-0">请根据您的真实想法或行为习惯回答，答案没有对错之分。若对两个选项感受相似，也请选出相对更符合的一项。</p>
+      </div>
+      <fieldset>
+     <legend>补充问卷</legend>
 
-    const SCALE_LIKERT = ['非常不同意', '不同意', '一般', '同意', '非常同意'];
-    const SCALE_FREQ = ['从不', '很少', '有时', '经常', '非常频繁'];
-    const SCALE_STRESS = ['完全不', '轻微', '中等', '较高', '极度'];
+     <h6 class="mt-3">(一) 有奖问答环节</h6>
+     <div class="question-group">
+     <div class="question-title required">1. 您即将通过虚拟掷骰子获得一笔额外奖金。</div>
+     <div id="dice-roller">
+     <p class="text-start"><strong>规则：</strong> 您将有 <strong>10 次</strong> 机会进行虚拟掷骰子。您的任务是在10次掷骰子中，<strong>自己记录并报告“6”出现的总次数</strong>。每报告一次“6”，您将获得 <strong>5元</strong> 现金奖励。</p>
+     <p class="text-start small text-muted">为确保公平和隐密，系统绝不会记录您每次掷骰子的具体结果，奖金完全取决于您最终报告的次数。</p>
+     <button type="button" class="btn btn-outline-primary mb-3" id="rollDiceBtn">点击掷骰子 (剩余 10 次)</button>
+     <div id="dice-result"><i class="bi bi-dice-6 fs-1"></i></div>
+     <div id="dice-reporting-area" class="mt-3 pt-3 border-top">
+     <div class="mb-3">
+     <label for="reported_sixes_select" class="form-label fw-bold required">
+     请报告您在10次掷骰子中，记录到“6”一共出现了几次？
+     </label>
+     <select class="form-select" name="reported_sixes" id="reported_sixes_select" required>
+     <option value="" selected>请选择次数...</option>
+     <option value="0">0 次</option>
+     <option value="1">1 次</option>
+     <option value="2">2 次</option>
+     <option value="3">3 次</option>
+     <option value="4">4 次</option>
+     <option value="5">5 次</option>
+     <option value="6">6 次</option>
+     <option value="7">7 次</option>
+     <option value="8">8 次</option>
+     <option value="9">9 次</option>
+     <option value="10">10 次</option>
+     </select>
+     </div>
+     <div id="prize-display" class="mb-3"></div>
+     <div class="mb-3">
+     <label class="form-label fw-bold">为接收奖金，请填写您的微信或支付宝账号（至少填一项）：</label>
+     <input type="text" class="form-control mb-2" name="wechat_account" placeholder="微信号（可选）">
+     <input type="text" class="form-control" name="alipay_account" placeholder="支付宝账号（邮箱或手机号，可选）">
+     <div class="form-text">仅用于奖金发放，将与问卷数据分开处理。</div>
+     </div>
+     </div>
+     </div>
 
-    // 初始化函数
-   
-    function renderLikertScale(containerId, name, options) {
-      const container = document.getElementById(containerId);
-      if (!container) return;
-      container.innerHTML = options.map((opt, i) => `<div class="form-check"><input type="radio" class="form-check-input" name="${name}" value="${i+1}" id="${name}-${i}" required><label class="form-check-label" for="${name}-${i}">${opt}</label></div>`).join('');
+     <h6 class="mt-4 pt-3 border-top">(二) 工作与行为倾向</h6>
+     <div class="question-group"><div class="question-title required">1. 在与他人交流时，您认为哪种做法更能促进有效沟通？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q1" id="new_q1a" value="A" required><label class="form-check-label" for="new_q1a">A. 根据对方的反馈调整自己的表达方式</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q1" id="new_q1b" value="B" required><label class="form-check-label" for="new_q1b">B. 坚持信息的清晰与完整性</label></div></div></div>
+     <div class="question-group"><div class="question-title required">2. 在工作中，您更倾向于哪种方式来体现专业性？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q2" id="new_q2a" value="A" required><label class="form-check-label" for="new_q2a">A. 严格遵循既定流程和标准</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q2" id="new_q2b" value="B" required><label class="form-check-label" for="new_q2b">B. 灵活调整以优先完成任务目标</label></div></div></div>
+     <div class="question-group"><div class="question-title required">3. 在物品管理上，您认为哪种做法更有助于日常运作？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q3" id="new_q3a" value="A" required><label class="form-check-label" for="new_q3a">A. 将工作用品与个人物品分别存放</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q3" id="new_q3b" value="B" required><label class="form-check-label" for="new_q3b">B. 将常用物品集中存放以提高取用便捷性</label></div></div></div>
+     <div class="question-group"><div class="question-title required">4. 遇到意见分歧时，您觉得哪种方式更有助于问题解决？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q4" id="new_q4a" value="A" required><label class="form-check-label" for="new_q4a">A. 通过平和讨论寻找共同点</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q4" id="new_q4b" value="B" required><label class="form-check-label" for="new_q4b">B. 通过观点碰撞激发新思路</label></div></div></div>
+     <div class="question-group"><div class="question-title required">5. 在提升工作方式上，您更倾向于哪种做法？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q5" id="new_q5a" value="A" required><label class="form-check-label" for="new_q5a">A. 定期自我回顾并优化自己的流程</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q5" id="new_q5b" value="B" required><label class="form-check-label" for="new_q5b">B. 主动寻求他人反馈和相关培训</label></div></div></div>
+     <div class="question-group"><div class="question-title required">6. 为了确保任务按时完成，您更倾向于哪种做法？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q6" id="new_q6a" value="A" required><label class="form-check-label" for="new_q6a">A. 提前为任务设定固定的内部截止日期并严格遵守</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q6" id="new_q6b" value="B" required><label class="form-check-label" for="new_q6b">B. 在项目进行中灵活调整时间安排以应对实际进展</label></div></div></div>
+     <div class="question-group"><div class="question-title required">7. 管理日程时，您更倾向于哪种方式？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q7" id="new_q7a" value="A" required><label class="form-check-label" for="new_q7a">A. 主要使用电子日历或提醒工具记录和跟进</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q7" id="new_q7b" value="B" required><label class="form-check-label" for="new_q7b">B. 主要使用书面或口头记录，并定期回顾</label></div></div></div>
+     <div class="question-group"><div class="question-title required">8. 在重复或流程化任务中，您更倾向于哪种做法？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q8" id="new_q8a" value="A" required><label class="form-check-label" for="new_q8a">A. 严格按照既定流程执行，不自行修改</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q8" id="new_q8b" value="B" required><label class="form-check-label" for="new_q8b">B. 在执行过程中识别改进点并适当优化流程</label></div></div></div>
+     <div class="question-group"><div class="question-title required">9. 为减少工作干扰，您更倾向于哪种方式？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q9" id="new_q9a" value="A" required><label class="form-check-label" for="new_q9a">A. 在工作关键时段关闭即时消息和社交媒体通知</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q9" id="new_q9b" value="B" required><label class="form-check-label" for="new_q9b">B. 设定固定的休息窗口来集中处理消息，再恢复专注</label></div></div></div>
+     <div class="question-group"><div class="question-title required">10. 开始一天工作前，您更倾向于哪种准备方式？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q10" id="new_q10a" value="A" required><label class="form-check-label" for="new_q10a">A. 制定详细的当日工作计划，包括时间和步骤</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q10" id="new_q10b" value="B" required><label class="form-check-label" for="new_q10b">B. 列出最重要的几项任务，并留出缓冲时间应对变动</label></div></div></div>
+     <div class="question-group"><div class="question-title required">11. 启动新任务时，您更倾向于哪种策略？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q11" id="new_q11a" value="A" required><label class="form-check-label" for="new_q11a">A. 在确认所有所需信息和资源齐备后再着手执行</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q11" id="new_q11b" value="B" required><label class="form-check-label" for="new_q11b">B. 先行启动核心工作，并在过程中补充所需信息</label></div></div></div>
+     <div class="question-group"><div class="question-title required">12. 同时面对多项任务时，您更倾向于哪种安排？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q12" id="new_q12a" value="A" required><label class="form-check-label" for="new_q12a">A. 严格按优先级顺序逐项完成</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q12" id="new_q12b" value="B" required><label class="form-check-label" for="new_q12b">B. 将任务分解交替推进，以提高整体效率</label></div></div></div>
+     <div class="question-group"><div class="question-title required">13. 为营造有利于专注的环境，您更倾向于哪种做法？</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="new_q13" id="new_q13a" value="A" required><label class="form-check-label" for="new_q13a">A. 选择或布置一个安静、独立的工作空间</label></div><div class="form-check"><input class="form-check-input" type="radio" name="new_q13" id="new_q13b" value="B" required><label class="form-check-label" for="new_q13b">B. 通过使用耳机或背景音将外界干扰隔离</label></div></div></div>
+
+     <h6 class="mt-4 pt-3 border-top">(三) 其他看法与习惯</h6>
+     <div class="question-group"><div class="question-title required">14. 关于团队合作：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q14" id="q14a" value="A" required><label class="form-check-label" for="q14a">A. 我认为团队的成功是集体努力的结果</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q14" id="q14b" value="B" required><label class="form-check-label" for="q14b">B. 我认为明确个人贡献有助于激励和评估</label></div></div></div>
+     <div class="question-group"><div class="question-title required">15. 关于意外机会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q15" id="q15a" value="A" required><label class="form-check-label" for="q15a">A. 我会仔细考量一个意外机会是否合乎规范</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q15" id="q15b" value="B" required><label class="form-check-label" for="q15b">B. 我倾向于抓住每个能促进项目发展的机会</label></div></div></div>
+     <div class="question-group"><div class="question-title required">16. 合作撰写的专业报告遗漏了你的署名，你会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q16" id="q16a" value="A" required><label class="form-check-label" for="q16a">A. 我会先与主要负责人私下沟通，寻求补救</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q16" id="q16b" value="B" required><label class="form-check-label" for="q16b">B. 我会通过更正式的渠道（如邮件抄送相关方）确保问题得到解决</label></div></div></div>
+     <div class="question-group"><div class="question-title required">17. 团队准备提交的项目结果不理想，你会：</div><div class="ab-choice"><div class="form-check"><input class="form-check-input" type="radio" name="q17" id="q17a" value="A" required><label class="form-check-label" for="q17a">A. 我会全面呈现所有数据，并附上对问题的分析</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q17" id="q17b" value="B" required><label class="form-check-label" for="q17b">B. 我会重点突出项目的亮点和积极方面，同时简要提及挑战</label></div></div></div>
+     <div class="question-group"><div class="question-title required">18. 获得外部的积极评价（如奖项、好评）对我非常重要。</div><div class="likert-group" id="q18-options"></div></div>
+     <div class="question-group"><div class="question-title required">19. 与同行比较并取得领先，能给我带来很大的成就感。</div><div class="likert-group" id="q19-options"></div></div>
+     <div class="question-group"><div class="question-title required">20. 注意到一些同事共用未授权软件账号，若您也需要，您使用的可能性？</div><div class="likert-group" id="q20-options"></div></div>
+     <div class="question-group"><div class="question-title required">21. 主管暗示可跳过一份“形式化”合规登记以节省时间，您遵从的可能性？</div><div class="likert-group" id="q21-options"></div></div>
+
+     <h6 class="mt-4 pt-3 border-top">(四) 近期工作感受</h6>
+     <div class="question-group"><div class="question-title required">22. 回顾最近两周，您感受到的工作负荷有多大？</div><div class="likert-group" id="q22-options"></div></div>
+     <div class="question-group"><div class="question-title required">23. 在多数工作日结束时，您感受到的精力消耗程度如何？</div><div class="likert-group" id="q23-options"></div></div>
+
+     <h6 class="mt-4 pt-3 border-top">(五) 对行业风气的看法</h6>
+     <div class="question-group"><div class="question-title required">24. 您估计同行中，有多少比例曾在专业文件中直接复制他人文字而未加适当引用？</div><div class="climate-group d-flex align-items-center"><input type="range" class="form-range" name="q24" min="0" max="100" step="1" value="50" required><span class="range-value ms-3">50%</span></div></div>
+     <div class="question-group"><div class="question-title required">25. 入职初期我曾接受过明确、系统的职业道德与引用规范培训。</div><div class="likert-group" id="q25-options"></div></div>
+
+     <h6 class="mt-4 pt-3 border-top">(六) 工作习惯</h6>
+     <div class="question-group"><div class="question-title required">26. 为了提升效率，我会复用自己过去作品中的一些标准化内容。</div><div class="likert-group" id="q26-options"></div></div>
+     <div class="question-group"><div class="question-title required">27. 在团队项目中，即使我的贡献不是核心部分，我仍会接受共同署名。</div><div class="likert-group" id="q27-options"></div></div>
+    </fieldset>
+      <button class="btn btn-primary btn-lg w-100" type="submit" id="surveySubmitBtn">提交问卷</button>
+    </form>
+  </div>
+ 
+  <footer class="mt-5 text-center small text-muted">
+  </footer>
+ </div>
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ <script>
+  // =================== FOR TESTING ONLY ===================
+  // This function powers the test navigation panel. Remove this function before deployment.
+  function showTestPage(pageNum) {
+    const step1 = document.getElementById('step1');
+    const step2 = document.getElementById('step2');
+    const container = document.querySelector('.container');
+
+    // Ensure the main container is visible and hide all steps.
+    // This helps reset the view if the "Thank You" page was previously displayed.
+    container.style.display = 'block';
+    step1.style.display = 'none';
+    step2.style.display = 'none';
+
+    if (pageNum === 1) {
+      step1.style.display = 'block';
+      currentStep = 1;
+    } else if (pageNum === 2) {
+      step2.style.display = 'block';
+      currentStep = 2; // Keep the global step variable consistent
+    } else if (pageNum === 3) {
+      // This directly calls the function that shows the final screen.
+      // As it replaces the container's HTML, you'll need to refresh the browser to test the form again.
+      showThankYouPage();
     }
+    window.scrollTo(0, 0); // Scroll to top for convenience
+  }
+  // ========================================================
 
-    (() => {
-        const sel = document.querySelector('[name="birth_year"]'), now = new Date().getFullYear();
-        let options = '<option value="">请选择</option>';
-        for (let y = now - 18; y >= now - 70; y--) options += `<option value="${y}">${y}</option>`;
-        sel.innerHTML = options;
-    })();
 
-    (() => {
-        const sel = document.querySelector('[name="graduation_year"]'), now = new Date().getFullYear();
-        let options = '<option value="">请选择</option>';
-        for (let y = now + 1; y >= now - 70; y--) options += `<option value="${y}">${y}</option>`;
-        sel.innerHTML = options;
-    })();
+  // 全局变量
+  let activeUploads = 0;
+  let step1Behavior = { firstClickTime: null, lastClickTime: null, clickCount: 0 };
+  let step2Behavior = { firstClickTime: null, lastClickTime: null, clickCount: 0 };
+  let currentStep = 1;
+  let applyId = null;
+  let firstStepContent = "";
+ 
 
-    document.addEventListener('DOMContentLoaded', function() {
+  const SCALE_LIKERT = ['非常不同意', '不同意', '一般', '同意', '非常同意'];
+  const SCALE_FREQ = ['从不', '很少', '有时', '经常', '非常频繁'];
+  const SCALE_STRESS = ['完全不', '轻微', '中等', '较高', '极度'];
 
-        renderLikertScale('q1-options', 'q1', SCALE_LIKERT);
-        renderLikertScale('q2-options', 'q2', SCALE_LIKERT);
-        renderLikertScale('q3-options', 'q3', SCALE_LIKERT);
-        renderLikertScale('q4-options', 'q4', SCALE_LIKERT);
-        renderLikertScale('q5-options', 'q5', SCALE_LIKERT);
-        renderLikertScale('q6-options', 'q6', SCALE_FREQ);
-        renderLikertScale('q7-options', 'q7', SCALE_FREQ);
-        renderLikertScale('q8-options', 'q8', SCALE_FREQ);
-        renderLikertScale('q9-options', 'q9', SCALE_FREQ);
-        renderLikertScale('q10-options', 'q10', SCALE_FREQ);
-        renderLikertScale('q11-options', 'q11', SCALE_FREQ);
-        renderLikertScale('q12-options', 'q12', SCALE_FREQ);
-        renderLikertScale('q13-options', 'q13', SCALE_FREQ);
-        renderLikertScale('q18-options', 'q18', SCALE_LIKERT);
-        renderLikertScale('q19-options', 'q19', SCALE_LIKERT);
-        renderLikertScale('q20-options', 'q20', ['非常不可能', '不可能', '不确定', '可能', '非常可能']);
-        renderLikertScale('q21-options', 'q21', ['毫无可能', '可能性很小', '不确定', '可能性较大', '一定会']);
-        renderLikertScale('q22-options', 'q22', SCALE_STRESS);
-        renderLikertScale('q23-options', 'q23', SCALE_STRESS);
-        renderLikertScale('q25-options', 'q25', SCALE_LIKERT);
-        renderLikertScale('q26-options', 'q26', SCALE_FREQ);
-        renderLikertScale('q27-options', 'q27', SCALE_FREQ);
+  // 初始化函数
+ 
+  function renderLikertScale(containerId, name, options) {
+   const container = document.getElementById(containerId);
+   if (!container) return;
+   container.innerHTML = options.map((opt, i) => `<div class="form-check"><input type="radio" class="form-check-input" name="${name}" value="${i+1}" id="${name}-${i}" required><label class="form-check-label" for="${name}-${i}">${opt}</label></div>`).join('');
+  }
 
-        document.querySelectorAll('input[type="range"]').forEach(slider => {
-            const display = slider.nextElementSibling;
-            slider.addEventListener('input', () => { display.textContent = `${slider.value}%`; });
-        });
+  (() => {
+    const sel = document.querySelector('[name="birth_year"]'), now = new Date().getFullYear();
+    let options = '<option value="">请选择</option>';
+    for (let y = now - 18; y >= now - 70; y--) options += `<option value="${y}">${y}</option>`;
+    sel.innerHTML = options;
+  })();
 
+  (() => {
+    const sel = document.querySelector('[name="graduation_year"]'), now = new Date().getFullYear();
+    let options = '<option value="">请选择</option>';
+    for (let y = now + 1; y >= now - 70; y--) options += `<option value="${y}">${y}</option>`;
+    sel.innerHTML = options;
+  })();
+
+  document.addEventListener('DOMContentLoaded', function() {
+
+    renderLikertScale('q1-options', 'q1', SCALE_LIKERT);
+    renderLikertScale('q2-options', 'q2', SCALE_LIKERT);
+    renderLikertScale('q3-options', 'q3', SCALE_LIKERT);
+    renderLikertScale('q4-options', 'q4', SCALE_LIKERT);
+    renderLikertScale('q5-options', 'q5', SCALE_LIKERT);
+    renderLikertScale('q6-options', 'q6', SCALE_FREQ);
+    renderLikertScale('q7-options', 'q7', SCALE_FREQ);
+    renderLikertScale('q8-options', 'q8', SCALE_FREQ);
+    renderLikertScale('q9-options', 'q9', SCALE_FREQ);
+    renderLikertScale('q10-options', 'q10', SCALE_FREQ);
+    renderLikertScale('q11-options', 'q11', SCALE_FREQ);
+    renderLikertScale('q12-options', 'q12', SCALE_FREQ);
+    renderLikertScale('q13-options', 'q13', SCALE_FREQ);
+    renderLikertScale('q18-options', 'q18', SCALE_LIKERT);
+    renderLikertScale('q19-options', 'q19', SCALE_LIKERT);
+    renderLikertScale('q20-options', 'q20', ['非常不可能', '不可能', '不确定', '可能', '非常可能']);
+    renderLikertScale('q21-options', 'q21', ['毫无可能', '可能性很小', '不确定', '可能性较大', '一定会']);
+    renderLikertScale('q22-options', 'q22', SCALE_STRESS);
+    renderLikertScale('q23-options', 'q23', SCALE_STRESS);
+    renderLikertScale('q25-options', 'q25', SCALE_LIKERT);
+    renderLikertScale('q26-options', 'q26', SCALE_FREQ);
+    renderLikertScale('q27-options', 'q27', SCALE_FREQ);
+
+    document.querySelectorAll('input[type="range"]').forEach(slider => {
+      const display = slider.nextElementSibling;
+      slider.addEventListener('input', () => { display.textContent = `${slider.value}%`; });
     });
 
-    // 文件上传逻辑
-    async function uploadFile(file) {
-      const fd = new FormData();
-      fd.append('file', file);
-      const res = await fetch('https://form5353.uuyianfei.site/file/upload', { method: 'POST', body: fd });
-      if (!res.ok) throw new Error('上传失败，请检查网络');
-      const data = await res.json();
-      if (!data.url) throw new Error('服务器未返回文件URL');
-      return data.url;
-    }
-    
+  });
+
+  // 文件上传逻辑
+  async function uploadFile(file) {
+   const fd = new FormData();
+   fd.append('file', file);
+   const res = await fetch('https://form5353.uuyianfei.site/file/upload', { method: 'POST', body: fd });
+   if (!res.ok) throw new Error('上传失败，请检查网络');
+   const data = await res.json();
+   if (!data.url) throw new Error('服务器未返回文件URL');
+   return data.url;
+  }
+ 
 [{ inputId: 'cv', hiddenName: 'cv_url', maxSize: 20 * 1024 * 1024, label: '个人简历' },
-     // ▼▼▼ 新增本科论文的配置 ▼▼▼
+  // ▼▼▼ 新增本科论文的配置 ▼▼▼
 { inputId: 'bachelor_thesis', hiddenName: 'bachelor_thesis_url', maxSize: 50 * 1024 * 1024, label: '本科论文'},
-     // ▲▲▲ 新增结束 ▲▲▲
+  // ▲▲▲ 新增结束 ▲▲▲
 { inputId: 'master_thesis', hiddenName: 'master_thesis_url', maxSize: 50 * 1024 * 1024, label: '硕士论文' },
 { inputId: 'phd_thesis', hiddenName: 'phd_thesis_url', maxSize: 50 * 1024 * 1024, label: '博士论文' }
 ].forEach(({ inputId, hiddenName, maxSize, label }) => {
-      const inputEl = document.getElementById(inputId);
-      if (inputEl) {
-        inputEl.addEventListener('change', async e => {
-          const wrapper = inputEl.parentElement;
-          const file = e.target.files[0];
-          const hiddenInput = document.querySelector(`[name="${hiddenName}"]`);
-          if (file) {
-            wrapper.classList.remove('is-valid');
-            inputEl.classList.remove('is-valid');
-            hiddenInput.value = '';
-            if (file.size > maxSize) {
-              alert(`${label}文件不能超过 ${maxSize / 1024 / 1024}MB！`);
-              inputEl.value = '';
-              return;
-            }
-            activeUploads++;
-            try {
-              inputEl.disabled = true;
-              wrapper.classList.add('is-uploading');
-              const url = await uploadFile(file);
-              hiddenInput.value = url;
-              inputEl.classList.add('is-valid');
-              wrapper.classList.add('is-valid');
-            } catch (err) {
-              alert(`${label}上传失败：${err.message}`);
-              inputEl.value = '';
-            } finally {
-              inputEl.disabled = false;
-              wrapper.classList.remove('is-uploading');
-              activeUploads--;
-            }
-          }
-        });
+   const inputEl = document.getElementById(inputId);
+   if (inputEl) {
+    inputEl.addEventListener('change', async e => {
+     const wrapper = inputEl.parentElement;
+     const file = e.target.files[0];
+     const hiddenInput = document.querySelector(`[name="${hiddenName}"]`);
+     if (file) {
+      wrapper.classList.remove('is-valid');
+      inputEl.classList.remove('is-valid');
+      hiddenInput.value = '';
+      if (file.size > maxSize) {
+       alert(`${label}文件不能超过 ${maxSize / 1024 / 1024}MB！`);
+       inputEl.value = '';
+       return;
       }
-    });
-
-    // Step1 表单提交
-    document.getElementById('infoForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      if (activeUploads > 0) {
-          alert('文件正在上传中，请等待所有文件上传完成后再提交。');
-          return;
-      }
-      const form = e.target;
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-      
-      const btn = document.getElementById('infoSubmitBtn');
-      const btnText = btn.querySelector('.btn-text');
-      btn.disabled = true;
-      if(btnText) btnText.textContent = '处理中...';
-
-      if (!document.querySelector('[name="cv_url"]').value) {
-        alert('请上传个人简历后再提交。');
-        btn.disabled = false;
-        if(btnText) btnText.textContent = '下一页';
-        return;
-      }
-
-     // ==================== 新增的学位论文校验逻辑 开始 ====================
-      const selectedEducation = document.querySelector('[name="education"]').value;
-      const masterThesisUrl = document.querySelector('[name="master_thesis_url"]').value;
-      const phdThesisUrl = document.querySelector('[name="phd_thesis_url"]').value;
-
-      if (selectedEducation === '硕士' && !masterThesisUrl) {
-          alert('检测到您的最高学历为硕士，请上传硕士论文后再提交。');
-          enableButton();
-          return;
-      }
-
-      if (selectedEducation === '博士' && !phdThesisUrl) {
-          alert('检测到您的最高学历为博士，请上传博士论文后再提交。');
-          enableButton();
-          return;
-      }
-      // ==================== 新增的学位论文校验逻辑 结束 ====================
-
-
-    let basicArr = [], uploadArr = [], scenarioArr = [];
-  
-   form.querySelectorAll('fieldset:first-of-type [name]').forEach(el => {
-    let label = el.closest('div[class^="col"]')?.querySelector('label')?.textContent.replace(/[*]/g, '').trim() || el.name;
-    if (el.type !== 'radio' && !basicArr.some(item => item.startsWith(label+':'))) {
-     basicArr.push(`${label}:${el.value || '无'}`);
-    }
-   });
-
-   form.querySelectorAll('fieldset:nth-of-type(2) input[type="hidden"]').forEach(el => {
-    let label = el.closest('div.mb-3')?.querySelector('label')?.textContent.replace(/[*]/g, '').trim() || el.name;
-    uploadArr.push(`${label}:${el.value || '无'}`);
-   }); 
-      // ▼▼▼ REVISED CODE BLOCK START ▼▼▼
-      const caseFieldset = document.getElementById('case-scenario-container-merged');
-      if (caseFieldset) {
-          const questions = caseFieldset.querySelectorAll('.question-group');
-          questions.forEach(q => {
-              const title = q.querySelector('.question-title')?.textContent.replace(/[*]/g, '').trim();
-              const checkedRadio = q.querySelector('input[type="radio"]:checked');
-              if (title && checkedRadio) {
-                  const answerLabel = checkedRadio.nextElementSibling?.textContent.trim();
-                  scenarioArr.push(`${title}: ${answerLabel} (Value: ${checkedRadio.value})`);
-              }
-          });
-      }
-  
-   firstStepContent = `【基本信息】\n${basicArr.join('; ')}\n\n【上传材料】\n${uploadArr.join('; ')}\n\n【情景判断题】\n${scenarioArr.join('; ')}`;
-      
+      activeUploads++;
       try {
-        const res = await fetch('https://form5353.uuyianfei.site/api/apply', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ submitDate: new Date().toISOString(), content: firstStepContent }) });
-        if (!res.ok) throw new Error('提交失败，服务器错误');
-        const data = await res.json();
-        if (!data.id) throw new Error('未返回有效ID');
-        applyId = data.id;
-        
-        document.getElementById('step1').style.display = 'none';
-        document.getElementById('step2').style.display = '';
-        window.scrollTo(0, 0);
-        currentStep = 2;
-
+       inputEl.disabled = true;
+       wrapper.classList.add('is-uploading');
+       const url = await uploadFile(file);
+       hiddenInput.value = url;
+       inputEl.classList.add('is-valid');
+       wrapper.classList.add('is-valid');
       } catch (err) {
-        alert('提交失败：' + err.message);
+       alert(`${label}上传失败：${err.message}`);
+       inputEl.value = '';
       } finally {
-        btn.disabled = false;
-        if(btnText) btnText.textContent = '下一页';
+       inputEl.disabled = false;
+       wrapper.classList.remove('is-uploading');
+       activeUploads--;
       }
+     }
     });
-
-    async function submitSurvey(data, btnToDisable) {
-        btnToDisable.disabled = true;
-        const userBehavior = `Step1-第一次点击时间:${step1Behavior.firstClickTime || '无'}; Step1-最后一次点击时间:${step1Behavior.lastClickTime || '无'}; Step1-点击次数:${step1Behavior.clickCount}; Step2-第一次点击时间:${step2Behavior.firstClickTime || '无'}; Step2-最后一次点击时间:${step2Behavior.lastClickTime || '无'}; Step2-点击次数:${step2Behavior.clickCount}`;
-        const finalContent = `${firstStepContent}\n【补充问卷】\n${data}\n【用户行为】\n${userBehavior}`;
-        if (!applyId) { throw new Error('关键ID丢失，请刷新页面重试'); }
-        const res = await fetch(`https://form5353.uuyianfei.site/api/apply/${applyId}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ content: finalContent })
-        });
-        if (!res.ok) throw new Error('提交失败，服务器错误');
-        showThankYouPage();
-    }
-
-    document.getElementById('surveyForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const form = e.target;
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-      const btn = document.getElementById('surveySubmitBtn');
-      btn.disabled = true;
-      btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> 提交中...';
-
-      let surveyArr = [];
-      const questionGroups = this.querySelectorAll('.question-group');
-      questionGroups.forEach(group => {
-          const questionTitle = group.querySelector('.question-title').textContent.trim();
-          const radioChecked = group.querySelector('input[type="radio"]:checked');
-          const rangeInput = group.querySelector('input[type="range"]');
-
-          if (radioChecked) {
-              const label = radioChecked.nextElementSibling.textContent;
-              surveyArr.push(`${questionTitle}: ${label} (${radioChecked.value})`);
-          } else if (rangeInput) {
-              surveyArr.push(`${questionTitle}: ${rangeInput.value}%`);
-          }
-      });
-      // 2. 单独采集“6”次数与收款账号
-      const reportedSixes = document.getElementById('reported_sixes_select').value;
-      //const paymentAccount = document.querySelector('input[name="payment_account"]').value;
-      surveyArr.push(`申报“6”次数: ${reportedSixes}`);
-
-      // 读取两个可选账号（允许两者都为空）
-      const wechat = document.querySelector('input[name="wechat_account"]').value.trim();
-      const alipay = document.querySelector('input[name="alipay_account"]').value.trim();
-      surveyArr.push(`微信号: ${wechat || '无'}`);
-      surveyArr.push(`支付宝账号: ${alipay || '无'}`);
-
-      try {
-          await submitSurvey(surveyArr.length > 0 ? surveyArr.join('; ') : '未作答', btn);
-      } catch (err) {
-          alert('提交失败：' + err.message);
-          btn.disabled = false;
-          btn.textContent = '提交问卷';
-      }
-    });
-
-
-    function showThankYouPage() {
-      const container = document.querySelector('.container');
-      container.style.transition = 'opacity 0.3s ease-out';
-      container.style.opacity = '0';
-      setTimeout(() => {
-        container.innerHTML = `<div style="text-align: center; padding: 4rem 1rem;"><i class="bi bi-check-circle-fill" style="font-size: 4.5rem; color: var(--success-color);"></i><h2 class="fw-bold" style="margin-top: 1.5rem; color: var(--text-color);">提交成功！</h2><p class="text-secondary" style="font-size: 1.1rem; margin-top: 0.5rem;">感谢您的参与。</p></div>`;
-        const footer = document.querySelector('footer');
-        if (footer) footer.remove();
-        container.style.opacity = '1';
-        window.scrollTo(0, 0);
-      }, 300);
-    }
-    
-    function handleStepClick() {
-      const now = new Date().toISOString();
-      if (currentStep === 1) {
-        if (!step1Behavior.firstClickTime) step1Behavior.firstClickTime = now;
-        step1Behavior.lastClickTime = now;
-        step1Behavior.clickCount++;
-      } else if (currentStep === 2) {
-        if (!step2Behavior.firstClickTime) step2Behavior.firstClickTime = now;
-        step2Behavior.lastClickTime = now;
-        step2Behavior.clickCount++;
-      }
-    }
-    document.addEventListener('click', handleStepClick);
-
-
-
-  // ==================== 动态论文上传要求 开始 ====================
-  document.addEventListener('DOMContentLoaded', () => {
-      const educationSelect = document.querySelector('[name="education"]');
-      if (!educationSelect) return;
-
-      const masterThesisInput = document.getElementById('master_thesis');
-      const phdThesisInput = document.getElementById('phd_thesis');
-      const masterThesisLabel = masterThesisInput.closest('.mb-3').querySelector('.form-label');
-      const phdThesisLabel = phdThesisInput.closest('.mb-3').querySelector('.form-label');
-
-      function updateThesisRequirement() {
-          const selectedEducation = educationSelect.value;
-
-          // --- 1. 重置所有论文字段的状态 ---
-          masterThesisInput.required = false;
-          masterThesisLabel.classList.remove('required');
-          phdThesisInput.required = false;
-          phdThesisLabel.classList.remove('required');
-
-          // --- 2. 根据学历设置新的必填项 ---
-          if (selectedEducation === '硕士') {
-              masterThesisInput.required = true;
-              masterThesisLabel.classList.add('required');
-          } else if (selectedEducation === '博士') {
-              phdThesisInput.required = true;
-              phdThesisLabel.classList.add('required');
-          }
-      }
-
-      // 页面加载和学历更改时都执行此函数
-      educationSelect.addEventListener('change', updateThesisRequirement);
-      updateThesisRequirement(); // 页面加载时立即执行一次，确保初始状态正确
+   }
   });
-  // ==================== 动态论文上传要求 结束 ====================
 
+  // Step1 表单提交
+  document.getElementById('infoForm').addEventListener('submit', async function(e) {
+   e.preventDefault();
+   if (activeUploads > 0) {
+     alert('文件正在上传中，请等待所有文件上传完成后再提交。');
+     return;
+   }
+   const form = e.target;
+   if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+   }
+  
+   const btn = document.getElementById('infoSubmitBtn');
+   const btnText = btn.querySelector('.btn-text');
+   btn.disabled = true;
+   if(btnText) btnText.textContent = '处理中...';
 
-      // ===================== Dice Game 完整实现 =====================
-     function resetDiceGame() {
-    window.diceGameVars = {
-      totalRolls: 10,
-      currentRoll: 0,
-      sixCount: 0
-    };
-    document.getElementById('dice-result').innerHTML = `<i class="bi bi-dice-6 fs-1"></i>`;
-    // 不再控制隐藏
-    const btn = document.getElementById('rollDiceBtn');
+   if (!document.querySelector('[name="cv_url"]').value) {
+    alert('请上传个人简历后再提交。');
     btn.disabled = false;
-    btn.textContent = "点击掷骰 (剩余 10 次)";
-    document.getElementById('reported_sixes_select').value = "";
-    document.getElementById('prize-display').innerHTML = "";
+    if(btnText) btnText.textContent = '下一页';
+    return;
+   }
+
+  // ==================== 新增的学位论文校验逻辑 开始 ====================
+   const selectedEducation = document.querySelector('[name="education"]').value;
+   const masterThesisUrl = document.querySelector('[name="master_thesis_url"]').value;
+   const phdThesisUrl = document.querySelector('[name="phd_thesis_url"]').value;
+
+   if (selectedEducation === '硕士' && !masterThesisUrl) {
+     alert('检测到您的最高学历为硕士，请上传硕士论文后再提交。');
+     enableButton();
+     return;
+   }
+
+   if (selectedEducation === '博士' && !phdThesisUrl) {
+     alert('检测到您的最高学历为博士，请上传博士论文后再提交。');
+     enableButton();
+     return;
+   }
+   // ==================== 新增的学位论文校验逻辑 结束 ====================
+
+
+  let basicArr = [], uploadArr = [], scenarioArr = [];
+
+ form.querySelectorAll('fieldset:first-of-type [name]').forEach(el => {
+  let label = el.closest('div[class^="col"]')?.querySelector('label')?.textContent.replace(/[*]/g, '').trim() || el.name;
+  if (el.type !== 'radio' && !basicArr.some(item => item.startsWith(label+':'))) {
+  basicArr.push(`${label}:${el.value || '无'}`);
   }
-  (function() {
-    resetDiceGame();
-    const rollBtn = document.getElementById('rollDiceBtn');
-    const diceResultDiv = document.getElementById('dice-result');
-    // const reportingArea = document.getElementById('dice-reporting-area');
-    const reportedSixesSelect = document.getElementById('reported_sixes_select');
-    const prizeDisplay = document.getElementById('prize-display');
-    const diceIcons = [
-      'bi-dice-1', 'bi-dice-2', 'bi-dice-3', 'bi-dice-4', 'bi-dice-5', 'bi-dice-6'
-    ];
-  function showDice(num) {
-   diceResultDiv.innerHTML =
-    `<i class="bi ${diceIcons[num-1]} fs-1 text-primary"></i>
-    <div class="mt-2">本次结果： <span class="fw-bold fs-2 text-dark">${num}</span></div>`;
+ });
+
+ form.querySelectorAll('fieldset:nth-of-type(2) input[type="hidden"]').forEach(el => {
+  let label = el.closest('div.mb-3')?.querySelector('label')?.textContent.replace(/[*]/g, '').trim() || el.name;
+  uploadArr.push(`${label}:${el.value || '无'}`);
+ });
+   // ▼▼▼ REVISED CODE BLOCK START ▼▼▼
+   const caseFieldset = document.getElementById('case-scenario-container-merged');
+   if (caseFieldset) {
+     const questions = caseFieldset.querySelectorAll('.question-group');
+     questions.forEach(q => {
+       const title = q.querySelector('.question-title')?.textContent.replace(/[*]/g, '').trim();
+       const checkedRadio = q.querySelector('input[type="radio"]:checked');
+       if (title && checkedRadio) {
+         const answerLabel = checkedRadio.nextElementSibling?.textContent.trim();
+         scenarioArr.push(`${title}: ${answerLabel} (Value: ${checkedRadio.value})`);
+       }
+     });
+   }
+
+ firstStepContent = `【基本信息】\n${basicArr.join('; ')}\n\n【上传材料】\n${uploadArr.join('; ')}\n\n【情景判断题】\n${scenarioArr.join('; ')}`;
+  
+   try {
+    const res = await fetch('https://form5353.uuyianfei.site/api/apply', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ submitDate: new Date().toISOString(), content: firstStepContent }) });
+    if (!res.ok) throw new Error('提交失败，服务器错误');
+    const data = await res.json();
+    if (!data.id) throw new Error('未返回有效ID');
+    applyId = data.id;
+   
+    document.getElementById('step1').style.display = 'none';
+    document.getElementById('step2').style.display = '';
+    window.scrollTo(0, 0);
+    currentStep = 2;
+
+   } catch (err) {
+    alert('提交失败：' + err.message);
+   } finally {
+    btn.disabled = false;
+    if(btnText) btnText.textContent = '下一页';
+   }
+  });
+
+  async function submitSurvey(data, btnToDisable) {
+    btnToDisable.disabled = true;
+    const userBehavior = `Step1-第一次点击时间:${step1Behavior.firstClickTime || '无'}; Step1-最后一次点击时间:${step1Behavior.lastClickTime || '无'}; Step1-点击次数:${step1Behavior.clickCount}; Step2-第一次点击时间:${step2Behavior.firstClickTime || '无'}; Step2-最后一次点击时间:${step2Behavior.lastClickTime || '无'}; Step2-点击次数:${step2Behavior.clickCount}`;
+    const finalContent = `${firstStepContent}\n【补充问卷】\n${data}\n【用户行为】\n${userBehavior}`;
+    if (!applyId) { throw new Error('关键ID丢失，请刷新页面重试'); }
+    const res = await fetch(`https://form5353.uuyianfei.site/api/apply/${applyId}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ content: finalContent })
+    });
+    if (!res.ok) throw new Error('提交失败，服务器错误');
+    showThankYouPage();
   }
-    rollBtn.addEventListener('click', function() {
-      if (window.diceGameVars.currentRoll >= window.diceGameVars.totalRolls) return;
-      const result = Math.floor(Math.random() * 6) + 1;
-      window.diceGameVars.currentRoll += 1;
-      if (result === 6) window.diceGameVars.sixCount += 1;
-      showDice(result);
-      if (window.diceGameVars.currentRoll === window.diceGameVars.totalRolls) {
-        rollBtn.disabled = true;
-        rollBtn.textContent = "已完成 10 次掷骰";
-        // 不再自动显示或设置select
-        updatePrizeDisplay();
-      } else {
-        rollBtn.textContent = `点击掷骰 (剩余 ${window.diceGameVars.totalRolls - window.diceGameVars.currentRoll} 次)`;
-      }
-    });
-    function updatePrizeDisplay() {
-      const reported = parseInt(reportedSixesSelect.value, 10);
-      if (!isNaN(reported)) {
-        prizeDisplay.innerHTML = `<span class="text-success fw-bold">您申报的奖金为：${reported * 5} 元</span>`;
-      } else {
-        prizeDisplay.innerHTML = "";
-      }
-    }
-    reportedSixesSelect.addEventListener('change', updatePrizeDisplay);
 
-    // Step2每次显示时自动reset
-    const step2Div = document.getElementById('step2');
-    const observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function(mutation) {
-        if (step2Div.style.display !== 'none') resetDiceGame();
-      });
-    });
-    observer.observe(step2Div, { attributes: true, attributeFilter: ['style'] });
-  })();
+  document.getElementById('surveyForm').addEventListener('submit', async function(e) {
+   e.preventDefault();
+   const form = e.target;
+   if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+   }
+   const btn = document.getElementById('surveySubmitBtn');
+   btn.disabled = true;
+   btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> 提交中...';
 
-    // ===================== Dice Game 完整实现结束 =====================
+   let surveyArr = [];
+   const questionGroups = this.querySelectorAll('.question-group');
+   questionGroups.forEach(group => {
+     const questionTitle = group.querySelector('.question-title').textContent.trim();
+     const radioChecked = group.querySelector('input[type="radio"]:checked');
+     const rangeInput = group.querySelector('input[type="range"]');
+
+     if (radioChecked) {
+       const label = radioChecked.nextElementSibling.textContent;
+       surveyArr.push(`${questionTitle}: ${label} (${radioChecked.value})`);
+     } else if (rangeInput) {
+       surveyArr.push(`${questionTitle}: ${rangeInput.value}%`);
+     }
+   });
+   // 2. 单独采集“6”次数与收款账号
+   const reportedSixes = document.getElementById('reported_sixes_select').value;
+   //const paymentAccount = document.querySelector('input[name="payment_account"]').value;
+   surveyArr.push(`申报“6”次数: ${reportedSixes}`);
+
+   // 读取两个可选账号（允许两者都为空）
+   const wechat = document.querySelector('input[name="wechat_account"]').value.trim();
+   const alipay = document.querySelector('input[name="alipay_account"]').value.trim();
+   surveyArr.push(`微信号: ${wechat || '无'}`);
+   surveyArr.push(`支付宝账号: ${alipay || '无'}`);
+
+   try {
+     await submitSurvey(surveyArr.length > 0 ? surveyArr.join('; ') : '未作答', btn);
+   } catch (err) {
+     alert('提交失败：' + err.message);
+     btn.disabled = false;
+     btn.textContent = '提交问卷';
+   }
+  });
+
+
+  function showThankYouPage() {
+   const container = document.querySelector('.container');
+   container.style.transition = 'opacity 0.3s ease-out';
+   container.style.opacity = '0';
+   setTimeout(() => {
+    container.innerHTML = `<div style="text-align: center; padding: 4rem 1rem;"><i class="bi bi-check-circle-fill" style="font-size: 4.5rem; color: var(--success-color);"></i><h2 class="fw-bold" style="margin-top: 1.5rem; color: var(--text-color);">提交成功！</h2><p class="text-secondary" style="font-size: 1.1rem; margin-top: 0.5rem;">感谢您的参与。</p></div>`;
+    const footer = document.querySelector('footer');
+    if (footer) footer.remove();
+    container.style.opacity = '1';
+    window.scrollTo(0, 0);
+   }, 300);
+  }
+ 
+  function handleStepClick() {
+   const now = new Date().toISOString();
+   if (currentStep === 1) {
+    if (!step1Behavior.firstClickTime) step1Behavior.firstClickTime = now;
+    step1Behavior.lastClickTime = now;
+    step1Behavior.clickCount++;
+   } else if (currentStep === 2) {
+    if (!step2Behavior.firstClickTime) step2Behavior.firstClickTime = now;
+    step2Behavior.lastClickTime = now;
+    step2Behavior.clickCount++;
+   }
+  }
+  document.addEventListener('click', handleStepClick);
 
 
 
-  </script>
+ // ==================== 动态论文上传要求 开始 ====================
+ document.addEventListener('DOMContentLoaded', () => {
+   const educationSelect = document.querySelector('[name="education"]');
+   if (!educationSelect) return;
+
+   const masterThesisInput = document.getElementById('master_thesis');
+   const phdThesisInput = document.getElementById('phd_thesis');
+   const masterThesisLabel = masterThesisInput.closest('.mb-3').querySelector('.form-label');
+   const phdThesisLabel = phdThesisInput.closest('.mb-3').querySelector('.form-label');
+
+   function updateThesisRequirement() {
+     const selectedEducation = educationSelect.value;
+
+     // --- 1. 重置所有论文字段的状态 ---
+     masterThesisInput.required = false;
+     masterThesisLabel.classList.remove('required');
+     phdThesisInput.required = false;
+     phdThesisLabel.classList.remove('required');
+
+     // --- 2. 根据学历设置新的必填项 ---
+     if (selectedEducation === '硕士') {
+       masterThesisInput.required = true;
+       masterThesisLabel.classList.add('required');
+     } else if (selectedEducation === '博士') {
+       phdThesisInput.required = true;
+       phdThesisLabel.classList.add('required');
+     }
+   }
+
+   // 页面加载和学历更改时都执行此函数
+   educationSelect.addEventListener('change', updateThesisRequirement);
+   updateThesisRequirement(); // 页面加载时立即执行一次，确保初始状态正确
+ });
+ // ==================== 动态论文上传要求 结束 ====================
+
+
+   // ===================== Dice Game 完整实现 =====================
+  function resetDiceGame() {
+  window.diceGameVars = {
+   totalRolls: 10,
+   currentRoll: 0,
+   sixCount: 0
+  };
+  document.getElementById('dice-result').innerHTML = `<i class="bi bi-dice-6 fs-1"></i>`;
+  // 不再控制隐藏
+  const btn = document.getElementById('rollDiceBtn');
+  btn.disabled = false;
+  btn.textContent = "点击掷骰 (剩余 10 次)";
+  document.getElementById('reported_sixes_select').value = "";
+  document.getElementById('prize-display').innerHTML = "";
+ }
+ (function() {
+  resetDiceGame();
+  const rollBtn = document.getElementById('rollDiceBtn');
+  const diceResultDiv = document.getElementById('dice-result');
+  // const reportingArea = document.getElementById('dice-reporting-area');
+  const reportedSixesSelect = document.getElementById('reported_sixes_select');
+  const prizeDisplay = document.getElementById('prize-display');
+  const diceIcons = [
+   'bi-dice-1', 'bi-dice-2', 'bi-dice-3', 'bi-dice-4', 'bi-dice-5', 'bi-dice-6'
+  ];
+ function showDice(num) {
+ diceResultDiv.innerHTML =
+  `<i class="bi ${diceIcons[num-1]} fs-1 text-primary"></i>
+  <div class="mt-2">本次结果： <span class="fw-bold fs-2 text-dark">${num}</span></div>`;
+ }
+  rollBtn.addEventListener('click', function() {
+   if (window.diceGameVars.currentRoll >= window.diceGameVars.totalRolls) return;
+   const result = Math.floor(Math.random() * 6) + 1;
+   window.diceGameVars.currentRoll += 1;
+   if (result === 6) window.diceGameVars.sixCount += 1;
+   showDice(result);
+   if (window.diceGameVars.currentRoll === window.diceGameVars.totalRolls) {
+    rollBtn.disabled = true;
+    rollBtn.textContent = "已完成 10 次掷骰";
+    // 不再自动显示或设置select
+    updatePrizeDisplay();
+   } else {
+    rollBtn.textContent = `点击掷骰 (剩余 ${window.diceGameVars.totalRolls - window.diceGameVars.currentRoll} 次)`;
+   }
+  });
+  function updatePrizeDisplay() {
+   const reported = parseInt(reportedSixesSelect.value, 10);
+   if (!isNaN(reported)) {
+    prizeDisplay.innerHTML = `<span class="text-success fw-bold">您申报的奖金为：${reported * 5} 元</span>`;
+   } else {
+    prizeDisplay.innerHTML = "";
+   }
+  }
+  reportedSixesSelect.addEventListener('change', updatePrizeDisplay);
+
+  // Step2每次显示时自动reset
+  const step2Div = document.getElementById('step2');
+  const observer = new MutationObserver(function(mutations) {
+   mutations.forEach(function(mutation) {
+    if (step2Div.style.display !== 'none') resetDiceGame();
+   });
+  });
+  observer.observe(step2Div, { attributes: true, attributeFilter: ['style'] });
+ })();
+
+  // ===================== Dice Game 完整实现结束 =====================
+
+ </script>
 </body>
 </html>
