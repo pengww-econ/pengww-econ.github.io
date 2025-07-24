@@ -219,6 +219,17 @@ let currentStep = 1;
 let applyId = null;
 let firstStepContent = "";
 
+// ==================== 可配置项 START ====================
+
+/**
+ * 问卷题目顺序的种子。
+ * 修改此处的数字可生成一个全新的、但固定的题目顺序。
+ * 只要种子相同，每个用户看到的题目顺序就完全相同。
+ */
+const SURVEY_SEED = 520;
+
+// ==================== 可配置项 END ======================
+
 
 const SCALE_LIKERT = ['非常不同意', '不同意', '一般', '同意', '非常同意'];
 const SCALE_FREQ = ['从不', '很少', '有时', '经常', '非常频繁'];
@@ -231,6 +242,25 @@ const container = document.getElementById(containerId);
 if (!container) return;
 container.innerHTML = options.map((opt, i) => `<div class="form-check"><input type="radio" class="form-check-input" name="${name}" value="${i+1}" id="${name}-${i}" required><label class="form-check-label" for="${name}-${i}">${opt}</label></div>`).join('');
 }
+
+/**
+ * 创建一个基于种子的伪随机数生成器 (PRNG)。
+ * @param {number} seed - 初始种子。
+ * @returns {function(): number} - 一个函数，每次调用返回一个在 [0, 1) 区间内的伪随机数。
+ */
+function createSeededRandom(seed) {
+    let state = seed;
+    // 使用 LCG (线性同余生成器) 算法
+    const a = 1664525;
+    const c = 1013904223;
+    const m = 2**32;
+
+    return function() {
+        state = (a * state + c) % m;
+        return state / m;
+    };
+}
+
 
 (() => {
 const sel = document.querySelector('[name="birth_year"]'), now = new Date().getFullYear();
@@ -286,10 +316,13 @@ document.addEventListener('DOMContentLoaded', function() {
         { html: `<div class="question-group"><div class="question-title required">“大多数人在确信不会被抓到的情况下，会为了个人利益说谎。”</div><div class="likert-group" id="social_perception_lie-options"></div></div>`, setup: () => renderLikertScale('social_perception_lie-options', 'social_perception_lie', SCALE_LIKERT) },
         { html: `<div class="question-group"><div class="question-title required">在团队项目中，即使我的贡献不是核心部分，我仍会接受共同署名。</div><div class="likert-group" id="q27-options"></div></div>`, setup: () => renderLikertScale('q27-options', 'q27', SCALE_FREQ) },
     ];
+    
+    // 创建一个基于种子的随机数生成器
+    const seededRandom = createSeededRandom(SURVEY_SEED);
 
-    // Shuffle questions
+    // 使用 Fisher-Yates 算法和我们的 seeded-random 函数来打乱题目顺序
     for (let i = allQuestions.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
+        const j = Math.floor(seededRandom() * (i + 1));
         [allQuestions[i], allQuestions[j]] = [allQuestions[j], allQuestions[i]];
     }
 
@@ -300,22 +333,25 @@ document.addEventListener('DOMContentLoaded', function() {
         tempDiv.innerHTML = q.html;
         const questionTitleEl = tempDiv.querySelector('.question-title');
         if (questionTitleEl) {
-            questionTitleEl.innerHTML = `${questionNumber}. ${questionTitleEl.innerHTML.replace(/^\d+\.\s*/, '')}`;
+            // 移除旧序号（如果有）并添加新序号
+            const cleanTitle = questionTitleEl.innerHTML.replace(/^\d+\.\s*/, '');
+            questionTitleEl.innerHTML = `${questionNumber}. ${cleanTitle}`;
         }
         questionsContainer.appendChild(tempDiv.firstChild);
+        // 如果题目有特殊的渲染需求（比如李克特量表），则执行它
         if (q.setup) {
             q.setup();
         }
         questionNumber++;
     });
     
-    // Add the dice game at the end
+    // 将有奖问答环节作为最后一题添加到容器末尾
     const diceGameHTML = `
     <div class="question-group">
         <div class="question-title required">${questionNumber}. 有奖问答环节</div>
         <div id="dice-roller">
-            <p>为了感谢您完成本次问卷的填写，我们将通过您指定的方式向您发放一笔现金奖励。</p>
-            <p>奖励金额将由掷骰子的结果决定。您可以使用本页面提供的虚拟骰子，或者使用您自己的实体骰子，亦可通过任意线上掷骰子工具（如微信表情）完成此环节。</p>
+            <p>为了感谢您完成本次问卷的填写，我们将通过您指定的方式向您发放一笔现金奖励。奖励金额将由掷骰子的结果决定。</p>
+            <p>您可以使用本页面提供的虚拟骰子，或者使用您自己的实体骰子，亦可通过任意线上掷骰子工具（如微信表情）完成此环节。</p>
             <div class="p-3 rounded mb-3" style="background-color: #eaf2ff;">
                 <p class="fw-bold mb-1">奖励规则：</p>
                 <ul class="mb-0 ps-4">
@@ -361,6 +397,91 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </div>`;
     questionsContainer.insertAdjacentHTML('beforeend', diceGameHTML);
+
+    // ===================== Dice Game 完整实现 (FIXED) =====================
+    function resetDiceGame() {
+        if (!document.getElementById('dice-result')) return;
+        window.diceGameVars = { totalRolls: 10, currentRoll: 0 };
+        document.getElementById('dice-result').innerHTML = `<i class="bi bi-dice-6 fs-1"></i>`;
+        const btn = document.getElementById('rollDiceBtn');
+        btn.disabled = false;
+        btn.textContent = "点击掷骰子 (剩余 10 次)";
+        document.getElementById('sixes_in_first_nine_select').value = "";
+        document.getElementById('tenth_roll_yes').checked = false;
+        document.getElementById('tenth_roll_no').checked = false;
+        const prizeDisplay = document.getElementById('prize-display');
+        prizeDisplay.innerHTML = "";
+        prizeDisplay.style.display = 'none';
+    }
+
+    // 将掷骰子游戏的功能初始化封装成一个函数
+    function initializeDiceGame() {
+        const rollBtn = document.getElementById('rollDiceBtn');
+        if (!rollBtn) return; // 如果找不到按钮（比如在第一页），就直接退出
+
+        resetDiceGame(); 
+        const diceResultDiv = document.getElementById('dice-result');
+        const prizeDisplay = document.getElementById('prize-display');
+        const diceIcons = ['bi-dice-1', 'bi-dice-2', 'bi-dice-3', 'bi-dice-4', 'bi-dice-5', 'bi-dice-6'];
+
+        function showDice(num, rollNumber) {
+            let resultHTML = `<div class="mb-1">第 ${rollNumber} 次结果:</div>
+            <i class="bi ${diceIcons[num-1]} fs-1 text-primary"></i>
+            <div class="mt-1"><span class="fw-bold fs-2 text-dark">${num}</span></div>`;
+            if (rollNumber === 10) {
+                resultHTML += '<div class="fw-bold text-danger mt-1">这是最后一次！</div>';
+            }
+            diceResultDiv.innerHTML = resultHTML;
+        }
+
+        rollBtn.addEventListener('click', function() {
+            if (window.diceGameVars.currentRoll >= window.diceGameVars.totalRolls) return;
+            const result = Math.floor(Math.random() * 6) + 1;
+            window.diceGameVars.currentRoll += 1;
+            showDice(result, window.diceGameVars.currentRoll);
+            if (window.diceGameVars.currentRoll === window.diceGameVars.totalRolls) {
+                rollBtn.disabled = true;
+                rollBtn.textContent = "已完成 10 次掷骰";
+            } else {
+                rollBtn.textContent = `点击掷骰子 (剩余 ${window.diceGameVars.totalRolls - window.diceGameVars.currentRoll} 次)`;
+            }
+        });
+
+        function updatePrizeDisplay() {
+            const firstNineSelect = document.getElementById('sixes_in_first_nine_select');
+            const tenthRollYes = document.getElementById('tenth_roll_yes').checked;
+            const tenthRollNo = document.getElementById('tenth_roll_no').checked;
+            if (!firstNineSelect) return;
+            const firstNineCount = parseInt(firstNineSelect.value, 10);
+            
+            if (!isNaN(firstNineCount) && (tenthRollYes || tenthRollNo)) {
+                const prize1 = firstNineCount * 5;
+                const prize2 = tenthRollYes ? 20 : 0;
+                const totalPrize = prize1 + prize2;
+                prizeDisplay.innerHTML = `您申报的总奖金为：<strong class="fs-5">${totalPrize}</strong> 元`;
+                prizeDisplay.style.display = 'block';
+            } else {
+                prizeDisplay.style.display = 'none';
+            }
+        }
+        
+        document.getElementById('sixes_in_first_nine_select').addEventListener('change', updatePrizeDisplay);
+        document.getElementById('tenth_roll_yes').addEventListener('change', updatePrizeDisplay);
+        document.getElementById('tenth_roll_no').addEventListener('change', updatePrizeDisplay);
+
+        const step2DivObserver = document.getElementById('step2');
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.attributeName === 'style' && step2DivObserver.style.display !== 'none') {
+                    resetDiceGame();
+                }
+            });
+        });
+        observer.observe(step2DivObserver, { attributes: true });
+    }
+
+    // 在所有题目都插入DOM后，再初始化骰子游戏
+    initializeDiceGame();
 
 
 // ▼▼▼ TEST NAVIGATION LOGIC ADDED ▼▼▼
@@ -659,93 +780,6 @@ educationSelect.addEventListener('change', updateThesisRequirement);
 updateThesisRequirement();
 });
 // ==================== 动态论文上传要求 结束 ====================
-
-// ===================== Dice Game 完整实现 =====================
-function resetDiceGame() {
-window.diceGameVars = {
-totalRolls: 10,
-currentRoll: 0
-};
-document.getElementById('dice-result').innerHTML = `<i class="bi bi-dice-6 fs-1"></i>`;
-const btn = document.getElementById('rollDiceBtn');
-btn.disabled = false;
-btn.textContent = "点击掷骰子 (剩余 10 次)";
-
-// Reset reporting inputs
-document.getElementById('sixes_in_first_nine_select').value = "";
-document.getElementById('tenth_roll_yes').checked = false;
-document.getElementById('tenth_roll_no').checked = false;
-const prizeDisplay = document.getElementById('prize-display');
-prizeDisplay.innerHTML = "";
-prizeDisplay.style.display = 'none';
-}
-
-(function() {
-resetDiceGame(); // Initial call to set up
-const rollBtn = document.getElementById('rollDiceBtn');
-const diceResultDiv = document.getElementById('dice-result');
-const prizeDisplay = document.getElementById('prize-display');
-
-const diceIcons = ['bi-dice-1', 'bi-dice-2', 'bi-dice-3', 'bi-dice-4', 'bi-dice-5', 'bi-dice-6'];
-
-function showDice(num, rollNumber) {
-let resultHTML = `<div class="mb-1">第 ${rollNumber} 次结果:</div>
-<i class="bi ${diceIcons[num-1]} fs-1 text-primary"></i>
-<div class="mt-1"><span class="fw-bold fs-2 text-dark">${num}</span></div>`;
- if (rollNumber === 10) {
- resultHTML += '<div class="fw-bold text-danger mt-1">这是最后一次！</div>';
- }
- diceResultDiv.innerHTML = resultHTML;
-}
-
-rollBtn.addEventListener('click', function() {
-if (window.diceGameVars.currentRoll >= window.diceGameVars.totalRolls) return;
-const result = Math.floor(Math.random() * 6) + 1;
-window.diceGameVars.currentRoll += 1;
-showDice(result, window.diceGameVars.currentRoll);
-if (window.diceGameVars.currentRoll === window.diceGameVars.totalRolls) {
-rollBtn.disabled = true;
-rollBtn.textContent = "已完成 10 次掷骰";
-} else {
-rollBtn.textContent = `点击掷骰子 (剩余 ${window.diceGameVars.totalRolls - window.diceGameVars.currentRoll} 次)`;
-}
-});
-
-function updatePrizeDisplay() {
- const firstNineSelect = document.getElementById('sixes_in_first_nine_select');
- const tenthRollYes = document.getElementById('tenth_roll_yes').checked;
- const tenthRollNo = document.getElementById('tenth_roll_no').checked;
- const firstNineCount = parseInt(firstNineSelect.value, 10);
-
- // Only calculate if both inputs have a value
- if (!isNaN(firstNineCount) && (tenthRollYes || tenthRollNo)) {
- const prize1 = firstNineCount * 5;
- const prize2 = tenthRollYes ? 20 : 0;
- const totalPrize = prize1 + prize2;
- prizeDisplay.innerHTML = `您申报的总奖金为：<strong class="fs-5">${totalPrize}</strong> 元`;
- prizeDisplay.style.display = 'block';
- } else {
- prizeDisplay.style.display = 'none';
- }
-}
-
-// Attach listeners to reporting inputs
-document.getElementById('sixes_in_first_nine_select').addEventListener('change', updatePrizeDisplay);
-document.getElementById('tenth_roll_yes').addEventListener('change', updatePrizeDisplay);
-document.getElementById('tenth_roll_no').addEventListener('change', updatePrizeDisplay);
-
-// Reset game when step 2 is shown
-const step2Div = document.getElementById('step2');
-const observer = new MutationObserver(function(mutations) {
-mutations.forEach(function(mutation) {
-if (mutation.attributeName === 'style' && step2Div.style.display !== 'none') {
-resetDiceGame();
-}
-});
-});
-observer.observe(step2Div, { attributes: true });
-})();
-// ===================== Dice Game 完整实现结束 =====================
 
 </script>
 </body>
