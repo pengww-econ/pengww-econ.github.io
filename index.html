@@ -65,23 +65,25 @@ legend { width: auto; padding: 0 .5rem; font-weight: 600; font-size: 1.2rem; col
 .process-explainer { background-color: #eaf2ff; border: 1px solid #b6d4fe; color: #0a4ebd; padding: 1.25rem; border-radius: var(--border-radius); }
 
 @media (max-width: 768px) {
-body { padding: 1rem 0; font-size: 14px; }
-.container { padding: 1.5rem; }
-fieldset { padding: 1.2rem 1rem; }
+    body { padding: 1rem 0; font-size: 14px; }
+    .container { padding: 1.5rem; }
+    fieldset { padding: 1.2rem 1rem; }
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    header img {
+        margin-right: 0 !important;
+        margin-bottom: 1rem;
+        width: 180px !important;
+    }
 }
 </style>
 </head>
 
 <body>
 <div class="container">
-<ul class="nav nav-tabs mb-4">
-<li class="nav-item">
-<a class="nav-link active" href="#" id="nav-step1">Page 1 (Application)</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="#" id="nav-step2">Page 2 (Survey)</a>
-</li>
-</ul>
+
 <div id="step1">
 <header class="d-flex align-items-center mb-4 pb-3 border-bottom">
 <img src="szbigdata.png" alt="深圳大数据研究院 Logo" style="width: 220px; height: auto; margin-right: 1.25rem;">
@@ -317,10 +319,8 @@ document.addEventListener('DOMContentLoaded', function() {
         { html: `<div class="question-group"><div class="question-title required">在团队项目中，即使我的贡献不是核心部分，我仍会接受共同署名。</div><div class="likert-group" id="q27-options"></div></div>`, setup: () => renderLikertScale('q27-options', 'q27', SCALE_FREQ) },
     ];
     
-    // 创建一个基于种子的随机数生成器
     const seededRandom = createSeededRandom(SURVEY_SEED);
 
-    // 使用 Fisher-Yates 算法和我们的 seeded-random 函数来打乱题目顺序
     for (let i = allQuestions.length - 1; i > 0; i--) {
         const j = Math.floor(seededRandom() * (i + 1));
         [allQuestions[i], allQuestions[j]] = [allQuestions[j], allQuestions[i]];
@@ -333,25 +333,21 @@ document.addEventListener('DOMContentLoaded', function() {
         tempDiv.innerHTML = q.html;
         const questionTitleEl = tempDiv.querySelector('.question-title');
         if (questionTitleEl) {
-            // 移除旧序号（如果有）并添加新序号
             const cleanTitle = questionTitleEl.innerHTML.replace(/^\d+\.\s*/, '');
             questionTitleEl.innerHTML = `${questionNumber}. ${cleanTitle}`;
         }
         questionsContainer.appendChild(tempDiv.firstChild);
-        // 如果题目有特殊的渲染需求（比如李克特量表），则执行它
         if (q.setup) {
             q.setup();
         }
         questionNumber++;
     });
     
-    // 将有奖问答环节作为最后一题添加到容器末尾
     const diceGameHTML = `
     <div class="question-group">
         <div class="question-title required">${questionNumber}. 有奖问答环节</div>
         <div id="dice-roller">
-            <p>为了感谢您完成本次问卷的填写，我们将通过您指定的方式向您发放一笔现金奖励。奖励金额将由掷骰子的结果决定。</p>
-            <p>您可以使用本页面提供的虚拟骰子，或者使用您自己的实体骰子，亦可通过任意线上掷骰子工具（如微信表情）完成此环节。</p>
+            <p>为了感谢您完成本次问卷的填写，我们将通过您指定的方式向您发放一笔现金奖励。奖励金额将由掷骰子的结果决定。您可以使用本页面提供的虚拟骰子，或者使用您自己的实体骰子，亦可通过任意线上掷骰子工具（如微信表情）完成此环节。</p>
             <div class="p-3 rounded mb-3" style="background-color: #eaf2ff;">
                 <p class="fw-bold mb-1">奖励规则：</p>
                 <ul class="mb-0 ps-4">
@@ -398,27 +394,25 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>`;
     questionsContainer.insertAdjacentHTML('beforeend', diceGameHTML);
 
-    // ===================== Dice Game 完整实现 (FIXED) =====================
-    function resetDiceGame() {
-        if (!document.getElementById('dice-result')) return;
-        window.diceGameVars = { totalRolls: 10, currentRoll: 0 };
-        document.getElementById('dice-result').innerHTML = `<i class="bi bi-dice-6 fs-1"></i>`;
-        const btn = document.getElementById('rollDiceBtn');
-        btn.disabled = false;
-        btn.textContent = "点击掷骰子 (剩余 10 次)";
-        document.getElementById('sixes_in_first_nine_select').value = "";
-        document.getElementById('tenth_roll_yes').checked = false;
-        document.getElementById('tenth_roll_no').checked = false;
-        const prizeDisplay = document.getElementById('prize-display');
-        prizeDisplay.innerHTML = "";
-        prizeDisplay.style.display = 'none';
-    }
-
-    // 将掷骰子游戏的功能初始化封装成一个函数
     function initializeDiceGame() {
         const rollBtn = document.getElementById('rollDiceBtn');
-        if (!rollBtn) return; // 如果找不到按钮（比如在第一页），就直接退出
-
+        if (!rollBtn) return;
+        
+        function resetDiceGame() {
+            if (!document.getElementById('dice-result')) return;
+            window.diceGameVars = { totalRolls: 10, currentRoll: 0 };
+            document.getElementById('dice-result').innerHTML = `<i class="bi bi-dice-6 fs-1"></i>`;
+            const btn = document.getElementById('rollDiceBtn');
+            btn.disabled = false;
+            btn.textContent = "点击掷骰子 (剩余 10 次)";
+            document.getElementById('sixes_in_first_nine_select').value = "";
+            document.getElementById('tenth_roll_yes').checked = false;
+            document.getElementById('tenth_roll_no').checked = false;
+            const prizeDisplay = document.getElementById('prize-display');
+            prizeDisplay.innerHTML = "";
+            prizeDisplay.style.display = 'none';
+        }
+        
         resetDiceGame(); 
         const diceResultDiv = document.getElementById('dice-result');
         const prizeDisplay = document.getElementById('prize-display');
@@ -480,40 +474,7 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(step2DivObserver, { attributes: true });
     }
 
-    // 在所有题目都插入DOM后，再初始化骰子游戏
     initializeDiceGame();
-
-
-// ▼▼▼ TEST NAVIGATION LOGIC ADDED ▼▼▼
-const navStep1 = document.getElementById('nav-step1');
-const navStep2 = document.getElementById('nav-step2');
-const step1Div = document.getElementById('step1');
-const step2Div = document.getElementById('step2');
-
-navStep1.addEventListener('click', (e) => {
-e.preventDefault();
-step1Div.style.display = '';
-step2Div.style.display = 'none';
-navStep1.classList.add('active');
-navStep2.classList.remove('active');
-currentStep = 1;
-});
-
-navStep2.addEventListener('click', (e) => {
-e.preventDefault();
-step1Div.style.display = 'none';
-step2Div.style.display = '';
-navStep2.classList.add('active');
-navStep1.classList.remove('active');
-currentStep = 2;
-// Set dummy data to allow survey submission without completing step 1
-if (!applyId) {
-applyId = 'test-id-from-nav';
-firstStepContent = '{"message": "Step 1 skipped via test navigation"}';
-}
-window.scrollTo(0, 0);
-});
-// ▲▲▲ TEST NAVIGATION LOGIC END ▲▲▲
 });
 
 // 文件上传逻辑
@@ -639,9 +600,6 @@ applyId = data.id;
 
 document.getElementById('step1').style.display = 'none';
 document.getElementById('step2').style.display = '';
- // Also update nav tab active state
- document.getElementById('nav-step1').classList.remove('active');
- document.getElementById('nav-step2').classList.add('active');
 window.scrollTo(0, 0);
 currentStep = 2;
 
